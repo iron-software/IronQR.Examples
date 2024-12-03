@@ -1,0 +1,3 @@
+***Based on <https://ironsoftware.com/examples/read-qr-code/>***
+
+At Iron Software, we are dedicated to providing a top-tier QR code reading experience by incorporating state-of-the-art machine learning (ML) technology. Our advanced ML models bring QR code decoding to a new level of precision and speed, ensuring your applications can read QR codes effectively under any conditions, such as from still images, video streams, or direct camera feeds. This ML-driven method not only accelerates data retrieval but also boosts security by being able to discern authentic QR codes from potential hazards. Trust in our ML technology to keep your QR code scanning capabilities at the cutting edge, delivering a smooth and reliable service to your users.
