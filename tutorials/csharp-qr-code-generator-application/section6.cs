@@ -1,14 +1,11 @@
 using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+namespace IronQR.Examples.Tutorial.CsharpQrCodeGeneratorApplication
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
-            private static void SetLicenseKey()
-            {
-                IronQr.License.LicenseKey = "YOUR_LICENSE_KEY";
-            }
+            string qrCodesDirectory = System.IO.Path.Combine(Application.StartupPath, "QR Codes");
         }
     }
 }

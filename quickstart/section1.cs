@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronQR;
-namespace ironqr.Quickstart
+namespace IronQR.Examples.Overview.Quickstart
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create a QR Code object
             QrCode myQr = QrWriter.Write("hello world");

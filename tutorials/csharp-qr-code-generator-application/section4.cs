@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+namespace IronQR.Examples.Tutorial.CsharpQrCodeGeneratorApplication
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             using Color = IronSoftware.Drawing.Color;
         }

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronQR;
-namespace ironqr.CsharpQrCodeGenerator
+namespace IronQR.Examples.Tutorial.CsharpQrCodeGenerator
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Open the asset to read a QR Code from
             var inputBmp = AnyBitmap.FromFile("IMAGE_TO_READ.png");

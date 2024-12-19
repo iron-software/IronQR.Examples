@@ -5,101 +5,103 @@
 
 ## Obtaining a License Key
 
-To unlock the full capabilities of your project with IronQR without any deployment restrictions or watermarks, you need a valid license key.
+Implementing an IronQR license key in your project enables you to launch it commercially with no feature limitations or watermarks.
 
-You can [purchase a license here](https://ironsoftware.com/csharp/qr/licensing/) or obtain a [free 30-day trial key here](https://ironsoftware.com/csharp/qr/licensing/).
+You can [purchase a license here](https://ironsoftware.com/csharp/qr/licensing/) or opt for a <a class='js-modal-open' data-modal-id='trial-license'>free 30-day trial key here</a>.
 
 --------------------------------------------------------------------------------
 
-## Step 1: Acquire the Most Recent Version of IronQR
+## Step 1: Acquire the Latest IronQR Release
 
 ### Installation via NuGet
 
-To integrate the latest version of IronQR into your project, use the NuGet Package Manager.
+To ensure you have the most recent IronQR capabilities, install the latest NuGet package.
 
 ```shell
 Install-Package IronQR
 ```
 
-Visit [NuGet's IronQR Page](https://www.nuget.org/packages/IronQR/).
+<https://www.nuget.org/packages/IronQR/>
 
-### Manual Installation via DLL
+### Installation via DLL
 
-Alternatively, you can [download the IronQR.Dll](https://ironsoftware.com/csharp/qr/packages/IronQR.zip), and manually add it to your project by referencing it.
+Alternatively, you can [download the IronQR.DLL](https://ironsoftware.com/csharp/qr/packages/IronQR.zip) and include it in your project as a reference.
 
 --------------------------------------------------------------------------------
 
-## Step 2: Activate Your License Key
+## Step 2: Configure Your License Key
 
-### Applying the License via Code
+### Configuring via code
 
-Ensure to execute this line in the initialization code of your application, before any usage of IronQR.
+To set up your application license, incorporate this snippet at the beginning of your app's execution sequence, prior to employing IronQR functionalities.
 
 ```csharp
-IronQR.License.LicenseKey = "YOUR_LICENSE_KEY_HERE";
+IronQR.License.LicenseKey = "IronQR-MYLICENSE-KEY-1EF01";
 ```
 
 --------------------------------------------------------------------------------
 
-### Applying the License via Web.Config or App.Config
+### Configuring via Web.Config or App.Config
 
-For a wide-reaching effect across your application, insert the license key into your appSettings section within Web.Config or App.Config.
+For a global application-wide license setup using Web.Config or App.Config, insert the following into your config file under `appSettings`.
 
 ```xml
 <configuration>
 ...
   <appSettings>
-    <add key="IronQR.LicenseKey" value="YOUR_LICENSE_KEY_HERE"/>
+    <add key="IronQR.LicenseKey" value="IronQR-MYLICENSE-KEY-1EF01"/>
   </appSettings>
 ...
 </configuration>
 ```
 
-Be aware that IronQR versions earlier than [2024.3.2](https://www.nuget.org/packages/IronQR/2024.3.2) may have a bug affecting:
+Note that IronQR releases prior to [2024.3.2](https://www.nuget.org/packages/IronQR/2024.3.2) may encounter licensing issues in:
 - **ASP.NET** projects
-- **.NET Framework version ≥ 4.6.2**
+- **.NET Framework version >= 4.6.2**
 
-Issues may arise where the key in a `Web.config` does not activate the product as expected. For solutions, see our discussion on '[Setting License Key in Web.config](https://ironsoftware.com/csharp/qr/troubleshooting/license-key-web.config/)'.
+Licenses configured in a `Web.config` file may not be recognized. Visit the '[Setting License Key in Web.config](https://ironsoftware.com/csharp/qr/troubleshooting/license-key-web.config/)' guide for detailed troubleshooting.
 
-Check `IronQR.License.IsLicensed` to ensure it returns `true`.
+Always verify your license status with `IronQR.License.IsLicensed` to confirm if it returns `true`.
 
 --------------------------------------------------------------------------------
 
-### Applying the License via .NET Core appsettings.json File
+### Configuring via a .NET Core appsettings.json file
 
-To globally apply the license key within a .NET Core project:
+For .NET Core applications, perform these steps:
 
-- Integrate a JSON file named `appsettings.json` at the root of your project.
-- Include the following key-value pair in your JSON configuration:
+- Create a file named `appsettings.json` in your project’s root directory.
+- Add a `IronQR.LicenseKey` entry in your JSON config file. Assign your license key as the value.
+- Set the file properties to _Copy to Output Directory: Copy always_.
+
+File: _appsettings.json_
 
 ```json
 {
-    "IronQR.LicenseKey":"YOUR_LICENSE_KEY_HERE"
+    "IronQR.LicenseKey":"IronQR-MYLICENSE-KEY-1EF01"
 }
 ```
-Make sure the file's properties are set to _Copy to Output Directory: Copy always_.
 
 --------------------------------------------------------------------------------
 
-## Step 3: Verify Your License Key
+## Step 3: Verify the License Key
 
-Confirm the installation of your license key is successful.
+Ensure your license key is active by checking if it has been properly applied.
 
 ```csharp
-bool validationResult = IronQR.License.IsValidLicense("YOUR_LICENSE_KEY_HERE");
+bool result = IronQR.License.IsValidLicense("IronQR-MYLICENSE-KEY-1EF01");
 
-// Confirm that IronQR is properly licensed
-bool licenseStatus = IronQR.License.IsLicensed;
+// Confirm if the licensing was successful
+bool is_licensed = IronQR.License.IsLicensed;
 ```
 
 --------------------------------------------------------------------------------
 
-## Step 4: Kickstart Your Project
+## Step 4: Initialize Your Project
 
-Begin your journey with IronQR by following our comprehensive tutorial on [How to Get Started with IronQR](https://ironsoftware.com/csharp/qr/docs/).
+Begin your project by following our [Start Guide for IronQR](https://ironsoftware.com/csharp/qr/docs/).
 
 --------------------------------------------------------------------------------
 
-## Need Assistance?
+## Need Help?
 
-For any inquiries, contact us at <support@ironsoftware.com>.
+For any inquiries, please contact <support@ironsoftware.com>.

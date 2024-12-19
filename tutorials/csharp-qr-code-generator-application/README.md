@@ -4,488 +4,476 @@
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-	Discover <a href="https://ironsoftware.com/csharp/qr/">IronQR</a>, the latest .NET QR Code library from Iron Software. Utilizing advanced machine learning techniques, it offers precise QR code reading from any angle at a near-perfect accuracy rate of 99.99%. Easily create and tailor QR codes to your specifications! Start your journey with IronQR by visiting <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">our tutorial</a>!
+	<a href="https://ironsoftware.com/csharp/qr/">IronQR</a> is the latest .NET QR Code library from Iron Software. It utilizes state-of-the-art machine learning technologies to decode QR codes from any orientation with an impressive 99.99% accuracy. Create and tailor new QR codes seamlessly! <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">Start using IronQR</a> today!
 </div>
 
-Welcome! Our tutorial covers the essentials of generating QR codes in C#. In today’s digital world, QR codes and .NET barcode libraries are crucial tools for distributing information swiftly and effectively. Whether it's for developing a new application, managing a website, or simply sharing handy links, QR codes streamline the process. Using the [IronQR library](https://ironsoftware.com/csharp/qr/), we’ll guide you through the straightforward process of creating QR codes tailored to your needs. This library simplifies QR code creation, allowing you to focus on your application without worrying about the underlying complexity. Follow along to integrate QR code generation capabilities into your app or just to learn how it works. Let’s dive in.
+Welcome to our tutorial on generating [QR codes](https://en.wikipedia.org/wiki/QR_code) with C#! QR codes, together with .NET barcode DLLs, are becoming a fast and efficient method for disseminating information. Whether it’s for app development, website management, or simply sharing information in a unique way, QR codes are invaluable. In this tutorial, we will show you how to create QR codes with ease using [IronQR](https://ironsoftware.com/csharp/qr/), optimized for anyone using C# without the need for complex coding. We'll guide you through the essential steps to help you get started efficiently. Whether you want to integrate QR code generation in your application or just explore how it works, you've come to the right place. Let's dive in.
 
 ## Setting Up the QR Code Generator Library in C#
 
-Before proceeding, the first step involves adding the **IronQR** NuGet Package to your project.
+-----------
+
+Firstly, let’s begin by installing the **IronQR** NuGet Package.
 
 ```shell
 Install-Package IronQR
 ```
 
-## IronQR: A Comprehensive C# QR Library
+## IronQR: The C# QR Library
 
-[IronQR](https://ironsoftware.com/csharp/qr/) stands out as a robust C# QR Code library for embedding QR code functionality within .NET applications. It supports a broad spectrum of .NET versions and project types including C#, VB.NET, F#, .NET Core, .NET Standard, .NET Framework, and others. This compatibility ensures that developers can work within diverse environments like Windows, Linux, macOS, iOS, and Android.
+[IronQR](https://ironsoftware.com/csharp/qr/) offers a robust C# QR Code library that seamlessly integrates QR code capabilities into your .NET applications. This library supports a wide array of .NET versions and project types such as C#, VB.NET, F#, .NET Core, .NET Standard, and .NET Framework, ensuring its applicability across various platforms including Windows, Linux, macOS, iOS, and Android.
 
-IronQR shines with its advanced features, such as its ability to [read](https://ironsoftware.com/csharp/qr/examples/read-qr-code/) and [generate](https://ironsoftware.com/csharp/qr/examples/generate-qr-code/) QR codes, support for various image formats, and customizable options such as changing code size, style, and embedding logos.
+IronQR is renowned for its advanced features like [reading](https://ironsoftware.com/csharp/qr/examples/read-qr-code/) and [generating QR codes](https://ironsoftware.com/csharp/qr/examples/generate-qr-code/), multiple image format support, and extensive customization options which include resizing, styling, and adding logos to QR codes.
 
-## Highlighted Features of IronQR
+## Highlighting IronQR's Distinct Features
 
-IronQR extends its utility beyond mere QR code generation with several advanced functionalities aimed at broad QR code-related tasks, suitable for any .NET application framework like console apps.
+IronQR goes beyond basic QR code creation, presenting a variety of features that address a wide range of QR code-related functionalities. Let’s explore these features along with sample codes that can be effortlessly incorporated into any .NET application framework, such as a console app.
 
-### QR Code Reading Capabilities
+### QR Code Decoding
 
-IronQR is proficient in decoding QR codes, offering a seamless way to retrieve encoded information. Whether the data includes straightforward URLs or more complex configurations, you can extract it effortlessly.
+IronQR shines in its ability to decode QR codes, offering an intuitive method for retrieving embedded information from QR codes. Whether it’s simple URLs or more complex data, you can decode content from QR codes quickly and accurately.
 
 ```cs
+using IronQr;
+using IronSoftware.Drawing;
+using System;
 using System.Collections.Generic;
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+
+IronQr.License.LicenseKey = "License-Key";
+
+// Load the image that includes the QR Code
+var qrCodeImage = AnyBitmap.FromFile("QRCode.png");
+
+// Prepare the image for QR code detection
+QrImageInput qrCodeInput = new QrImageInput(qrCodeImage);
+
+// Initialize the QR Code reader
+QrReader reader = new QrReader();
+
+// Perform the QR code reading on the image
+IEnumerable<QrResult> results = reader.Read(qrCodeInput);
+
+// Process and print each QR code content found in the image
+foreach (var result in results)
 {
-    public class Section1
-    {
-        public void Run()
-        {
-            IronQr.License.LicenseKey = "License-Key";
-            
-            // Load an image file containing the QR Code
-            var inputImage = AnyBitmap.FromFile("QRCode.png");
-            
-            // Prepare the image for detection
-            QrImageInput qrInput = new QrImageInput(inputImage);
-            
-            // Initialize QR Code reader
-            QrReader qrReader = new QrReader();
-            
-            // Perform the reading operation on the prepared image
-            IEnumerable<QrResult> qrResults = qrReader.Read(qrInput);
-            
-            // Process each QR code detected in the image
-            foreach (var result in qrResults)
-            {
-                Console.WriteLine(result.Value); // Output the content of the QR code
-            }
-        }
-    }
+    Console.WriteLine(result.Value); // Outputs the content of the QR code
 }
-```
+``` 
 
-Referenced QR for scanning:
-
-<div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image"  class="img-responsive add-shadow img-margin" style="max-width:50%">
-</div>
-
-Result from scanning:
+Here's the QR code we used for scanning:
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-value.webp" alt="C# QR Value"  class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image" style="max-width:50%">
 </div>
+
+Here's the output:
+
+<div class="content-img-align-center">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-value.webp" alt="C# QR Value">
+</div>
+
+The integration starts by adding the required namespaces, `IronQr`, and `IronSoftware.Drawing`, importantly including `Color` from `IronSoftware.Drawing` for image adjustments.
+
+The initial step involves activating the software using the `LicenseKey`. Then, the QR code image is loaded from a file with `AnyBitmap.FromFile("QRCode.png")`.
+
+After loading, the image is prepped for QR code detection by creating a `QrImageInput` object. The main functionality resides within the `QrReader` class, used here to capture and decode any QR codes within the image. The resultant `QrResult` objects, obtained from the reader, give access to the QR code data through a loop, allowing display and further manipulation.
+
+### Custom QR Reading Modes
+
+IronQR provides versatile QR reading capabilities with modes such as Mixed Scan Mode for balance, Machine Learning (ML) Scan Mode for challenging scans, and Basic Scan Mode for straightforward scenarios.
+
+```cs
+using IronQr;
+using IronQr.Enum;
+using IronSoftware.Drawing;
+using System.Collections.Generic;
+
+IronQr.License.LicenseKey = "License-Key";
+
+// Load the image file containing the QR Code
+var qrCodeImage = AnyBitmap.FromFile("QRCode.png");
+
+// Configure various scanning modes and read the QR code
+QrImageInput mixedScanInput = new QrImageInput(qrCodeImage, QrScanMode.OnlyDetectionModel);
+IEnumerable<QrResult> mixedResults = new QrReader().Read(mixedScanInput);
+
+QrImageInput mlScanInput = new QrImageInput(qrCodeImage, QrScanMode.OnlyDetectionModel);
+IEnumerable<QrResult> mlResults = new QrReader().Read(mlScanInput);
+
+QrImageInput basicScanInput = new QrImageInput(qrCodeImage, QrSca
 
 <div class="alert alert-info iron-variant-1" role="alert">
 
-[IronQR](https://ironsoftware.com/csharp/qr/) represents the latest advancement in .NET QR Code technology from Iron Software. This library utilizes the latest machine learning algorithms to decode QR codes from any perspective with an impressive 99.99% accuracy rate. Effortlessly create and tailor QR codes to your specifications! Begin your journey with IronQR by visiting the [start guide](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/)!
+[IronQR](https://ironsoftware.com/csharp/qr/) introduces the latest .NET QR code library by Iron Software. It incorporates advanced machine learning algorithms to decode QR codes at any orientation with unparalleled 99.99% accuracy. Effortlessly create and personalize your own QR codes! [Begin your journey with IronQR](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/) today!
 
 </div>
 
-Welcome to our tutorial on crafting [QR codes](https://en.wikipedia.org/wiki/QR_code) with C#! QR codes, paired with .NET barcode DLL, have emerged as efficient tools for rapid information sharing. Whether you're building an application, overseeing a website, or simply want a slick method for distributing links, these codes are extremely practical. In this tutorial, we demonstrate the process of generating QR codes effectively using [IronQR](https://ironsoftware.com/csharp/qr/), ensuring that you can create QR codes customized to your specific needs. This library simplifies the process for anyone using C# to craft QR codes, avoiding intricate programming steps. We will guide you through the necessary stages, providing you with all the tools you need to begin. If you're interested in integrating QR code generation into your application or are simply curious about how it can be done, you've found the right resource. Let's dive in.
+Welcome to our tutorial on crafting [QR codes](https://en.wikipedia.org/wiki/QR_code) with C#! QR codes, alongside .NET barcode DLLs, have emerged as swift and effective solutions for distributing information. Whether you're building an application, overseeing a website, or simply need a streamlined method to distribute links, QR codes can serve as powerful tools. This guide illustrates how to efficiently produce QR codes using [IronQR](https://ironsoftware.com/csharp/qr/), designed to meet your specific requirements. The IronQR library simplifies QR code creation for C# developers, omitting the need for intricate coding. We'll guide you through the necessary steps to get up and running. Whether your aim is to integrate QR code generation capabilities into your application or you're merely curious about the implementation, you've found the perfect starting point. Let's dive in.
 
-## Installing the QR Code Generator for C#
+## Installing the IronQR Code Generator Library for C#
 
-To begin, we must first add the **IronQR** library to our project using the NuGet Package.
+-----
 
-```shell
-Install-Package IronQR
-```
-
-Here's the paraphrased section with resolved relative URL paths:
+To kick off, it's necessary to integrate the **IronQR** NuGet package into your project. This package from Iron Software forms the cornerstone for creating and managing QR codes efficiently in any C# application.
 
 ```shell
 Install-Package IronQR
 ```
 
-## IronQR: A Comprehensive C# QR Code Library
+Ensure this step is completed to proceed with implementing QR code functionalities in your applications using the IronQR library.
 
-[IronQR](https://ironsoftware.com/csharp/qr/) stands as a robust QR Code library crafted for the integration of QR code capabilities within .NET applications. It supports an extensive array of .NET versions and project variations, such as C#, VB.NET, F#, .NET Core, .NET Standard, and .NET Framework, ensuring seamless operation across diverse development settings including Windows, Linux, macOS, iOS, and Android.
+```shell
+Install-Package IronQR
+```
 
-IronQR is renowned for its sophisticated features that enhance its utility beyond basic QR code generation. These include capabilities to [read QR codes](https://ironsoftware.com/csharp/qr/examples/read-qr-code/) and [generate QR codes](https://ironsoftware.com/csharp/qr/examples/generate-qr-code/), alongside support for numerous image formats. Moreover, it offers extensive customization options that allow for adjustments in size, style, and the incorporation of logos into QR codes, catering to a wide range of aesthetic and functional requirements.
+## IronQR: C# QR Framework
 
-## Key Capabilities of IronQR
+[IronQR](https://ironsoftware.com/csharp/qr/) is a robust C# library designed to implement QR code capabilities within .NET applications seamlessly. Compatible with a broad spectrum of .NET implementations, including C#, VB.NET, F#, .NET Core, .NET Standard, and .NET Framework, IronQR is versatile across different platforms like Windows, Linux, macOS, iOS, and Android.
 
-IronQR goes well beyond simple QR code creation, providing a robust set of features tailored to support a diverse spectrum of QR code operations. Explore these features and see for yourself how they can be integrated seamlessly across different .NET application templates, including console applications. Let’s delve into these capabilities and examine various code examples that can significantly streamline your application development.
+IronQR stands out due to its comprehensive feature set. Not only does it allow users to [read QR codes](https://ironsoftware.com/csharp/qr/examples/read-qr-code/) and [generate QR codes](https://ironsoftware.com/csharp/qr/examples/generate-qr-code/), but it also supports multiple image formats. Users can easily resize, style, and embed logos within QR codes, enhancing customization and flexibility.
 
-### QR Code Decoding with IronQR
+## Core Features of IronQR
 
-IronQR is highly competent in interpreting QR codes, making it simple for users to retrieve data encoded within them. This powerful library allows you to efficiently decode content from QR codes, from basic URLs to more intricate embedded details.
+IronQR goes beyond simple QR code generation by providing an array of advanced features that cater to various QR code operations. Below, we delve into these functionalities and provide sample codes to help you incorporate them into diverse .NET application frameworks, including console applications.
 
-Here's the paraphrased section with resolved relative URL paths:
+Explore IronQR’s capabilities [here](https://ironsoftware.com/csharp/qr/) and see how it can enhance your application's QR code functionality.
+
+### Decoding QR Codes with IronQR
+
+IronQR is adept at interpreting QR codes, enabling users to conveniently retrieve embedded data from QR codes. This process allows for the fast and precise extraction of content ranging from straightforward URLs to intricate embedded information. Whether you're dealing with simple text or more complex data sets within the codes, IronQR ensures a seamless data access experience.
+
+Here's the paraphrased section of the article using Iron Software's IronQR product, with resolved relative URL paths:
 
 ```cs
+using IronQr;
+using IronSoftware.Drawing;
+using System;
 using System.Collections.Generic;
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+
+// Activate IronQR with your provided license key
+IronQr.License.LicenseKey = "License-Key";
+
+// Read the QR Code image from a file
+var loadedImage = AnyBitmap.FromFile("QRCode.png");
+
+// Initialize the QR Code extraction with the loaded image
+QrImageInput qrCodeImage = new QrImageInput(loadedImage);
+
+// Create a new instance of the QR Code reader
+QrReader qrCodeReader = new QrReader();
+
+// Perform the QR Code reading using the instantiated reader
+IEnumerable<QrResult> detectedQrCodes = qrCodeReader.Read(qrCodeImage);
+
+// Iterate over each detected QR Code and output its content
+foreach (var qrCode in detectedQrCodes)
 {
-    public class Section1
-    {
-        public void StartProcess()
-        {
-            // Activate the license for IronQR
-            IronQr.License.LicenseKey = "License-Key";
-
-            // Load the QR code image from the specified file
-            var qrCodeImage = AnyBitmap.FromFile("QRCode.png");
-
-            // Set up the image in preparation for QR code scanning
-            QrImageInput qrImageSetup = new QrImageInput(qrCodeImage);
-
-            // Create an instance of the QR code reader
-            QrReader qrCodeScanner = new QrReader();
-
-            // Conduct the QR code reading on the image
-            IEnumerable<QrResult> scanResults = qrCodeScanner.Read(qrImageSetup);
-
-            // Loop through the results and output the content of each QR code found
-            foreach (var result in scanResults)
-            {
-                Console.WriteLine(result.Value); // Outputs the content of each QR code
-            }
-        }
-    }
+    Console.WriteLine(qrCode.Value); // Output the content of the QR code to the console
 }
-```
+``` 
 
-In this revision:
+This rewritten code still follows a logical order for reading QR codes using the IronQR library, and minor changes in variable names and comments improve clarity while ensuring the functionality remains clear and consistent.
 
-1. Methods and variables are renamed to be more descriptive, which improves the readability of the code.
-2. Added more explicit comments to explain each step clearly.
-3. The code structure remains intact, ensuring consistency with .NET conventions.
+Here's the paraphrased section with resolved URL paths:
 
-For scanning, the following QR code is utilized:
+-----
+We utilize the QR code displayed below for scanning purposes:
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image" class="img-responsive add-shadow img-margin" style="max-width:50%">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image"  class="img-responsive add-shadow img-margin" style="max-width:50%">
 </div>
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image"  class="img-responsive add-shadow img-margin" style="max-width:50%">
 </div>
 
-Following are the results:
-
-<div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-value.webp" alt="C# QR Value" class="img-responsive add-shadow img-margin">
-</div>
+Here is the resulting output:
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-value.webp" alt="C# QR Value"  class="img-responsive add-shadow img-margin">
 </div>
 
-To initiate the QR code reading sequence, the appropriate namespaces, `IronQr` and `IronSoftware.Drawing`, are first included, with an emphasis on the `Color` class from `IronSoftware.Drawing` for image adaptations.
+The process begins with the integration of essential namespaces: `IronQr` and `IronSoftware.Drawing`. A special focus is placed on the `Color` class from the `IronSoftware.Drawing` namespace, which is crucial for managing image alterations.
 
-Activation of the software is crucial, and this is achieved by setting the `IronQr.License.LicenseKey`. Following this, the program loads a QR code from an image file using `AnyBitmap.FromFile("QRCode.png")`.
+Before initiating the QR code reading, it's crucial to activate the IronQR software by setting your license key through `IronQr.License.LicenseKey`. Following this, the QR code image file is loaded using `AnyBitmap.FromFile("QRCode.png")`.
 
-Once the image is in memory, the next action is to prepare it for QR code recognition. This is accomplished by constructing a `QrImageInput` instance, which effectively houses the image.
+Once the image is loaded, it is then prepped for QR code detection. This is achieved by constructing a `QrImageInput` object that encapsulates the image, preparing it for further processing.
 
-The `QrReader` class plays a central role in this process. Upon instantiation, it undertakes the task of scanning the loaded image, referred to as `qrInput`, to detect any QR codes. This scan outputs a series of `QrResult` instances, each corresponding to a QR code detected in the image.
+The primary functionality is driven by the `QrReader` class, which is created and tasked with executing the QR code reading. This class processes the prepared image (`qrInput`), scanning for any embedded QR codes. The outcome of this operation yields a series of `QrResult` objects, each corresponding to a QR code detected in the image.
 
-To extract and handle the information encoded within these QR codes, the program iterates over the `QrResult` series with a `foreach` loop. Each `QrResult` includes attributes like the QR code’s data, which can be retrieved and displayed.
+To interact with and extract information from the QR codes, the program iterates through the `QrResult` collection in a `foreach` loop. Each `QrResult` instance encapsulates attributes such as the QR code's content, allowing for retrieval and display of the encoded data.
 
-### Enhanced QR Scanning Modes
+### Flexible QR Code Reading Options
 
-IronQR offers a variety of scanning modes to cater to different QR code reading requirements. The Mixed Scan Mode is designed to provide a balance between speed and precision, ideal for situations where QR codes may not be fully visible or are somewhat obscured.
+IronQR offers multiple reading modes for QR codes, each optimized for specific scanning needs. This versatility ensures that users can efficiently handle various scanning cases.
 
-Another sophisticated option is the Machine Learning (ML) Scan Mode. This technology-driven mode excels in interpreting QR codes that are distorted or challenging to read under normal conditions, making it incredibly useful in demanding scenarios where QR codes are less visible or damaged.
+Mixed Scan Mode provides a balanced approach between speed and precision. It’s particularly useful when the QR codes are partly obscured or not clearly visible, ensuring reliable readings without sacrificing performance.
 
-Finally, for quick and efficient scanning of clear and uncomplicated QR codes, the Basic Scan Mode is the optimum choice. This mode offers rapid scanning capabilities, perfect for straightforward QR code reading tasks.
+The Machine Learning (ML) Scan Mode utilizes advanced algorithms to interpret QR codes that are worn out or difficult to decode under normal conditions. This mode is invaluable for challenging scenarios where traditional methods fall short.
+
+For straightforward and clean QR codes, the Basic Scan Mode offers the fastest scanning solution. It simplifies the reading process, ideal for quick scans where the QR codes are excellent and uncomplicated.
 
 ```cs
+using IronQr;
+using IronQr.Enum;
+using IronSoftware.Drawing;
 using System.Collections.Generic;
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+
+// Set the license key for IronQR.
+IronQr.License.LicenseKey = "License-Key";
+
+// Load the QR Code image from a file.
+var imageFile = AnyBitmap.FromFile("QRCode.png");
+
+// Prepare an image input for Mixed Scan Mode, optimized for detecting QR codes.
+QrImageInput mixedScanInput = new QrImageInput(imageFile, QrScanMode.OnlyDetectionModel);
+IEnumerable<QrResult> mixedScanResults = new QrReader().Read(mixedScanInput);
+
+// Configure an input for Machine Learning Scan Mode, ideal for reading poorly visible QR codes.
+QrImageInput mlScanInput = new QrImageInput(imageFile, QrScanMode.OnlyDetectionModel);
+IEnumerable<QrResult> mlScanResults = new QrReader().Read(mlScanInput);
+
+// Set up Basic Scan Mode for fast scanning of straightforward, clear QR codes.
+QrImageInput basicScanInput = new QrImageInput(imageFile, QrScanMode.OnlyBasicScan);
+IEnumerable<QrResult> basicScanResults = new QrReader().Read(basicScanInput);
+```
+
+### Advanced QR Code Reading Techniques
+
+IronQR is engineered to deliver a sophisticated and in-depth method for the scanning and interpretation of QR codes. This feature goes beyond the simple QR code detection to provide a more layered and detailed experience, enhancing both interaction and data retrieval.
+
+```cs
+using IronQr;
+using IronSoftware.Drawing;
+using System;
+using System.Collections.Generic;
+
+// Set the license key for IronQR
+IronQr.License.LicenseKey = "License-Key";
+
+// Load the QR code image from a specified file
+var imageForScanning = AnyBitmap.FromFile("QRCode.png");
+
+// Create an instance of QrImageInput using the loaded image
+QrImageInput qrCodeInput = new QrImageInput(imageForScanning);
+
+// Instantiate the QR code reader
+QrReader qrCodeReader = new QrReader();
+
+// Perform the QR code reading operation
+IEnumerable<QrResult> resultsFromScan = qrCodeReader.Read(qrCodeInput);
+
+// Iterate over each result obtained from the QR scan
+foreach (QrResult eachQrResult in resultsFromScan)
 {
-    public class Section2
+    // Output the QR code value to the console
+    Console.WriteLine(eachQrResult.Value);
+
+    // Output the embedded URL, if any, to the console
+    Console.WriteLine(eachQrResult.Url);
+
+    // Loop through each coordinate point of the QR code and print
+    foreach (IronSoftware.Drawing.PointF point in eachQrResult.Points)
     {
-        public void Run()
-        {
-            // Activate the IronQR library with your license
-            IronQr.License.LicenseKey = "License-Key";
-
-            // Define the source image containing the QR Code
-            var sourceImage = AnyBitmap.FromFile("QRCode.png");
-
-            // Set up for scanning using the Mixed Scan Mode
-            QrImageInput mixedModeInput = new QrImageInput(sourceImage, QrScanMode.OnlyDetectionModel);
-            IEnumerable<QrResult> resultsFromMixedScan = new QrReader().Read(mixedModeInput);
-
-            // Configure for scanning using Machine Learning Scan Mode
-            QrImageInput mlModeInput = new QrImageInput(sourceImage, QrScanMode.OnlyDetectionModel);
-            IEnumerable<QrResult> resultsFromMLScan = new QrReader().Read(mlModeInput);
-
-            // Prepare for scanning using Basic Scan Mode
-            QrImageInput basicModeInput = new QrImageInput(sourceImage, QrScanMode.OnlyBasicScan);
-            IEnumerable<QrResult> resultsFromBasicScan = new QrReader().Read(basicModeInput);
-        }
+        // Print the X and Y coordinates of the QR code's points
+        Console.WriteLine($"{point.X}, {point.Y}");
     }
 }
 ```
 
-### Advanced QR Code Reading Features
-
-IronQR enhances the QR code scanning and decoding process with its sophisticated capabilities. This advanced functionality surpasses standard QR code reading by delivering an experiential depth in interaction and detailed data extraction. This enables users to engage more effectively with the embedded information within the QR codes.
-
-Below is the paraphrased version of the provided C# code excerpt, with all relative URL paths resolved against ironsoftware.com.
-
-```cs
-using System.Collections.Generic;
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class AdvancedQRCodeReader
-    {
-        public void Execute()
-        {
-            IronQr.License.LicenseKey = "Your-Licensed-Key";
-
-            // Load the QR code image to be decoded
-            var qrImageFile = AnyBitmap.FromFile("QRCode.png");
-
-            // Setup the image as input for the QR scanner
-            QrImageInput qrImageInput = new QrImageInput(qrImageFile);
-
-            // Create a new QR Code reader instance
-            QrReader qrCodeScanner = new QrReader();
-
-            // Perform the QR code reading operation
-            IEnumerable<QrResult> decodingResults = qrCodeScanner.Read(qrImageInput);
-
-            // Process each QR code found in the image
-            foreach (var decodingResult in decodingResults)
-            {
-                // Output the value and URL from the QR code
-                Console.WriteLine(decodingResult.Value);
-                Console.WriteLine(decodingResult.Url);
-
-                // Output the coordinates of the QR code in the image
-                foreach (var point in decodingResult.Points)
-                {
-                    Console.WriteLine($"{point.X}, {point.Y}");
-                }
-            }
-        }
-    }
-}
-```
-
-In this version, I've used descriptive naming for variables and the class to clearly communicate the process and included more comments for clarity. Additionally, variable names and other elements have been semantically enhanced for improved understanding and maintainability.
-
-This displays the results obtained by scanning the QR code with IronQR:
+This image displays the results obtained from scanning a QR code with IronQR:
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-read-result.webp" alt="C# Read QR Code Result" class="img-responsive add-shadow img-margin">
-</div>
-
-We utilize the following QR Code:
-
-<div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image" class="img-responsive add-shadow img-margin" style="max-width:50%">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-read-result.webp" alt="C# Read QR Code Result"  class="img-responsive add-shadow img-margin">
 </div>
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-read-result.webp" alt="C# Read QR Code Result"  class="img-responsive add-shadow img-margin">
 </div>
 
-We utilize the QR Code displayed below:
-
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image"  class="img-responsive add-shadow img-margin" style="max-width:50%">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image" class="img-responsive add-shadow img-margin" style="max-width:50%">
 </div>
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code.webp" alt="C# Create QR Code Image"  class="img-responsive add-shadow img-margin" style="max-width:50%"  >
 </div>
 
------
-Each `QrResult` instance delivers all the essential details of the scanned QR: the content (`Value`), embedded URLs (`Url`), and the specific locations (`Points`) where the QR code appears within the image.
+Each `QrResult` instance allows retrieval of the decoded content (`Value`), any URLs incorporated (`Url`), and the exact spatial coordinates (`Points`) where the QR code is located within the image.
 
-IronQR doesn't just detect QR codes; it provides comprehensive insights for each one detected, extracting and detailing the content and embedded URLs. Additionally, it precisely locates the QR code corners within the image using the `Points` property, offering exact spatial data.
+IronQR delivers comprehensive details for each recognized QR code, showing both its contents and any embedded URLs. It also precisely maps out the QR code’s corner locations in the image using the `Points` attribute.
 
-To develop a QR code generator using the IronQR library in a C# application, you need to follow certain key steps. This tutorial will guide you through the processes of setting up a Windows Forms application, integrating the IronQR library, writing the necessary code to create QR codes, and understanding how to handle the output effectively.
+To build a QR code generator leveraging the IronQR barcode library in a C# application, be sure to follow the outlined steps. This comprehensive guide walks you through initiating a Windows Forms application, integrating the IronQR library, crafting the code necessary for QR code production, and elucidates on interpreting the outcomes.
 
-## Step 1: Initiate a Windows Application in Visual Studio
+## Step 1: Begin a New Windows Application in Visual Studio
 
-- Begin by opening Visual Studio on your device.
+- Open Visual Studio on your machine.
   
-- Press the "Create a New Project" option.
+- Select the "Create a New Project" option.
 
-- Choose **Windows Forms App** for the project type, ensuring C# is selected as the programming language.
+- Choose **Windows Forms App** for the project type, ensuring that the language is set to C#.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/choose-project.webp" alt="Windows Forms App"  class="img-responsive add-shadow img-margin">
 </div>
 
-Assign a name to your project and choose a directory for its files. Subsequently, select the .NET framework option on the subsequent screen, and then click on **Create**.
+After naming your project and choosing a save location, proceed to the next screen to pick the .NET framework. Finally, hit the **Create** button.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/project-configuration.webp" alt="Project Configuration"  class="img-responsive add-shadow img-margin">
 </div>
 
-This action will establish and launch a Windows Forms application within Visual Studio.
+This action will generate and launch a Windows Forms application within Visual Studio.
 
-## Step 2: Install IronQR Library
+## IronQR Library Installation
 
-At this point, you'll need to integrate the IronQR library into your project. There are several ways to complete this installation. Select the method most convenient for you:
-
----
+It's now time to incorporate the IronQR library into your project. There are several installation methods available, allowing you to choose the one that best fits your needs:
 
 ### Installation via NuGet Package Manager
 
-- In the Solution Explorer, right-click on your project and choose **Manage NuGet Packages**.
-
-- Enter **IronQR** into the search field and hit **Enter**.
+- Navigate to the Solution Explorer in your project, right-click, and choose **Manage NuGet Packages**.
+  
+- In the search box, input **IronQR** and hit **Enter**.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/manage-nuget-package.webp" alt="Manage NuGet Packages"  class="img-responsive add-shadow img-margin">
 </div>
 
-Locate **IronQR** within the displayed list and select **Install** adjacent to it.
+Locate **IronQR** in the provided list and select the **Install** option adjacent to it.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/install-ironqr.webp" alt="Install IronQR"  class="img-responsive add-shadow img-margin">
 </div>
 
-### Installing via NuGet Package Manager Console
+### Installation via NuGet Package Manager Console
 
-Navigate to **Tools > NuGet Package Manager > Package Manager Console** in the menu.
+Navigate to **Tools > NuGet Package Manager > Package Manager Console** within your development environment.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/nuget-package-manager.webp" alt="NuGet Package Manager"  class="img-responsive add-shadow img-margin">
 </div>
 
-Enter the command `**Install-Package IronQR**` and hit the Enter key.
+Type the command `**Install-Package IronQR**` and hit Enter.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/install-ironqr-via-pm.webp" alt="Install IronQR"  class="img-responsive add-shadow img-margin">
 </div>
 
-## Step 3: Design the User Interface
+## Step 3: Frontend Design
 
-### 3.1 Title Header
+This section of the guide walks you through the frontend design of our QR code generator using Windows Forms in Visual Studio. This is crucial as the user interface must be intuitive and effectively represent the functionalities we are embedding.
 
-Upon initiating the QR Code Generator application, users are greeted with a prominent header named "QR Generator IronQR," utilizing the bold and modern Agency FB font at a large size of 48 points. This ensures the application's purpose is clear and emphasizes its professional functionality.
+### 3.1 Interface Layout
 
-### 3.2 Input Section
+As the application loads, users are greeted with a bold and prominent header titled "QR Generator IronQR," showcasing striking visuals using the Agency FB font. This font choice highlights the modern and professional nature of the application.
 
-#### Text Input for QR Code
+### 3.2 User Input Area
 
-Located centrally at the top of the application, the text input box allows users to enter the data they wish to encode into their QR codes. This box is sufficiently large, accommodating extensive text to suit various input needs.
+#### Text Entry for QR Code
 
-#### Logo Selection
+![QR Code Text Input](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-text-input.webp)
 
-The "Select Logo" section follows, enabling users to upload and embed a logo within the QR code, which can be essential for branding. An adjacent image box previews the selected logo, confirming its addition.
+At the center of the user input area, you'll find the text entry box. Here, users can type the information they want to encode into the QR code. The design ensures the textbox is large enough to enter substantial text, making it highly functional for varied inputs.
 
-#### Color Configuration
+#### Logo Integration
 
-Further to the right, users can customize their QR code's color scheme. Interactive buttons enable selection of both the foreground and background colors, along with text boxes that display the chosen colors, ensuring that users can visually verify their selections.
+![Select Logo](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/select-logo.webp)
 
-### 3.3 Styling Parameters
+Directly below the text input, there’s a section for users to upload a logo to be embedded within the QR code, adding a unique branding element. The interface shows a thumbnail preview of the selected logo, confirming what will appear on the final QR code.
 
-Adjacent to the color options are input fields for "Dimensions" and "Margins." These allow users to specify the size of the QR code and the whitespace around it, respectively, which are crucial for ensuring the code's functionality across various applications and print sizes.
+#### Color Selection
 
-### 3.4 Output Preview
+![Background Color Configuration](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/background-color.webp)
 
-The output section prominently features a large preview area where the generated QR code is displayed. This live-preview is vital for users to assess and confirm the design and functionality of the QR code before finalizing it.
+Adjacent to these, the interface offers color selection tools for customizing the QR code’s foreground and background. These controls include interactive buttons that open color selection dialogs, coupled with display boxes that immediately preview the chosen colors.
 
-### 3.5 Action Buttons
+### 3.3 QR Code Styling Options
 
-#### Generate QR
+#### Dimension Adjustment
 
-Centrally located, the "Generate QR" button begins the QR code creation process. It takes all the user-specified inputs and parameters, compiles them, and displays the resulting QR code in the preview area.
+Here, users can specify the overall size of the QR code via a numeric input, which ensures the QR code fits perfectly in different deployment contexts.
 
-#### Save QR Code
+#### Margin Configuration
 
-Once satisfied with the QR code displayed, users can save it using the "Save QR" button. This triggers a dialog that allows the choice of file format and location, making the saving process straightforward and flexible.
+![Set Margins](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/styling.webp)
 
-#### Reset Form
+Next to dimensions, there’s an input for setting the margins around the QR code. This feature is crucial as it affects the code's scannability by ensuring it’s not too cramped by other page elements.
 
-Lastly, a "Reset Form" button provides users with the ability to clear all inputs and settings, returning all fields to their default state. This is especially useful for starting a new QR code project without manually adjusting each setting.
+### 3.4 Preview and Actions
 
-[Designing the Frontend](https://ironsoftware.com/ironqr/tutorials/csharp-qr-code-generator-application/)
+![QR Output Preview](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-output.webp)
+
+The form dedicates a significant part of its layout to displaying the QR code output dynamically. As soon as the QR code is generated, it appears in this large preview area, allowing the user to immediately see the result of their configurations.
+
+#### Control Buttons
+
+- **Generate QR**: This button triggers the QR code creation process, utilizing all the input and settings specified by the user.
+  
+- **Save QR Code**: After creation, users can save their QR code by clicking this button, which prompts a file save dialog for choosing the format and storage location.
+
+- **Reset Form**: This button clears all input and selections, resetting the interface for a new task.
+
+This approach to frontend design ensures a seamless and efficient user experience, allowing for both creativity and precision in generating customized QR codes.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-generator.webp" alt="QR Code Generator"  class="img-responsive add-shadow img-margin">
 </div>
 
-### 3.1 Title Bar
-
-Upon activating the QR Code Generator app, the first element to capture attention is the title bar named "QR Generator IronQR." Its bold and modern design is achieved using the Agency FB font, known for its straight lines and contemporary feel. Enlarged to 48 points, this title is not only eye-catching but also sets a professional tone for the application.
-
-### 3.2 Text Input for QR Content
-
-The primary interaction area includes a generous text box where users can input the content to be encoded into the QR code. Positioned at the forefront, it ensures user convenience and ease of access.
-
-### 3.3 Logo Integration
-
-Just below the text input, the section for "Select Logo" offers personalization by allowing users to incorporate a logo directly into their QR codes. An adjacent preview box immediately shows the selected logo, confirming integration at a glance.
-
-### 3.4 Color Customization
-
-To the side, the application features selectable options for the QR code's foreground and background colors. Users can customize their QR code to match a specific aesthetic or branding requirement with simple clicks on the respective color selection tools.
-
-### 3.5 Style Settings
-
-Next to these color tools, the UI provides inputs for "Dimensions" and "Margins," critical for designing QR codes that are not only visually pleasing but also functional across various uses and scanning distances.
-
-### 3.6 Output Preview Section
-
-Following these customizations, there's a dynamic preview area that instantly displays the newly created QR code. This real-time feedback is crucial for users to verify and tweak their designs swiftly before finalizing.
-
-### 3.7 Functional Buttons
-
-- **Generate QR**: This essential button begins the QR code generation process, transforming the input data into a scannable QR code based on all the specified parameters.
-- **Save QR**: After generation, this button allows users to save their QR code in popular image formats at a desired location.
-- **Reset Form**: Resets all inputs and selections to defaults, providing a clean slate for starting new QR code projects.
+### 3.1 Header Design
 
 <div class="content-img-align-center">
 	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/generate-qr-code.webp" alt="Generate a QR Code" class="img-responsive add-shadow img-margin">
 </div>
 
-These elements, from the robust title header to functional customization options, ensure a user-friendly experience while providing powerful QR code generation capabilities.
+Upon launching the QR Code Generator application designed using the IronQR library, the user is greeted with a prominently displayed header labeled "QR Generator IronQR" in a bold and modern typeface. The header, styled in Agency FB font set at 48 points, immediately draws attention, signifying the application’s purpose clearly and distinctly. This typographic choice enhances readability and imparts a contemporary aesthetic, aligning with cutting-edge software solutions.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/generate-qr-code.webp" alt="Generate a QR Code"  class="img-responsive add-shadow img-margin">
 </div>
 
-Upon starting the QR Code Generator application, users are greeted with a prominent header labeled "QR Generator IronQR," displayed in the bold and commanding Agency FB font. Chosen for its sharp, contemporary lines, this font delivers a message of precision and efficiency. The header, set in a 48-point size, is conspicuous and authoritative, immediately drawing the user's eye and solidly defining the application's identity.
+Upon starting the QR Code Generator application, users are greeted with a prominent header labeled "QR Generator IronQR," which uses a bold and commanding typeface. Chosen for its sleek and contemporary style, the Agency FB font emphasizes clarity and accuracy. Displayed in a large 48-point size, the heading is both eye-catching and authoritative, effectively grabbing the user's focus and solidifying the identity of the application.
 
-#### 3.2 The Data Entry Interface
+### 3.2 Configuring Input Options
 
-Within the data entry segment of the application, three primary aspects facilitate customization and input of data intended for QR creation:
+#### Text Field for QR Data Input
 
-##### Text Field for QR Data
-
-Users are presented with an expansive text box at the top of the interface section, designed for inputting the specific content they wish to encode into their QR code. This feature is made prominent by its size and strategic positioning.
-
-##### Logo Upload Option
-
-Directly beneath the text input field, the "Select Logo" function allows users to integrate custom logos into their QR codes. This enhances the branding aspect of the QR code or adds a personal touch. A preview area adjacent to this option confirms the logo's incorporation by displaying it once uploaded.
-
-##### Color Customization Tools
-
-To the right of the text and logo input area, users can refine their QR codes visually by selecting custom colors. Two distinct buttons enable the selection of colors for the QR code itself and the background, which can be seen in adjacent text boxes displaying the chosen colors.
-
-This section is thoughtfully designed to ensure users have full control over the customization of their QR codes, catering to functional requisites with options for extensive personalization.
-
-### QR Code Text Field
-
-At the core of the interface, the application features a text input field where users can enter the data they wish to convert into a QR code. This box is designed to accommodate ample text and is strategically positioned near the top of the interface for easy access.
-
-#### Adding Contents for QR Code
+In the central portion of the input area, users find an intuitive text box where they can type the content they wish to encode in their QR code. This field is not only generously sized to accommodate extensive text but is also prominently positioned to facilitate easy access.
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-text-input.webp" alt="Input Text for QR Code" class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-text-input.webp" alt="QR Code Text Input" class="img-responsive add-shadow img-margin">
 </div>
 
-This essential component allows for the direct input of the content—be it URLs, textual messages, or other data—that will be encoded into the QR code. The design prioritizes usability, ensuring users can effortlessly input and edit their content as needed.
+#### Logo Insertion Feature
+
+Directly below the text input field, there's an option for users to upload a logo. This feature lets users incorporate a graphical element into their QR code, enhancing brand visibility or adding a personal touch. A preview box next to this area immediately shows the chosen logo, offering real-time visual confirmation.
+
+<div class="content-img-align-center">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/select-logo.webp" alt="Select Logo" class="img-responsive add-shadow img-margin">
+</div>
+
+#### Customizing QR Code Color
+
+Additionally, to the right of the logo and text input sections, users can tailor the aesthetic of their QR codes by selecting custom colors. There are two interactive buttons—one for choosing the foreground color of the QR code and another for picking the background color. Both selections are reflected via adjacent text boxes that display the newly selected colors.
+
+<div class="content-img-align-center">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/background-color.webp" alt="Background Color" class="img-responsive add-shadow img-margin">
+</div>
+
+This structured input configuration effectively blends essential functionality with user-friendly design, highlighting flexibility and promoting an enhanced user experience. This setup ensures that users can quickly define the key characteristics of their QR codes, allowing for both functional utility and creative expression.
+
+#### Entering Text for QR Code Generation
+
+<div class="content-img-align-center">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-text-input.webp" alt="QR Code Text Input" class="img-responsive add-shadow img-margin">
+</div>
+
+At the core of the user interface is the text entry field where users input the content they wish to encode in the QR code. This area is designed to be spacious, supporting a generous amount of text, and positioned prominently to ensure ease of access. Whether you are embedding a URL, a message, or any other data, this field is where you begin creating your personalized QR code.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-text-input.webp" alt="QR Code Text Input"  class="img-responsive add-shadow img-margin">
 </div>
 
-Central to the input section of the application is a straightforward but crucial element: the text input field. In this space, users have the ability to input the information they desire to include in their QR code. The field is designed generously, allowing for the entry of ample text, and is strategically placed at an upper position for easy access.
+Central to the input section is a basic yet crucial element: the text input field. This field allows users to input the information they want to encode into their QR code. It is designed to be roomy, capable of holding a substantial amount of text and is prominently placed at the top of the interface.
 
 #### Choosing a Logo
 
@@ -493,880 +481,800 @@ Central to the input section of the application is a straightforward but crucial
 	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/select-logo.webp" alt="Select Logo" class="img-responsive add-shadow img-margin">
 </div>
 
-Below the section where you input text, you'll find the "Select Logo" option. This allows you to personalize your QR code by embedding a logo directly into it. Choose and upload your logo using the adjacent interface, which provides a preview window so you can see how the logo appears before finalizing the QR code.
+Beneath the field for text input, you'll find the "Select Logo" area. This function allows you to further customize your QR code by embedding a distinctive logo directly into it. This enhancement not only elevates the visual appeal but also aids in brand recognition. Right beside it, a preview box displays the chosen logo, providing immediate visual confirmation of the logo’s inclusion in the QR code design.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/select-logo.webp" alt="Select Logo"  class="img-responsive add-shadow img-margin">
 </div>
 
-Directly beneath the section for text entry, the "Select Logo" feature introduces an extra dimension of personalization. This option allows users to upload a logo to be incorporated into the QR code, enhancing its distinctiveness or providing a personal touch. Right next to this, a picture box displays a preview of the uploaded logo, giving users instantaneous visual confirmation of their selection.
+Beneath the text input box, the "Select Logo" feature adds a layer of personalization. Here, users can upload a logo to be incorporated into the QR code, which helps increase brand visibility or gives a personal touch to the design. An accompanying picture box displays a preview of the logo, providing instant visual confirmation of how it will appear within the QR code.
 
-#### Configuring Colors for QR Codes
+#### Color Customization
 
-In the color configuration section, the interface offers intuitive options for customizing the colors of the QR code. Users can modify both the foreground and the background colors to align with their preferences or corporate branding.
+Located within the input section of the user interface, the color customization area presents an intuitive and straightforward way to personalize your QR codes. Users have the option to select both the foreground and background colors of their QR codes through convenient color selection buttons. Each button brings up a color picker dialog, allowing users to choose the exact shade they desire.
 
-<div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/background-color.webp" alt="Background Color" class="img-responsive add-shadow img-margin">
-</div>
+These changes are instantly reflected in the designated text boxes adjacent to the buttons, displaying the selected colors and providing instant visual confirmation of the choices made. This feature enhances the customization possibilities, ensuring that each QR code created not only carries the intended information but also aligns visually with branding or aesthetic preferences.
 
-The customization is facilitated by two buttons: one for setting the QR code's primary color and another for choosing the background color. Adjacent to these buttons, text boxes display the selected colors, providing immediate visual confirmation of the choices made.
-
-This part of the interface is designed to be user-friendly, allowing for quick and easy adjustments to the QR code's appearance, ensuring that it stands out or fits seamlessly within various contexts or marketing materials.
+![Background Color Configuration](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/background-color.webp)
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/background-color.webp" alt="Background Color"  class="img-responsive add-shadow img-margin">
 </div>
 
-Transitioning further in the user interface, you'll encounter features designed for customizing colors. Two interactive buttons are available, one to adjust the color of the QR code itself and another for the background color, ensuring users can tailor their QR code's appearance. Conveniently placed textboxes adjacent to these buttons display the currently selected colors, providing immediate visual feedback.
+As the user interface extends to the right, it introduces color customization features for both the QR code itself and its background. Users are provided with two interactive buttons, each dedicated to modifying a different aspect of the QR code's visual style. Adjacent to these buttons, vibrant textboxes display the chosen colors, giving users instant visual feedback on their selections.
 
-The design of the input area with options for text entry, logo incorporation, and color customization, illustrates a keen grasp of user needs during the QR code creation process. This section successfully marries functionality and versatility, enabling users to input essential details swiftly and creatively while tailoring the aesthetic aspects of their QR codes.
+The design of the input area is intentionally crafted to align with user needs when constructing a QR code. It melds practicality with adaptability, facilitating a streamlined input process. At the same time, it empowers users to exercise their creativity, ensuring they can effectively personalize their QR codes to suit their specific requirements.
 
-### 3.3 Customization Options
+### 3.3 Configuration of Style Options
 
-In the "Styling Parameters" section, users gain control over the visual attributes of the QR Code, ensuring it fits seamlessly within business or personal contexts. This includes tailoring the QR's dimensions and border margins, vital for optimizing both style and scan success. 
+Adjacent to the color customizing tools, the user interface provides a section for defining the "Dimensions" of the QR code. This parameter is vital as it directly affects the size of the QR code, ensuring that it fits seamlessly within various use cases such as digital displays or printed media.
 
-#### Dimension Configurations
+Next to the dimension settings, the "Margins" option allows users to adjust the border around the QR code. This is not just for aesthetic appeal; appropriate margins are crucial for ensuring that the QR code is scanned correctly and efficiently. The user interface offers a simple numeric input to set this value, emphasizing user-friendliness and precision.
 
-Located adjacently to color adjustments, the dimension section offers a numerical input where users can dictate the size of the QR Code. This ensures the QR Code integrates flawlessly into a variety of intended usage scenarios, from promotional materials to personal projects.
+### 3.4 Preview of QR Code Output
 
-#### Margin Configurations
+![QR Output](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-output.webp "QR Output")
 
-Next to the dimension settings, the margin configurations provide users with the ability to set the white boundary surrounding the QR Code. This isn't merely an aesthetic feature—it enhances the QR's readability by creating necessary separation from other visual elements.
+Once the QR code is generated, the main display area of the application, labeled "Output," showcases a live preview of the QR code. This visual feedback is essential, allowing users to instantly see the effect of their configuration choices and make sure the QR code aligns with their expectations before finalizing.
 
-#### Visual Representation
+### 3.5 Interactive Controls for User Actions
 
-In the user interface, these configuration options are displayed with straightforward controls for fast adjustments, enabling real-time feedback and ensuring the QR Code meets the desired specifications before final generation.
+#### Generate QR Code
 
+![Generate QR Code](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-in-csharp.webp "Generate QR Code")
 
-<div class="content-img-align-center">
-    <img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/styling.webp" alt="Styling Parameters" class="img-responsive add-shadow img-margin">
-</div>
-```
+The "Generate QR" button is strategically placed within the interface to initiate the QR code creation process. Once clicked, it processes the input and style settings provided by the user to produce a customized QR code.
 
-This segment of the application is critical for users who require QR Codes that not only carry information effectively but also align with specific design standards.
+#### Save the QR Code
+
+![Save QR Code](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/save.webp "Save QR Code")
+
+Following the generation of the QR code, the "Save QR" button enables users to save their QR code. Clicking this button opens a dialogue where users can specify the format and destination for the saved file.
+
+#### Reset Settings
+
+![Reset Settings](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/reset.webp "Reset Settings")
+
+The reset button offers a quick way to clear all inputs and return the settings to their default values. This is particularly useful for starting a new QR code project without manually clearing each field.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/styling.webp" alt="Styling"  class="img-responsive add-shadow img-margin">
 </div>
 
-#### Dimension Configuration
+#### Dimension Adjustments
 
-Beside the color selection options, there is a section labeled "Dimensions" for users to input numerical values. This configuration is crucial because it determines the overall dimensions of the QR code. Ensuring the QR code's size is appropriate for its intended use—be it on a business card, a promotional flyer, or an electronic display—is essential for optimal visibility and functionality.
+Next to the tools for adjusting colors, you'll find the option to set the "Dimensions." This setting is essential because it determines the overall scale of the QR code. Proper dimensioning ensures that the QR code is appropriately sized for its intended use, be it on a business card, promotional flyer, or digital display.
 
-#### Margin Configuration
+#### Configuring Margins
 
-Located adjacent to the dimension settings, the "Margins" section provides a means for users to define the white space that frames the QR code. This setting isn't simply for visual appeal; it plays a crucial role in enhancing the QR code's legibility to scanners. An intuitive numeric up-down tool is available, allowing for straightforward adjustments to this setting.
+Adjacent to the dimension settings, the section titled "Margins" offers the opportunity to define the amount of white space that borders the QR code. The inclusion of margins is not solely for visual appeal; they play a crucial role in enhancing the scanability of the QR code. The program includes an intuitive numeric up-down tool, allowing users to conveniently modify this setting.
 
-### 3.4 Previewing the QR Code Output
+### 3.4 Previewing the Output
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-output.webp" alt="QR Code Preview" class="img-responsive add-shadow img-margin">
+    <img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-output.webp" alt="QR Output"  class="img-responsive add-shadow img-margin">
 </div>
 
-Upon generating the QR code, the application's main feature — the output preview — immediately displays the QR code within a prominently placed picture box titled "Output." This visual feedback is crucial, as it allows users to instantly see and verify how their generated QR code appears based on the provided input and styling choices. This real-time preview ensures that any adjustments to the QR code's design can be made swiftly and effectively before finalizing the code for use or sharing.
+In this section, the dynamically updating picture box prominently displayed on the left side of the interface serves as a real-time preview of the generated QR code. This immediate visual feedback is indispensable, allowing users to confirm their design customizations and validate the QR code's correctness before proceeding to save or use it.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-output.webp" alt="QR Output"  class="img-responsive add-shadow img-margin">
 </div>
 
-When a user triggers the generation of a QR code, the substantial picture box positioned on the left-hand side of the user interface, marked as "Output," takes center stage. This component acts as a lively visual display, showcasing a real-time preview of the QR code being created. This instant feedback is crucial, allowing users to confirm their design selections and validate that the QR code aligns with their requirements prior to saving it.
+As soon as the user triggers the QR code creation process, the primary attention shifts to the sizable picture box positioned on the left side of the interface, known as "Output." This area acts as an interactive preview zone, showing the QR code as it is being created in real-time. This instant feedback is crucial for users to confirm their design selections and check that the QR code aligns with their requirements prior to saving it.
 
-### 3.5 Interactive Elements
+### 3.5 Interactive Controls
 
 #### Generate QR Code
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-in-csharp.webp" alt="Generate QR Code in C#"  class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-in-csharp.webp" alt="QR Code in C#" class="img-responsive add-shadow img-margin">
 </div>
 
-The "Generate QR" button stands as a crucial interface component within the application. It is strategically placed to intuitively prompt the user to commence the QR code creation process. When pressed, it processes the entered data and customization settings to produce the QR code.
+Central to the user interface is the "Generate QR" button. Positioned for optimal user interaction, this button activates the QR code creation process. When pressed, it collects all the input and style preferences provided by the user to produce a customized QR code.
 
-#### Save Generated QR Code
+#### Save QR Code
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/save.webp" alt="Save QR Code"  class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/save.webp" alt="Save" class="img-responsive add-shadow img-margin">
 </div>
 
-Following the creation of the QR code, the "Save QR" button is activated. This button enables users to store their QR code by opening a dialog where they can select the desired storage location and file format.
+Following the generation of the QR code, the "Save QR" button enables users to store the newly created code. When clicked, a dialog box appears, giving users the option to choose the file type and the destination to save the QR code.
 
-#### Reset Application
+#### Reset Configuration
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/reset.webp" alt="Reset Application"  class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/reset.webp" alt="Reset" class="img-responsive add-shadow img-margin">
 </div>
 
-The "Reset" button provides a quick way to clear all inputs and restore the application to its initial state. This functionality is essential for starting a new QR creation process without the need to manually adjust each setting.
+The "Reset Configuration" button provides a quick way to clear all configured settings and inputs, restoring the application to its initial state. This feature is convenient for users who wish to start a new QR code project from scratch.
 
-#### Creating a QR Code
+#### QR Code Creation
 
-<div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-in-csharp.webp" alt="Generate QR Code Process" class="img-responsive add-shadow img-margin">
-</div>
+To start the QR code generation process, engage the "Generate QR" button prominently placed on the app's interface. As soon as this button is clicked, the application compiles all the specified input data and chosen design settings from the user, initiating the QR code creation sequence.
 
-The "Generate QR" button is a key feature of the application interface. Positioned within easy reach, this button activates the QR code creation process. When users click this button, the application gathers all the user-specified data and style settings, and starts the QR code manufacturing process, tailor-made according to these preferences.
+```cs
+// Trigger for generating the QR code.
+private void btn_generate_Click(object sender, EventArgs e)
+{
+    GenerateQRCode();
+}
+
+// Implements the logic to generate the QR code based on user preferences.
+private void GenerateQRCode()
+{
+    try
+    {
+        // Configuration for high error correction level.
+        var qrOptions = new QrOptions(QrErrorCorrectionLevel.High);
+        // Creating a QR code with the specified options.
+        var qrCode = QrWriter.Write(txt_QR.Text, qrOptions);
+        // Styling the QR code.
+        var styleOptions = CreateStyleOptions();
+        // Saving QR code with the applied styles.
+        var qrCodeImage = qrCode.Save(styleOptions);
+        // Generating filename based on current time.
+        var fileName = $"{DateTime.Now:yyyyMMddHHmmssfff}_QR.png";
+        // Setting full path for saving the QR code image.
+        var fullPath = System.IO.Path.Combine(qrCodesDirectory, fileName);
+        // Saving the generated QR code image to the specified path.
+        qrCodeImage.SaveAs(fullPath);
+        // Displaying the QR code in the application's picture box.
+        pictureBox.Image = Image.FromFile(fullPath);
+    }
+    catch (Exception ex)
+    {
+        // Handling any errors during the QR code generation or saving process.
+        ShowError("An error occurred during QR code generation or saving", ex.Message);
+    }
+}
+
+// Prepares the style settings based on user choices.
+private QrStyleOptions CreateStyleOptions()
+{
+    return new QrStyleOptions
+    {
+        BackgroundColor = bgColor, // User-selected background color.
+        Color = color, // User-selected QR code color.
+        Dimensions = txt_dimension.Value > 0 ? Convert.ToInt32(txt_dimension.Value) : throw new ArgumentException("Please select valid dimensions!"), // QR code size based on user preference.
+        Margins = Convert.ToInt32(txt_margin.Value), // Margins around the QR code.
+        Logo = logoBmp != null ? new QrLogo { Bitmap = logoBmp, Width = 50, Height = 50, CornerRadius = 5 } : null // Including a logo if selected.
+    };
+}
+```
+
+This code segment plays a critical role in orchestrating the QR code generation, reflecting user inputs and styles to produce a bespoke QR code that adheres to specified requirements. The meticulously designed backend logic ensures an efficient assembly of QR codes, tailored to match the desires of users while ensuring optimal scanning reliability.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-in-csharp.webp" alt="QR Code in C#"  class="img-responsive add-shadow img-margin">
 </div>
 
-The "Generate QR" button serves as a crucial component within the application's user interface. Thoughtfully located within the form, this button initiates the QR code creation workflow. When activated, it collects all user-provided data and styling preferences and triggers the generation of a tailored QR code.
+The "Generate QR" button serves as a critical component in the interface of the application. Thoughtfully placed within the layout, it acts as the trigger for producing the QR code. By pressing this button, the application aggregates all the user-provided data and formatting details and begins the custom QR code generation process.
 
-#### Saving the QR Code
+#### Save QR Code
 
-A dedicated "Save QR" button exists within the interface, serving as the gateway to preserve the QR code generated. Upon engaging this button, users are greeted with a file saving dialogue that offers options for file format and storage location selections.
+Now that a QR code has been generated, the next step is to save it using the "Save QR" button. This button triggers a dialog box allowing the user to specify where to save the file and in which format, either PNG or JPEG. This flexibility ensures that the QR code can be stored in a format best suited to the user's requirements, whether prioritizing image quality or file size.
 
-
+```html
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/save-dialog.webp" alt="Save Dialog" class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/save.webp" alt="Save Button" class="img-responsive add-shadow img-margin">
 </div>
 ```
 
-Once an appropriate saving location and file type are selected, and the save operation is confirmed, the image of the QR code is accurately saved to the user's choice of directory. Confirmation of a successful save is promptly displayed:
+Upon making a selection in the save dialog, and pressing the save button, the application will validate the format and save the image at the desired location. Should any errors occur during this process, a detailed error message will be displayed, allowing the user to troubleshoot and attempt the save operation again.
 
+```html
+<div class="content-img-align-center">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/save-dialog.webp" alt="Save Dialog Window" class="img-responsive add-shadow img-margin">
+</div>
+```
 
+Following a successful save, a confirmation message is displayed to assure the user that the file has been saved properly.
+
+```html
 <div class="content-img-align-center">
 	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/success-message.webp" alt="Success Message" class="img-responsive add-shadow img-margin">
 </div>
 ```
 
-This functionality is essential for users who wish to utilize their QR codes outside the generator application, be it for marketing materials, business uses, or personal projects. The seamless saving process ensures that high-quality QR codes are ready for use wherever needed.
+This step is crucial for moving your QR code from the application to a useable file, ensuring that your digital content is readily accessible for printing or embedding in digital media.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/save.webp" alt="Save"  class="img-responsive add-shadow img-margin">
 </div>
 
-Upon the generation of a QR code that appears in the output preview area, the "Save QR" button becomes operational. Clicking this button will prompt a dialogue box where you can specify the preferred file format and choose where to save the QR code.
+Following the generation and display of a QR code in the designated preview area, the active involvement of the "Save QR" button is significant. Clicking this button triggers the appearance of a save dialog box, providing options for the user to select the preferred file format and determine the destination for saving the QR code.
 
-#### Resetting the Form
-
-Clicking the "Reset Form" button reinitializes the application to its default state by clearing all inputs and selections. This action prepares the interface for a new QR code creation session, ensuring that users can start from scratch without manually altering each field and option.
+#### Form Reset
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/reset-form.webp" alt="Reset Form" class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/reset.webp" alt="Reset"  class="img-responsive add-shadow img-margin">
 </div>
 
-This function is vital for efficiently managing multiple QR code generations without the need to navigate complex steps to clear previous inputs. It enhances user experience by offering a straightforward way to initiate new QR code designs with a clean slate.
+With a simple click, the "Reset Form" button enables users to clear all input fields and settings, restoring the GUI to its initial state. This feature is essential for starting the creation of a new QR code without manually reversing each previous selection or input. It provides a convenient way to refresh the form quickly, ensuring a smooth and efficient user experience for generating multiple QR codes in succession.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/reset.webp" alt="Reset"  class="img-responsive add-shadow img-margin">
 </div>
 
-By pressing this button, all prior entries and choices are reset to their original settings at once. This feature is crucial for the interface as it allows users to swiftly reset the application to its initial state without the need to individually modify each setting.
+Just one click on this button resets all forms and fields, reverting every setting back to its initial state. This feature is crucial for the form's functionality, allowing users to easily restart or begin a new task without needing to individually reset each setting.
 
-## Step 4: Construct Backend Logic
+## Step 4: Develop Backend Logic
 
-### 4.1 Initial Setup and Configuration
+### 4.1 Initialization and Setup
 
-The backend logic commences with the importation of essential namespaces, `IronQr` and `IronSoftware.Drawing`, vital for QR code and color management in the application. The custom `Color` class is configured to align with IronQR’s requirements, offering enhanced color management capabilities.
+Initially, the application begins by incorporating necessary namespaces: `IronQr` and `IronSoftware.Drawing`. These are crucial as they bring the required functionalities to generate and modify QR codes and manage color settings within the application. The custom Color class is particularly tailored to meet the specifications needed by IronQR.
 
 ```cs
+using IronQr;
 using IronSoftware.Drawing;
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            using Color = IronSoftware.Drawing.Color;
-        }
-    }
-}
+using Color = IronSoftware.Drawing.Color;
 ```
 
-The constructor of the `QR_Generator` class is pivotal, setting up the UI components of the application—a common practice in Windows Forms applications to configure the interface elements.
+In the QR_Generator class’s constructor, crucial initial setup is undertaken which includes setting up the form’s user interface components.
 
 ```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+public QR_Generator()
 {
-    public class Section5
-    {
-        public void Run()
-        {
-            public QR_Generator()
-            {
-                InitializeComponent();
-                SetLicenseKey();
-                EnsureDirectoryExists(qrCodesDirectory);
-            }
-        }
-    }
+    InitializeComponent();
+    ApplyLicenseKey();
+    ConfirmDirectoryExists(qrCodesPath);
 }
 ```
 
-`SetLicenseKey`: This method is essential for activating the IronQR library with a legitimate license key, crucial for commercial applications to unlock its full potential.
+**ApplyLicenseKey**: A necessary method where the IronQR library license key is set, enabling the full capabilities of the software for commercial use.
 
-`EnsureDirectoryExists`: To adequately manage the storage of QR codes, this function checks for a predetermined directory's existence at the application's startup and constructs it if it does not exist.
+**ConfirmDirectoryExists**: Verifies the existence of a specific directory at launch. If absent, it creates it ensuring there’s a location ready for QR code storage.
 
 ### 4.2 Applying the License Key
 
-Activation of IronQR is critical to unleashing its complete functionalities, performed by the `SetLicenseKey` function. This static method configures the library with the license key obtained from Iron Software.
+```cs
+private static void ApplyLicenseKey()
+{
+    IronQr.License.LicenseKey = "YOUR_LICENSE_KEY";
+}
+```
+
+Set the license key for the IronQR library promptly as the application starts to allow all its functionalities to be unlocked and used without restrictions.
+
+### 4.3 Directory Management
+
+Manage the directory for saving QR codes efficiently to ensure it exists and is accessible:
 
 ```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+private static void ConfirmDirectoryExists(string path)
 {
-    public class Section6
+    if (!System.IO.Directory.Exists(path))
     {
-        public void Run()
+        System.IO.Directory.CreateDirectory(path);
+    }
+}
+```
+
+This method checks and creates the necessary directory if it does not exist using the System.IO namespace functionalities.
+
+The directory path, `qrCodesPath`, specifies where the QR codes will be stored, incorporating the application's startup directory.
+
+```cs
+string qrCodesPath = System.IO.Path.Combine(Application.StartupPath, "QR Codes");
+```
+
+### 4.4 Handling Color Selection
+
+Facilitate users in choosing colors for QR codes, ensuring the input is incorporated into the QR code design:
+
+```cs
+private void UpdateColor(ref Color targetColor, Control display, bool isBackground)
+{
+    if (select_color.ShowDialog() == DialogResult.OK)
+    {
+        var hexColor = ColorToHex(select_color.Color);
+        targetColor = new Color(hexColor);
+        display.BackColor = select_color.Color;
+    }
+}
+```
+
+This process allows for a user-friendly method to pick and apply colors directly affecting the QR code's appearance, handled by dialogs and UI updates.
+
+### 4.5 Adding a Logo
+
+Provide functionality to include a logo, enhancing the personalization of the QR code:
+
+```cs
+private void btn_logo_Click(object sender, EventArgs e)
+{
+    if (select_logo.ShowDialog() == DialogResult.OK)
+    {
+        try
         {
-            private static void SetLicenseKey()
-            {
-                IronQr.License.LicenseKey = "YOUR_LICENSE_KEY";
-            }
+            logoBmp = new AnyBitmap(select_logo.FileName);
+            selected_logo.Image = Image.FromFile(select_logo.FileName);
+        }
+        catch (Exception ex)
+        {
+            ShowError("Logo loading failed", ex.Message);
         }
     }
 }
 ```
 
-Replace `"YOUR_LICENSE_KEY"` with the actual key you possess. This step is crucial and is executed within the `QR_Generator` class's constructor to ensure immediate application upon startup.
+This method handles image file selection and visual feedback, showing the logo immediately on the user interface.
 
-### 4.3 Managing Directories
+### 4.6 Generating the QR Code
 
-For QR code storage, the `EnsureDirectoryExists` method validates the existence of a defined directory path. If nonexistent, it proceeds to create it, ensuring a storage path is always available for saving QR codes.
+Trigger the QR code generation process effectively based on user input and selected options:
 
 ```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+private void btn_generate_Click(object sender, EventArgs e)
 {
-    public class Section7
+    GenerateQRCode();
+}
+
+private void GenerateQRCode()
+{
+    try
     {
-        public void Run()
+        var options = new QrOptions(QrErrorCorrectionLevel.High);
+        var myQr = QrWriter.Write(txt_QR.Text, options);
+        var style = CreateStyleOptions();
+        var qrImage = myQr.Save(style);
+        var fileName = $"{DateTime.Now:yyyyMMddHHmmssfff}_QR.png";
+        var fullPath = System.IO.Path.Combine(qrCodesPath, fileName);
+        qrImage.SaveAs(fullPath);
+        pictureBox.Image = Image.FromFile(fullPath);
+    }
+    catch (Exception ex)
+    {
+        ShowError("QR code generation or saving failed", ex.Message);
+    }
+}
+```
+
+This method utilizes user-defined settings like color, dimensions, and logo, synthesizing them to generate the desired QR code and saves it to the designated directory.
+
+### 4.7 Saving the QR Code
+
+Enable users to save generated QR codes in their preferred format and location:
+
+```cs
+private void btn_save_Click(object sender, EventArgs e)
+{
+    SaveQRCode();
+}
+
+private void SaveQRCode()
+{
+    if (pictureBox.Image == null)
+    {
+        MessageBox.Show("No QR code available to save.", "Error");
+        return;
+    }
+
+    saveFileDialog.Filter = "PNG Files|*.png|JPEG Files|*.jpg";
+    saveFileDialog.Title = "Save QR Code";
+    saveFileDialog.FileName = "QRCode";
+
+    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+    {
+        try
         {
-            private static void EnsureDirectoryExists(string path)
-            {
-                if (!System.IO.Directory.Exists(path))
-                {
-                    System.IO.Directory.CreateDirectory(path);
-                }
-            }
+            pictureBox.Image.Save(saveFileDialog.FileName, DetermineImageFormat(saveFileDialog.FileName));
+            MessageBox.Show("QR Code saved successfully!", "Success");
+        }
+        catch (Exception ex)
+        {
+            ShowError("Failed to save QR code", ex.Message);
         }
     }
 }
 ```
 
-This method leverages the `System.IO` namespace for file system operations, first checking with `Directory.Exists` and creating with `Directory.CreateDirectory` if needed.
+A simple and intuitive interface prompts the user to save the QR code, ensuring the file is secured in the desired format at the chosen location.
 
-`qrCodesDirectory` is strategically placed within the QR application, coupling the application’s startup path with a directory named `"QR Codes"`:
+### 4.8 Resetting the Application
+
+Allow users to reset the application to its initial state easily:
 
 ```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+private void btn_reset_Click(object sender, EventArgs e)
 {
-    public class Section8
-    {
-        public void Run()
-        {
-            string qrCodesDirectory = System.IO.Path.Combine(Application.StartupPath, "QR Codes");
-        }
-    }
+    ResetFields();
+}
+
+private void ResetFields()
+{
+    txt_QR.Text = "";
+    txt_dimension.Value = 200;
+    txt_margin.Value = 0;
+    bgColor = Color.White;
+    color = Color.Black;
+    txt_selected_color.BackColor = System.Drawing.Color.White;
+    txt_selected_bgcolor.BackColor = System.Drawing.Color.Black;
+    logoBmp = null;
+    selected_logo.Image = null;
+    pictureBox.Image = null;
 }
 ```
 
-### 4.4 Selecting Colors
-
-The application facilitates user-selected colors for the QR code's foreground and background via UI buttons, each linked to a method for opening a color dialog box. Upon color selection, these methods invoke `UpdateColor` to apply the selected colors to the QR code.
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section9
-    {
-        public void Run()
-        {
-            private string ColorToHex(System.Drawing.Color color)
-            {
-                return $"#{color.R:X2}{color.G:X2}{color.B:X2}";
-            }
-        }
-    }
-}
-```
-
-The `UpdateColor` function converts the chosen colors into the required hexadecimal format for use by IronQR, updating both the QR code’s display and the UI to reflect the chosen color.
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section10
-    {
-        public void Run()
-        {
-            private void UpdateColor(ref Color targetColor, Control display, bool isBackground)
-            {
-                if (select_color.ShowDialog() == DialogResult.OK)
-                {
-                    var hexColor = ColorToHex(select_color.Color);
-                    targetColor = new Color(hexColor);
-                    display.BackColor = select_color.Color;
-                }
-            }
-        }
-    }
-}
-```
-
-### 4.5 Logo Integration
-
-Incorporating a custom logo within the QR code is facilitated through a dedicated button (`btn_logo_Click`) that opens a file dialog, enabling users to select an image file. The selected logo is then loaded and displayed in the application as part of the QR code customization process.
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section11
-    {
-        public I
-
-### 4.1 Initial Configuration and Setup
-
-The setup phase starts by incorporating the required namespaces: `IronQr` and `IronSoftware.Drawing`. These are crucial for enabling the generation and manipulation of QR codes as well as handling various color operations within the application. A specialized `Color` class is employed, specifically designed to manage color schemes effectively during QR code creation. This custom class overrides the standard `System.Drawing.Color` to align with the specific needs of IronQR, ensuring seamless functionality.
-
-Here's the paraphrased section of your provided content, with URL paths resolved to ironsoftware.com:
-
-```cs
-using IronSoftware.Drawing;
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section4
-    {
-        public void Execute()
-        {
-            using Color = IronSoftware.Drawing.Color; // utilizing Color from the IronSoftware.Drawing namespace
-        }
-    }
-}
-```
-
-The initialization of the `QR_Generator` class through its constructor is a pivotal phase where the application's components are configured. This is a routine procedure in Windows Forms applications aimed at establishing the user interface elements of the form.
-
-Here is a paraphrased version of the given C# code section, with relative URL paths resolved as needed:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section5
-    {
-        public void Execute()
-        {
-            public QR_CodeCreator()
-            {
-                InitializeComponents();
-                ApplyLicenseKey();
-                VerifyDirectoryExistance(qrCodesDirectory);
-            }
-        }
-    }
-}
-```
-
-In this revised snippet:
-- Renamed `QR_Generator` to `QR_CodeCreator` to provide a clearer function name.
-- Changed method names to more action-oriented terms (e.g., `InitializeComponents`, `ApplyLicenseKey`, and `VerifyDirectoryExistance`) for readability and to better represent their functionality.
-
-**SetLicenseKey**: This function activates a valid license key for the IronQR library, which is essential for commercial usage and accessing all features of IronQR.
-
-**EnsureDirectoryExists**: To accommodate the storage of generated QR codes, this function confirms the availability of a specific directory. It verifies the existence of the "QR Codes" directory at the initial launch path of the application, creating it if necessary.
-
-### 4.2 Configuring the License Key
-
-To guarantee that IronQR functions optimally without any restrictions, it is imperative to provide a valid license key. This activation is conducted via the `SetLicenseKey` method, a static approach crafted to equip the library with either your acquired or trial license key. Demonstrated below is a code snippet that shows you how to apply your license key:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section6
-    {
-        public void Run()
-        {
-            private static void SetLicenseKey()
-            {
-                IronQr.License.LicenseKey = "YOUR_LICENSE_KEY";
-            }
-        }
-    }
-}
-```
-
-Replace `"YOUR_LICENSE_KEY"` with the actual license key you have obtained from Iron Software. This method is invoked within the constructor of the QR_Generator class, ensuring that the license key is set at the onset of the application and prior to any QR code generation activities.
-
-Here's your paraphrased section, with resolved relative URL paths and improved clarity:
-
-```cs
-using IronQR; // Import the IronQR namespace for QR code functionality.
-
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section6
-    {
-        // Method to initiate the application functionality.
-        public void Run()
-        {
-            // Method to apply the license key for using IronQR features.
-            private static void SetLicenseKey()
-            {
-                // Sets your specific license key to unlock IronQR's full capabilities.
-                IronQr.License.LicenseKey = "YOUR_LICENSE_KEY";
-            }
-        }
-    }
-}
-```
-
-Substitute "YOUR_LICENSE_KEY" with your valid license key provided by Iron Software. This setup is integrated into the constructor of the `QR_Generator` class, making sure that the license is activated right when the application launches and prior to the commencement of any QR code generation activities.
-
-### 4.3 Managing Storage Directories
-
-The application utilizes the `EnsureDirectoryExists` method to verify the existence of a designated directory meant for storing QR codes. If this directory does not exist, the method will create it. This function requires a string argument that specifies the directory's path that needs to be checked or established. The implementation of this method is outlined below:
-
-Here's the paraphrased section with all relative URL paths resolved to `ironsoftware.com`:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section7
-    {
-        public void Run()
-        {
-            // Method to verify and create a directory if it does not exist
-            private static void VerifyAndCreateDirectory(string path)
-            {
-                // Check if the directory exists at the specified path
-                if (!System.IO.Directory.Exists(path))
-                {
-                    // Create the directory if it does not exist
-                    System.IO.Directory.CreateDirectory(path);
-                }
-            }
-        }
-    }
-}
-```
-
-This approach involves the usage of the `System.IO` namespace for managing file operations. Initially, it verifies the presence of a directory at a given path by employing the `Directory.Exists` method. If it discovers that the directory does not exist (indicated by a return value of false), it proceeds to create the directory with the `Directory.CreateDirectory` method.
-
-The location for storing QR codes is specified within the constructor of the `QR_Generator` class, named `qrCodesDirectory`. This variable is a concatenation of the application's starting path and a designated folder named "QR Codes".
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section8
-    {
-        public void Run()
-        {
-            // Define the directory path for storing QR Codes
-            string qrCodesDirectory = System.IO.Path.Combine(Application.StartupPath, "QR Codes");
-        }
-    }
-}
-```
-
-### 4.4 Selecting Colors
-
-Within the application's user interface, two distinct buttons enable users to choose colors for different elements: `btn_color_Click` for selecting the foreground color of the QR code and `btn_background_Click` for its background. These buttons employ a color dialog box, providing an interactive way for users to select their desired colors.
-
-Upon selecting a color, the application converts this selection to a hexadecimal string format using the `ColorToHex` method. This step is crucial as the IronQR library mandates that color inputs be in hexadecimal form to process them accurately.
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section9
-    {
-        public void Execute()
-        {
-            // Method converts System.Drawing.Color into HEX format string
-            private string ConvertColorToHex(System.Drawing.Color color)
-            {
-                // Formats the color as a hexadecimal string
-                return $"#{color.R:X2}{color.G:X2}{color.B:X2}";
-            }
-        }
-    }
-}
-```
-
-The `UpdateColor` function receives the chosen color and transforms it into the `IronSoftware.Drawing.Color` format utilizing a hexadecimal representation. This function then applies the updated color to either the foreground or the background of the QR code based on user selection. Simultaneously, it refreshes the user interface to display the newly selected color:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section10
-    {
-        public void Run()
-        {
-            // Method to update the color settings
-            private void UpdateColor(ref Color targetColor, Control display, bool isBackground)
-            {
-                // Open the color selection dialog and proceed if user selects a color
-                if (select_color.ShowDialog() == DialogResult.OK)
-                {
-                    // Convert the selected color to a hexadecimal string
-                    var hexColor = ColorToHex(select_color.Color);
-                    // Set the target color with the newly created Color object
-                    targetColor = new Color(hexColor);
-                    // Update the display's background color to the selected color
-                    display.BackColor = select_color.Color;
-                }
-            }
-        }
-    }
-}
-```
-
-### 4.5 Incorporating a Logo
-
-Within the application, there is a designated button (`btn_logo_Click`) which, once activated, launches a file dialog. This dialog enables users to choose an image file that they want to serve as a logo, a fundamental aspect for those aiming to customize their QR codes for branding purposes. Below is an explanation of the process involved in selecting and applying a logo:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section11
-    {
-        public void Run()
-        {
-            private void btn_logo_Click(object sender, EventArgs e)
-            {
-                if (select_logo.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        logoBmp = new AnyBitmap(select_logo.FileName);
-                        selected_logo.Image = Image.FromFile(select_logo.FileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        ShowError("An error occurred while loading the logo", ex.Message);
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-Once the user selects an image file through the dialog, the application attempts to load it as the chosen logo. Simultaneously, a preview of this logo is displayed, confirming its successful integration into the QR code design. This feature allows for a more tailored and visually coherent QR code, important for both individual and commercial applications.
-
-Here is the paraphrased section with resolved relative URL paths:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section11
-    {
-        public void Run()
-        {
-            // Method triggered by clicking the Logo button
-            private void btn_logo_Click(object sender, EventArgs e)
-            {
-                // Open the logo selection dialog and proceed if a file is selected
-                if (select_logo.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // Load the logo as an AnyBitmap object from the selected file
-                        logoBmp = new AnyBitmap(select_logo.FileName);
-                        // Display the logo in the form's picture box
-                        selected_logo.Image = Image.FromFile(select_logo.FileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        // If an error occurs during logo loading, display an error message
-                        ShowError("There was an issue loading the logo", ex.Message);
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-Once an image has been successfully chosen, the application endeavors to load and show a preview of the image. The `AnyBitmap` instance, `logoBmp`, is subsequently configured with the chosen image, which will be utilized by the QR code generation process later on.
-
-### 4.6 Generating QR Codes
-
-The QR code creation process initiates when the user selects the "Generate" button. This action is connected to the `btn_generate_Click` method, which serves as the activator for invoking the `GenerateQRCode` function containing the core logic for QR code production.
-
-Here's the paraphrased section with the relative URL paths resolved:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section12
-    {
-        public void Run()
-        {
-            // Method attached to the generate button's click event
-            private void btn_generate_Click(object sender, EventArgs e)
-            {
-                // Calls the function to create a QR code when the button is clicked
-                GenerateQRCode();
-            }
-        }
-    }
-}
-```
-
-Within the `GenerateQRCode` function, the application constructs a QR code using defined parameters such as the inputted text and chosen style settings. This function comprehensively handles the QR code creation process by incorporating selected colors, dimensions, and margins, and optionally integrating a logo as well.
-
-Here's the paraphrased section of the article, with the relative URLs resolved to `ironsoftware.com`:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section13
-    {
-        public void Run()
-        {
-            private void GenerateQRCode()
-            {
-                try
-                {
-                    // Set high level of error correction
-                    var options = new QrOptions(QrErrorCorrectionLevel.High);
-                    
-                    // Create the QR Code using specified text
-                    var myQr = QrWriter.Write(txt_QR.Text, options);
-                    
-                    // Apply custom styling options
-                    var style = CreateStyleOptions();
-                    
-                    // Generate and save the QR Code image
-                    var qrImage = myQr.Save(style);
-                    var fileName = $"{DateTime.Now:yyyyMMddHHmmssfff}_QR.png";
-                    var fullPath = System.IO.Path.Combine(qrCodesDirectory, fileName);
-                    
-                    // Save and display the QR image
-                    qrImage.SaveAs(fullPath);
-                    pictureBox.Image = Image.FromFile(fullPath);
-                }
-                catch (Exception ex)
-                {
-                    // Handle errors related to QR code generation or saving
-                    ShowError("An issue occurred while generating or saving the QR code", ex.Message);
-                }
-            }
-        }
-    }
-}
-``` 
-
-This paraphrased content maintains the same logical flow and technical instructions as the original, with adjustments in description and syntax for clarity and variation.
-
-The `QrOptions` class sets the error correction level for the QR code, thus making it more robust against potential distortions or partial coverings. The `CreateStyleOptions` function is utilized to create an instance of `QrStyleOptions`, which encompasses personalized settings such as colors, dimensions, and a logo specified by the user. Here's how the method is structured:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section14
-    {
-        public void Run()
-        {
-            // Function to construct QR Style Options for customization
-            private QrStyleOptions ConfigureQrStyle()
-            {
-                return new QrStyleOptions
-                {
-                    BackgroundColor = bgColor, // Set the background color of the QR code
-                    Color = color, // Set the foreground color
-                    Dimensions = txt_dimension.Value > 0 ? Convert.ToInt32(txt_dimension.Value) : throw new ArgumentException("Invalid dimensions. Please adjust."),
-                    Margins = Convert.ToInt32(txt_margin.Value), // Set the margins around the QR code
-                    Logo = logoBmp != null ? new QrLogo { Bitmap = logoBmp, Width = 50, Height = 50, CornerRadius = 5 } : null // Include a logo if one exists
-                };
-            }
-        }
-    }
-}
-```
-
-This segment elaborates on the configuration of a `QrStyleOptions` instance, which is integral to customizing the QR code generation process based on user specifications. Here's a breakdown of the customizable options available:
-
-- **BackgroundColor and Color**: These attributes define the QR code's background and foreground hues, allowing users to customize its appearance to align with specific branding or visual preferences.
-
-- **Dimensions**: This attribute specifies the QR code's overall size, providing adaptability to suit various applications and environments.
-
-- **Margins**: This setting adjusts the white space around the QR code, critical for ensuring that the code stands out from its surroundings, enhancing scan reliability.
-
-- **Logo**: For users opting to incorporate a logo into their QR code, this option allows for the customization of the logo's size and the rounding of its corners, ensuring a sleek and professional finish.
-
-### 4.7 Storing the Generated QR Code
-
-The functionality to store the QR code is activated through the "Save" button. This button is connected to the `btn_save_Click` method, which in turn invokes the `SaveQRCode` method responsible for handling the save operations. During this process, a file save dialog appears, providing options for the user to select the desired format and location to save the QR code. This ensures that users can easily preserve the QR code in their preferred storage area.
-
-Below is the paraphrased content from the provided extract of the article, with the URLs resolved to `ironsoftware.com`.
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section15
-    {
-        public void Run()
-        {
-            private void btn_save_Click(object sender, EventArgs e)
-            {
-                PersistQRCode();
-            }
-
-            private void PersistQRCode()
-            {
-                if (pictureBox.Image == null)
-                {
-                    MessageBox.Show("There is no QR code available for saving.", "Error");
-                    return;
-                }
-
-                saveFileDialog.Filter = "PNG Files|*.png|JPEG Files|*.jpg";
-                saveFileDialog.Title = "Save QR Code";
-                saveFileDialog.FileName = "QRCode";
-
-                // The Save As dialog is opened for the user to choose where to save the QR code
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // Saves the QR code image to the specified file format
-                        pictureBox.Image.Save(saveFileDialog.FileName, GetImageFormat(saveFileDialog.FileName));
-                        MessageBox.Show("Your QR Code has been successfully saved!", "Success");
-                    }
-                    catch (Exception ex)
-                    {
-                        // Display an error message if saving the QR code fails
-                        ShowError("Failed to save the QR code", ex.Message);
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-This section reflects the coding necessary to implement a QR Code save feature within a .NET application, with enhancements such as clarified messages and a slightly adjusted flow to maintain a broader appeal while remaining functionally equivalent.
-
-The procedure verifies the presence of a generated QR code. If available, it offers the choice to save the QR code as either a PNG or JPEG file. The `DetermineImageFormat` function is responsible for saving the image in the appropriate format, contingent on the file extension selected by the user.
-
-Here's a paraphrased version of the C# code segment from the Iron Software product article, with resolved relative paths for links and images.
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section16
-    {
-        public void Execute()
-        {
-            private System.Drawing.Imaging.ImageFormat IdentifyFileFormat(string fileName)
-            {
-                string extension = System.IO.Path.GetExtension(fileName).ToLowerInvariant();
-                if (extension == ".jpg")
-                {
-                    return System.Drawing.Imaging.ImageFormat.Jpeg;
-                }
-                else
-                {
-                    return System.Drawing.Imaging.ImageFormat.Png;
-                }
-            }
-        }
-    }
-}
-```
-
-This adaptability enables users to select the optimal format based on their specific requirements, whether they favor higher quality with PNG or smaller file sizes with JPEG.
-
-### 4.8 Reinitializing the Application
-
-The reinitialization of the application is facilitated by a "Reset" button. When activated, this button triggers the `btn_reset_Click` method. This method subsequently initiates the `ResetFields` function intended to erase user entries and revert all modifications to their default states. This encompasses clearing text fields, resetting color choices, and deselecting any previously chosen logos.
-
-Here's a paraphrased version of the specified section:
-
-```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
-{
-    public class Section17
-    {
-        public void Run()
-        {
-            // Reset button click event
-            private void btn_reset_Click(object sender, EventArgs e)
-            {
-                ClearAllInputs();
-            }
-
-            // Method to clear all user inputs and settings
-            private void ClearAllInputs()
-            {
-                // Clear the QR code text input
-                txt_QR.Text = string.Empty;
-                
-                // Set default value for QR dimensions
-                txt_dimension.Value = 200;
-                
-                // Set default value for margin around the QR code
-                txt_margin.Value = 0;
-                
-                // Set default colors for foreground and background
-                bgColor = Color.White;
-                color = Color.Black;
-                
-                // Reset the color selection display
-                txt_selected_color.BackColor = System.Drawing.Color.White;
-                txt_selected_bgcolor.BackColor = System.Drawing.Color.Black;
-                
-                // Clear the selected logo and reset the logo display
-                logoBmp = null;
-                selected_logo.Image = null;
-                pictureBox.Image = null;
-            }
-        }
-    }
-}
-```
-
-This function reinitializes every element associated with creating QR codes. It erases any text intended for the QR code, restores the default settings for dimensions and margins, and eliminates any chosen colors or logos.
+This function restores all inputs and settings to their default values, preparing the application for a new task without manual adjustments.
 
 ### 4.9 Error Management
 
-The application incorporates the `ShowError` method to present error notifications in an approachable format. This method requires two arguments: a title and a message, which help to clarify the nature of the error for the user. The implementation is demonstrated below:
+Effectively handle and display errors to the user, improving the application’s reliability and user experience:
 
 ```cs
-using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+private static void ShowError(string title, string message)
 {
-    public class Section18
+    MessageBox.Show($"{title}: {message}", "Error");
+}
+```
+
+This method is employed throughout the application to provide clear and actionable error messages, aiding in troubleshooting and enhancing user satisfaction.
+
+### 4.1 Setup and Initialization
+
+The application starts by incorporating the required namespaces: `IronQr` and `IronSoftware.Drawing`. These namespaces are crucial as they equip the application with the necessary tools for creating and customizing QR codes and colors. A specialized `Color` class is established to streamline color management within the QR code creation process, replacing the standard `System.Drawing.Color` to align with IronQR's specifications.
+
+```cs
+// Necessary namespaces for QR code operations
+using IronQr;
+using IronSoftware.Drawing;
+// Alias definition for Color to avoid conflicts with System.Drawing.Color
+using Color = IronSoftware.Drawing.Color;
+```
+
+The `QR_Generator` class constructor is essential in setting up the application by initializing its components. This initialization process is typical in Windows Forms applications to configure the user interface elements of the form.
+
+Here's the paraphrased section with relative URL paths resolved to `ironsoftware.com`:
+
+```cs
+public QR_Generator()
+{
+    InitializeFormComponents();
+    ApplyLicenseKey();
+    ValidateDirectoryExists(qrCodesDirectory);
+}
+```
+
+**SetLicenseKey**: This function initializes the IronQR library by applying a valid license key. Employing a license key is essential for commercial utilization and to access all the features offered by the IronQR library.
+
+**EnsureDirectoryExists**: This function is designed to manage storage for the QR codes generated. It verifies the presence of a "QR Codes" directory at the application's startup location and creates one if it isn't already there.
+
+### 4.2 Configuring the License Key
+
+For IronQR to function to its full potential, it's essential to activate it with a valid license key. This activation process is facilitated through the `SetLicenseKey` method. This static function is tailored to endorse the library with either your trial or purchased license key. Below is the code sample that demonstrates how to implement the license key configuration:
+
+```cs
+private static void SetLicenseKey()
+{
+    IronQr.License.LicenseKey = "YOUR_LICENSE_KEY";
+}
+```
+Replace "YOUR_LICENSE_KEY" with your actual license key supplied by Iron Software. This function is crucial as it ensures that the library is primed and ready, adhering to licensing agreements right when the application starts, thereby avoiding any limitations in its operation.
+
+Here's the rewritten section ensuring that the relative URL paths from links and images resolve to `ironsoftware.com`:
+
+```cs
+// Sets the license key for IronQR
+private static void InitializeLicense()
+{
+    IronQr.License.LicenseKey = "YOUR_LICENSE_KEY";
+}
+```
+
+Substitute "YOUR_LICENSE_KEY" with your legitimate license key provided by Iron Software. This function is invoked within the `QR_Generator` class constructor to activate the license at the initiation of the application, prior to any QR code creation activities.
+
+### 4.3 Managing Directories
+
+The application employs the `EnsureDirectoryExists` method to verify the existence of the specified directory where QR codes will be stored. If the directory does not exist, it is created. This method requires a string parameter that specifies the directory path to be checked or created. Below is the implementation:
+
+```cs
+private static void EnsureDirectoryExists(string path)
+{
+    if (!System.IO.Directory.Exists(path))
     {
-        public void Run()
+        System.IO.Directory.CreateDirectory(path);
+    }
+}
+```
+
+This method checks for the directory at the provided path. If the directory is not found, it creates a new directory at that location using `System.IO.Directory.CreateDirectory()`.
+
+Here's the paraphrased section of the article with resolved relative URL paths:
+
+```cs
+// Method to verify and create directory if it does not exist
+private static void CheckAndCreateDirectory(string directoryPath)
+{
+    // Check if directory exists at the specified path
+    if (!System.IO.Directory.Exists(directoryPath))
+    {
+        // Create the directory if it does not exist
+        System.IO.Directory.CreateDirectory(directoryPath);
+    }
+}
+```
+
+The function interacts with the file system through the `System.IO` namespace. Initially, it verifies the presence of a directory at a given path by implementing `Directory.Exists`. If the result shows the directory is missing (returns false), it subsequently generates the directory with `Directory.CreateDirectory`.
+
+Configured within the QR_Generator class constructor, the path variable `qrCodesDirectory` is assembled by uniting the application's startup path with the directory "QR Codes".
+```
+
+Here is the paraphrased section of the article with resolved relative URL paths:
+
+-----
+```cs
+// Defines the directory to store QR codes by combining the application's startup path with a specified folder name
+string qrCodesDirectory = System.IO.Path.Combine(Application.StartupPath, "QR Codes");
+```
+
+### 4.4 Choosing Colors
+
+The user interface of the application features two distinct buttons for color customization: `btn_color_Click` to alter the QR code's foreground color, and `btn_background_Click` for modifying the background color. These buttons invoke a color dialog box that allows users to easily choose their desired colors.
+
+After selecting a color through the dialog box, the application converts the selected color into a hexadecimal string. This conversion is essential as the IronQR library mandates that colors be specified in this hexadecimal format. The transformation is handled by the `ColorToHex` method to ensure compatibility with IronQR's requirements.
+
+Here's your paraphrased code section:
+
+```cs
+// Converts a System.Drawing.Color to a hexadecimal color string
+private string ConvertColorToHex(System.Drawing.Color color)
+{
+    return string.Format("#{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B);
+}
+```
+
+The `UpdateColor` function processes the chosen color, transforming it into the `IronSoftware.Drawing.Color` type through a hexadecimal conversion, and adjusts the QR code's foreground or background colors accordingly. It additionally refreshes the user interface to display the updated color selection:
+
+Here is the paraphrased section of the article:
+
+```cs
+private void UpdateColor(ref Color colorReference, Control control, bool isBackground)
+{
+    if (select_color.ShowDialog() == DialogResult.OK)
+    {
+        string hexValue = ColorToHex(select_color.Color);
+        colorReference = new Color(hexValue);
+        control.BackColor = select_color.Color;
+    }
+}
+```
+
+### 4.5 Integrating a Logo into QR Codes
+
+Within the application, there is a specific button named `btn_logo_Click`. When activated, it prompts a file selection dialog where users can choose an image to serve as the logo for their QR code. This feature is especially valuable for businesses or individuals who want to incorporate their branding directly into their QR codes. Below is an outline of how this logo integration is implemented:
+
+```cs
+private void btn_logo_Click(object sender, EventArgs e)
+{
+    if (select_logo.ShowDialog() == DialogResult.OK)
+    {
+        try
         {
-            // A method to display error messages in a dialog box
-            private static void DisplayError(string title, string message)
-            {
-                MessageBox.Show($"{title}: {message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Load the logo image from the selected file
+            logoBmp = new AnyBitmap(select_logo.FileName);
+            // Display the logo in the application's interface
+            selected_logo.Image = Image.FromFile(select_logo.FileName);
+        }
+        catch (Exception ex)
+        {
+            // Display an error message if the logo fails to load
+            ShowError("An error occurred while loading the logo", ex.Message);
         }
     }
 }
 ```
 
-This approach is implemented throughout various sections of the application to guarantee that in the event of an error, the user is quickly notified with a straightforward and precise message. For instance, should an error occur either during the loading of the logo or the QR code creation phase, the application employs the `ShowError` method to provide specifics about the problem.
+This functionality provides a straightforward approach for users to apply their custom logos, enhancing the aesthetic and functional value of the QR codes generated.
 
-### 4.10 Comprehensive Code Sample
+Here's a paraphrased version of the provided C# code section with resolved URL paths:
 
-Below is the complete source code for better clarity and understanding of the implementation:
+```cs
+private void btn_logo_Click(object sender, EventArgs e)
+{
+    // Open the file selection dialog to pick a logo image
+    if (select_logo.ShowDialog() == DialogResult.OK)
+    {
+        // Attempt to load the selected image file as a logo
+        try
+        {
+            // Load the image using the AnyBitmap class
+            logoBmp = new AnyBitmap(select_logo.FileName);
+            // Display the logo image in the 'selected_logo' picture box component
+            selected_logo.Image = Image.FromFile(select_logo.FileName);
+        }
+        catch (Exception ex)
+        {
+            // If loading the logo fails, display an error message
+            ShowError("Failed to load the logo image", ex.Message);
+        }
+    }
+}
+```
+
+This revised version maintains the original logic but rephrases comments and error messages for clarity, enhancing readability and understanding.
+
+Upon choosing an image successfully, the application tries to load it and show a preview. The `AnyBitmap` variable `logoBmp` is subsequently assigned the chosen image, which will be utilized by the QR code generation process later on.
+
+### 4.6 Generating QR Codes
+
+The QR code creation starts once the "Generate" button is selected, activating the `btn_generate_Click` method. This function serves as the catalyst that initiates the `GenerateQRCode` function, where the core logic for QR code generation is executed.
+
+```cs
+private void btn_generate_Click(object sender, EventArgs e)
+{
+    GenerateQRCode();  // Initiates the QR code generation process
+}
+```
+
+Within the `GenerateQRCode` method, the application constructs a QR code adhering to the provided parameters such as the input text and various styling preferences. This method is responsible for assembling a QR code by utilizing the chosen colors, size specifications, border margins, and, if provided, a logo.
+
+```cs
+private void GenerateQRCode()
+{
+    try
+    {
+        // Define the error correction level for the QR code
+        var qrSettings = new QrOptions(QrErrorCorrectionLevel.High);
+        // Generate the QR Code with the input text
+        var createdQr = QrWriter.Write(txt_QR.Text, qrSettings);
+        // Apply style settings defined by the user
+        var styleConfig = CreateStyleOptions();
+        // Save the styled QR code as an image
+        var generatedQrImage = createdQr.Save(styleConfig);
+        // Generate a unique filename based on the current timestamp
+        var generatedFileName = $"{DateTime.Now:yyyyMMddHHmmssfff}_QR.png";
+        // Create the full path for saving the image
+        var fullPathToFile = System.IO.Path.Combine(qrCodesDirectory, generatedFileName);
+        // Save the QR code image to the specified location
+        generatedQrImage.SaveAs(fullPathToFile);
+        // Display the saved QR code on the application's PictureBox
+        pictureBox.Image = Image.FromFile(fullPathToFile);
+    }
+    catch (Exception ex)
+    {
+        // Display an error message if something goes wrong during the QR code generation or saving process
+        ShowError("An issue occurred while generating or saving the QR code", ex.Message);
+    }
+}
+```
+
+The `QrOptions` object specifies the level of error correction, which boosts the robustness of the QR code against potential damages or coverings. Subsequently, the `CreateStyleOptions` function constructs a `QrStyleOptions` object that encapsulates customization options specified by the user, such as colors, size, and logo. Let’s examine this function closely:
+
+Here's the paraphrased section with absolute URLs for images and links:
+
+```cs
+private QrStyleOptions ConfigureQRStyle()
+{
+    return new QrStyleOptions
+    {
+        BackgroundColor = bgColor,
+        Color = color,
+        Dimensions = txt_dimension.Value > 0 ? Convert.ToInt32(txt_dimension.Value) : throw new ArgumentException("Dimensions must be set correctly!"),
+        Margins = Convert.ToInt32(txt_margin.Value),
+        Logo = logoBmp != null ? new QrLogo { Bitmap = logoBmp, Width = 50, Height = 50, CornerRadius = 5 } : null
+    };
+}
+```
+
+In this method, a `QrStyleOptions` object is constructed, enabling the QR code generation system to incorporate the user's specific preferences. Here are the customizable options:
+
+- **BackgroundColor and Color**: These attributes are utilized to specify the QR code's background and foreground shades, offering a customizable appearance that can be aligned with branding or visual preferences.
+
+- **Dimensions**: This attribute defines the QR code's size, providing adaptability in its application across various platforms or materials.
+
+- **Margins**: This attribute establishes the size of the margin surrounding the QR code, which is essential to keep it distinct from adjacent elements, an important factor for enhancing scan reliability.
+
+- **Logo**: Should the user opt to integrate a logo, this configuration allows for setting precise dimensions and a corner radius, ensuring the logo's seamless integration into the QR code for a refined appearance.
+
+### 4.7 Saving the QR Code
+
+When the "Save" button is engaged, it activates the `btn_save_Click` function. This function in turn invokes the `SaveQRCode` method, handling the actual saving process of the QR code. A save file dialog box is presented, offering options to select the desired file format and the save location of the QR code.
+
+```cs
+private void btn_save_Click(object sender, EventArgs e)
+{
+    ExecuteSaveOperation();
+}
+
+private void ExecuteSaveOperation()
+{
+    if (pictureBox.Image == null)
+    {
+        MessageBox.Show("No QR code available for saving.", "Error");
+        return;
+    }
+
+    saveFileDialog.Filter = "PNG Files|*.png|JPEG Files|*.jpg";
+    saveFileDialog.Title = "Save the QR Code";
+    saveFileDialog.FileName = "QRCode";
+
+    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+    {
+        try
+        {
+            pictureBox.Image.Save(saveFileDialog.FileName, IdentifyImageFormat(saveFileDialog.FileName));
+            MessageBox.Show("Your QR code has been successfully saved!", "Success");
+        }
+        catch (Exception ex)
+        {
+            ShowError("Failed to save the QR code", ex.Message);
+        }
+    }
+}
+```
+
+This function verifies the presence of a generated QR code. If available, it offers options to save the QR code either as a PNG or JPEG file. The function `DetermineImageFormat` confirms that the QR code is saved in the appropriate format, depending on the file extension selected by the user.
+
+Here's the paraphrased section of the article with the link and image paths resolved to "ironsoftware.com":
+
+```cs
+private System.Drawing.Imaging.ImageFormat CheckImageFormat(string filePath)
+{
+    // Obtain the file extension and convert to lowercase
+    string extension = System.IO.Path.GetExtension(filePath).ToLower();
+    
+    // Return JPEG format for .jpg files, otherwise return PNG format
+    return extension == ".jpg" ? System.Drawing.Imaging.ImageFormat.Jpeg : System.Drawing.Imaging.ImageFormat.Png;
+}
+```
+
+This versatility empowers users to select the file format that best aligns with their preferences—opting for PNG when quality is paramount, or JPEG when minimizing file size is crucial.
+
+### 4.8 Resetting the Application
+
+The application includes a "Reset" feature, accessible via a "Reset" button. Engaging this button triggers the `btn_reset_Click` method. This action, in sequence, prompts the `ResetFields` function. This particular function is crafted to clear away all user entries and revert all settings to their initial defaults, such as text fields, color choices, and any logos that have been chosen.
+
+Here is the paraphrased section of the article:
+
+```cs
+private void btn_reset_Click(object sender, EventArgs e)
+{
+    ClearAllInputs();
+}
+
+private void ClearAllInputs()
+{
+    txt_QR.Text = "";  // Clear the QR text field
+    txt_dimension.Value = 200;  // Reset the dimension to the default value
+    txt_margin.Value = 0;  // Set the margin value back to zero
+    bgColor = Color.White;  // Revert the background color to white
+    color = Color.Black;  // Set the QR code color to black
+    txt_selected_color.BackColor = System.Drawing.Color.White;  // Reset the color preview to white
+    txt_selected_bgcolor.BackColor = System.Drawing.Color.Black;  // Reset the background color preview to black
+    logoBmp = null;  // Clear the selected logo
+    selected_logo.Image = null;  // Remove the image from the logo preview
+    pictureBox.Image = null;  // Clear the main picture box image
+}
+```
+
+This function reinitializes all settings related to QR code creation. Specifically, it erases any text meant for the QR code, reverts dimensions and margins to their original settings, and eliminates any chosen colors or logos.
+
+### 4.9 Managing Errors
+
+The application employs a method called `ShowError` to present error messages in an accessible and clear format. This function requires two arguments: a title and a message, which help clarify the error for the user. Below is the implementation:
+
+Here's the paraphrased section of the provided .NET article, with enhanced code comments and slightly altered syntax for clarity:
+
+```cs
+/// <summary>
+/// Displays an error message in a message box.
+/// </summary>
+/// <param name="title">The title of the error dialog.</param>
+/// <param name="message">The error message to display.</param>
+private static void DisplayError(string title, string message)
+{
+    // Using MessageBox to display error messages to the user, formatted with title and message
+    MessageBox.Show($"{title}: {message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+}
+```
+
+This approach is implemented across various components of the application to guarantee that users are immediately and effectively notified of any issues in a clear and straightforward manner. For instance, if there are interruptions during the logo upload or while generating the QR code, the application invokes the `ShowError` method to provide a detailed explanation of the problem.
+
+### Complete Code Example Synthesis
+
+Below is the entirety of the code which serves to illustrate the overall process clearly. This comprehensive example encapsulates all functionalities described previously and ties together the concepts into a cohesive application.
 
 ```cs
 using IronQr;
@@ -1416,6 +1324,7 @@ namespace IronQR_QR_Generator_WinForms
         {
             return $"#{color.R:X2}{color.G:X2}{color.B:X2}";
         }
+
         private void UpdateColor(ref Color targetColor, Control display, bool isBackground)
         {
             if (select_color.ShowDialog() == DialogResult.OK)
@@ -1542,6 +1451,9 @@ namespace IronQR_QR_Generator_WinForms
 }
 ```
 
+This provided code is ready to be implemented in a Windows Forms application and includes functionalities for selecting colors, setting up logo images, generating QR codes, saving files, and resetting all input fields to their default settings.
+```
+
 ```cs
 using IronQr;
 using IronSoftware.Drawing;
@@ -1551,118 +1463,117 @@ namespace IronQR_QR_Generator_WinForms
 {
     public partial class QR_Generator : Form
     {
-        private string qrCodesDirectory = System.IO.Path.Combine(Application.StartupPath, "QR Codes");
-        private Color bgColor = Color.White;
-        private Color color = Color.Black;
-        private AnyBitmap? logoBmp;
+        string qrCodeStoragePath = System.IO.Path.Combine(Application.StartupPath, "QR Codes");
+        Color defaultBackgroundColor = Color.White;
+        Color defaultForegroundColor = Color.Black;
+        AnyBitmap? selectedLogo = null;
 
         public QR_Generator()
         {
             InitializeComponent();
-            InitializeLicense();
-            EnsureFolderPresence(qrCodesDirectory);
+            InitLicenseKey();
+            VerifyDirectory(qrCodeStoragePath);
         }
 
-        private static void InitializeLicense()
+        private static void InitLicenseKey()
         {
             IronQr.License.LicenseKey = "License-Key";
         }
 
-        private static void EnsureFolderPresence(string directoryPath)
+        private static void VerifyDirectory(string path)
         {
-            if (!System.IO.Directory.Exists(directoryPath))
+            if (!System.IO.Directory.Exists(path))
             {
-                System.IO.Directory.CreateDirectory(directoryPath);
+                System.IO.Directory.CreateDirectory(path);
             }
         }
 
-        private void OnColorButtonClicked(object sender, EventArgs e)
+        private void btn_color_Click(object sender, EventArgs e)
         {
-            ChooseAndUpdateColor(ref color, txt_selected_color, isBackground: false);
+            AdjustColor(ref defaultForegroundColor, txt_selected_color, false);
         }
 
-        private void OnBackgroundButtonClicked(object sender, EventArgs e)
+        private void btn_background_Click(object sender, EventArgs e)
         {
-            ChooseAndUpdateColor(ref bgColor, txt_selected_bgcolor, isBackground: true);
+            AdjustColor(ref defaultBackgroundColor, txt_selected_bgcolor, true);
         }
 
         private string ConvertColorToHex(System.Drawing.Color color)
         {
             return $"#{color.R:X2}{color.G:X2}{color.B:X2}";
         }
-
-        private void ChooseAndUpdateColor(ref Color targetColor, Control displayControl, bool isBackground)
+        private void AdjustColor(ref Color targetColor, Control displayControl, bool isBackgroundColor)
         {
             if (select_color.ShowDialog() == DialogResult.OK)
             {
-                string hexColor = ConvertColorToHex(select_color.Color);
+                var hexColor = ConvertColorToHex(select_color.Color);
                 targetColor = new Color(hexColor);
                 displayControl.BackColor = select_color.Color;
             }
         }
 
-        private void OnLogoButtonClicked(object sender, EventArgs e)
+        private void btn_logo_Click(object sender, EventArgs e)
         {
             if (select_logo.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    logoBmp = new AnyBitmap(select_logo.FileName);
+                    selectedLogo = new AnyBitmap(select_logo.FileName);
                     selected_logo.Image = Image.FromFile(select_logo.FileName);
                 }
                 catch (Exception ex)
                 {
-                    PresentError("Error loading logo", ex.Message);
+                    DisplayError("Logo loading error", ex.Message);
                 }
             }
         }
 
-        private void OnGenerateButtonClick(object sender, EventArgs e)
+        private void btn_generate_Click(object sender, EventArgs e)
         {
-            CreateAndDisplayQRCode();
+            CreateQRCode();
         }
 
-        private void CreateAndDisplayQRCode()
+        private void CreateQRCode()
         {
             try
             {
                 var qrOptions = new QrOptions(QrErrorCorrectionLevel.High);
-                var qrInstance = QrWriter.Write(txt_QR.Text, qrOptions);
-                var stylingOptions = ConfigureStylingOptions();
-                var generatedQR = qrInstance.Save(stylingOptions);
-                string fileName = $"{DateTime.Now:yyyyMMddHHmmssfff}_QR.png";
-                string fullFilePath = System.IO.Path.Combine(qrCodesDirectory, fileName);
-                generatedQR.SaveAs(fullFilePath);
-                pictureBox.Image = Image.FromFile(fullFilePath);
+                var qrCode = QrWriter.Write(txt_QR.Text, qrOptions);
+                var style = SetupStyleOptions();
+                var qrImage = qrCode.Save(style);
+                var uniqueFileName = $"{DateTime.Now:yyyyMMddHHmmssfff}_QR.png";
+                var fullPath = System.IO.Path.Combine(qrCodeStoragePath, uniqueFileName);
+                qrImage.SaveAs(fullPath);
+                pictureBox.Image = Image.FromFile(fullPath);
             }
             catch (Exception ex)
             {
-                PresentError("QR code generation or saving failed", ex.Message);
+                DisplayError("QR Code generation error", ex.Message);
             }
         }
 
-        private QrStyleOptions ConfigureStylingOptions()
+        private QrStyleOptions SetupStyleOptions()
         {
             return new QrStyleOptions
             {
-                BackgroundColor = bgColor,
-                Color = color,
-                Dimensions = txt_dimension.Value > 0 ? Convert.ToInt32(txt_dimension.Value) : throw new ArgumentException("Invalid dimension selection."),
+                BackgroundColor = defaultBackgroundColor,
+                Color = defaultForegroundColor,
+                Dimensions = txt_dimension.Value > 0 ? Convert.ToInt32(txt_dimension.Value) : throw new ArgumentException("Invalid dimensions"),
                 Margins = Convert.ToInt32(txt_margin.Value),
-                Logo = logoBmp != null ? new QrLogo { Bitmap = logoBmp, Width = 50, Height = 50, CornerRadius = 5 } : null
+                Logo = selectedLogo != null ? new QrLogo { Bitmap = selectedLogo, Width = 50, Height = 50, CornerRadius = 5 } : null
             };
         }
 
-        private void OnSaveButtonClicked(object sender, EventArgs e)
+        private void btn_save_Click(object sender, EventArgs e)
         {
-            PersistQRCode();
+            SaveGeneratedQRCode();
         }
 
-        private void PersistQRCode()
+        private void SaveGeneratedQRCode()
         {
             if (pictureBox.Image == null)
             {
-                MessageBox.Show("No QR code available to save.", "Error");
+                MessageBox.Show("No QR code is available to save.", "Error");
                 return;
             }
 
@@ -1674,41 +1585,42 @@ namespace IronQR_QR_Generator_WinForms
             {
                 try
                 {
-                    pictureBox.Image.Save(saveFileDialog.FileName, ResolveImageFormat(saveFileDialog.FileName));
-                    MessageBox.Show("QR Code successfully saved!", "Success");
+                    pictureBox.Image.Save(saveFileDialog.FileName, IdentifyImageFormat(saveFileDialog.FileName));
+                    MessageBox.Show("QR Code saved successfully!", "Success");
                 }
                 catch (Exception ex)
                 {
-                    PresentError("Failed to save the QR code", ex.Message);
+                    DisplayError("Saving QR code error", ex.Message);
                 }
             }
         }
 
-        private System.Drawing.Imaging.ImageFormat ResolveImageFormat(string filePath)
+        private System.Drawing.Imaging.ImageFormat IdentifyImageFormat(string filePath)
         {
-            return System.IO.Path.GetExtension(filePath).ToLower() == ".jpg" ? System.Drawing.Imaging.ImageFormat.Jpeg : System.Drawing.Imaging.ImageFormat.Png;
+            string extension = System.IO.Path.GetExtension(filePath).ToLower();
+            return extension == ".jpg" ? System.Drawing.Imaging.ImageFormat.Jpeg : System.Drawing.Imaging.ImageFormat.Png;
         }
 
-        private void OnResetButtonClicked(object sender, EventArgs e)
+        private void btn_reset_Click(object sender, EventArgs e)
         {
-            ClearFields();
+            ClearAllFields();
         }
 
-        private void ClearFields()
+        private void ClearAllFields()
         {
-            txt_QR.Text = string.Empty;
+            txt_QR.Clear();
             txt_dimension.Value = 200;
             txt_margin.Value = 0;
-            bgColor = Color.White;
-            color = Color.Black;
-            txt_selected_color.BackColor = bgColor;
-            txt_selected_bgcolor.BackColor = color;
-            logoBmp = null;
+            defaultBackgroundColor = Color.White;
+            defaultForegroundColor = Color.Black;
+            txt_selected_color.BackColor = System.Drawing.Color.White;
+            txt_selected_bgcolor.BackColor = System.Drawing.Color.Black;
+            selectedLogo = null;
             selected_logo.Image = null;
             pictureBox.Image = null;
         }
 
-        private static void PresentError(string title, string message)
+        private static void DisplayError(string title, string message)
         {
             MessageBox.Show($"{title}: {message}", "Error");
         }
@@ -1716,73 +1628,71 @@ namespace IronQR_QR_Generator_WinForms
 }
 ```
 
-## Step 5: Launch the Application
+## Step 5: Launching the Application
 
-Upon launching the application, the main interface is displayed as illustrated in the provided visuals. This interface is methodically arranged into distinct sections dedicated to input, styling, output, and functional actions.
+Upon launching the application, the main interface is displayed as illustrated in the included image. It's methodically arranged into separate sections dedicated to input, styling, output, and operational controls. This structured layout ensures an intuitive user experience, facilitating easy navigation and interaction within the application.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/application-output.webp" alt="Application Output"  class="img-responsive add-shadow img-margin">
 </div>
 
-The initial phase of creating a QR code begins by inputting the desired content, like a website URL or text message, into the designated "Input QR Text" section. Following this, customization options are available, such as adding a logo to make the QR code distinctive. This is done by clicking the "Select Logo" button. Once chosen, the logo appears in the preview area next to the button for confirmation, seamlessly integrating the logo into the overall design of the QR code.
+The initial phase of creating the QR code is to input your information into the "Input QR Text" box. This information could be a website address or any text that you want to encode within your QR code. Following this, you can customize your QR code by choosing a logo. This is done by pressing the "Select Logo" button. Once a logo is selected, it will show up in the preview section next to the button, signifying its successful integration into your QR code's design.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/logo.webp" alt="Logo"  class="img-responsive add-shadow img-margin">
 </div>
 
-Upon selecting a logo, the next step involves selecting colors for both the foreground and background of the QR code. By interacting with the designated buttons for color selection, the colors that are chosen are instantly displayed in the color display boxes adjacent to each button. This visual feedback confirms the selections made, ensuring that the color choices are visually registered and verified.
+After selecting the logo, we proceed to pick the colors for both the foreground and the background of the QR code. When we click the color selection buttons, the chosen colors are instantly shown in the display boxes adjacent to each button. This instant feedback confirms that our color choices have been successfully recorded.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/color-selection.webp" alt="Color Selector"  class="img-responsive add-shadow img-margin">
 </div>
 
-For this specific QR code creation, the dimensions were configured to 500 to match our requirements, ensuring the QR code is appropriately sized. Additionally, we set the margins to 20 to offer a protective border around the QR code, aiding in avoiding scanning complications.
+For this specific QR code, we configured the dimensions to 500, which guarantees that the code fits our requirements perfectly, and set the margins at 20 to offer a sufficient border around the QR code, enhancing its readability during scans.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/dimensions.webp" alt="Dimensions"  class="img-responsive add-shadow img-margin">
 </div>
 
-Once all necessary inputs and customization preferences have been established, we initiate the generation of the QR code by interacting with the "Generate QR" button. Subsequently, the application utilizes our provided inputs to generate and showcase the newly minted QR code within the output display area.
+Once everything is configured according to our preferences, we click on the "Generate QR" button to start the creation of the QR code. The application takes the provided data and styling choices and showcases the newly generated QR code in the output display area.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/reading-qr-code-output.webp" alt="Reading QR Codes Output"  class="img-responsive add-shadow img-margin">
 </div>
 
-To preserve the QR code we've generated, we would press the "Save QR" button. This triggers a dialog box that lets us determine where and in what file format to store the QR code image.
+To preserve the generated QR code, users can click on the "Save QR" button. This will prompt a save dialog to appear, where users can select the desired location and file format for the QR code image.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/save-dialog.webp" alt="Save Dialog"  class="img-responsive add-shadow img-margin">
 </div>
 
-Upon successfully saving the QR code, a success notification will appear, verifying that the QR code has been securely saved.
+Once the saving process completes successfully, a confirmation message appears indicating that the QR code has been saved accurately.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/success-message.webp" alt="Success Message"  class="img-responsive add-shadow img-margin">
 </div>
 
-Should you require initiating a fresh QR code or wish to reset all previous inputs, the "Reset Form" button effectively returns the form to its initial setup. This clears every field and selection, preparing the environment afresh for generating a new QR code.
+Should there be a need to reset the application or generate a new QR code, the "Reset Form" button can be clicked to restore the form to its initial settings. This action erases all current entries and choices, preparing the system for a fresh QR code creation.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/reset-form.webp" alt="Reset Form"  class="img-responsive add-shadow img-margin">
 </div>
 
-### QR Code Created Using IronQR
+## QR Code Output
 
-Below is the QR code produced with the help of IronQR:
+Below is the QR code that has been created by the IronQR technology:
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-output.webp" alt="Generated QR Code" class="img-responsive add-shadow img-margin">
+	<img src="https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-output.webp" alt="QR Code Output" class="img-responsive add-shadow img-margin">
 </div>
-
-This image showcases the finalized QR code which was generated using IronQR.
 
 <div class="content-img-align-center">
 	<img src="/static-assets/qr/tutorials/csharp-qr-code-generator-application/qr-code-output.webp" alt="QR Code Output"  class="img-responsive add-shadow img-margin">
 </div>
 
-### Conclusion
+## Conclusion
 
-To sum up, this guide has meticulously guided you through creating QR codes within a C# application utilizing the IronQR library. From the initial setup in Visual Studio, incorporating the IronQR library, crafting an intuitive user interface, to programming the backend logic, we've illustrated the straightforward process of integrating QR code functionality into your software projects.
+To summarize, this tutorial has guided you through creating QR codes with the IronQR library in a C# application, including setting up your project in Visual Studio, implementing the IronQR library, crafting an intuitive interface, and constructing the necessary backend logic. This walkthrough has shown how seamlessly QR code features can be integrated into your applications.
 
-For anyone keen to delve deeper into what IronQR can offer, it's important to note that IronQR provides a [free trial](https://ironsoftware.com/csharp/barcode/) to help you get started on your projects. If you choose to employ IronQR for your professional needs, licensing begins at a budget-friendly rate, ensuring you have access to top-tier QR code generation tools at a reasonable cost.
+For those keen to delve deeper into what IronQR can offer, it's important to mention that IronQR provides a [free trial](https://ironsoftware.com/csharp/ocr/trial-license) to help you get started. If you choose to incorporate IronQR into your projects, licenses begin at `"$liteLicense"`, making it an affordable option for generating QR codes at a professional level.
 

@@ -1,16 +1,13 @@
 using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+namespace IronQR.Examples.Tutorial.CsharpQrCodeGeneratorApplication
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
-            private static void EnsureDirectoryExists(string path)
+            private System.Drawing.Imaging.ImageFormat DetermineImageFormat(string filePath)
             {
-                if (!System.IO.Directory.Exists(path))
-                {
-                    System.IO.Directory.CreateDirectory(path);
-                }
+                return System.IO.Path.GetExtension(filePath).ToLower() == ".jpg" ? System.Drawing.Imaging.ImageFormat.Jpeg : System.Drawing.Imaging.ImageFormat.Png;
             }
         }
     }

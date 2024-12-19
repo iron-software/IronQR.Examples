@@ -1,9 +1,9 @@
 using IronQR;
-namespace ironqr.CsharpQrCodeGeneratorApplication
+namespace IronQR.Examples.Tutorial.CsharpQrCodeGeneratorApplication
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             public QR_Generator()
             {
