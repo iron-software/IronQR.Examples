@@ -1,26 +1,26 @@
-# How to Decode QR Code from Images
+# How to Read QR Codes from Images
 
 ***Based on <https://ironsoftware.com/how-to/read-qr-codes-from-image/>***
 
 
-Decoding a QR code involves the extraction and interpretation of data embedded within the code, typically accomplished using imaging technology paired with specific software capable of reading the QR code’s content. This content often includes text, website URLs, contact details, and more.
+Extracting information from QR codes involves capturing and decoding the encapsulated data using appropriate hardware and software. This information can range from simple text and URLs to contact information and other data types.
 
-## Decipher QR Codes from Image Files
+## Extracting QR Codes from Various Image Types
 
-IronQR excels in its ability to seamlessly decode QR codes from a variety of image formats. Supported formats include:
+IronQR excels with its inherent ability to extract QR codes from a multitude of image formats with ease. Supported formats include:
 
-- **JPEG** (Joint Photographic Experts Group)
-- **PNG** (Portable Network Graphics)
-- **GIF** (Graphics Interchange Format)
-- **TIFF** (Tagged Image File Format)
-- **BMP** (Bitmap Image File)
-- **WBMP**
-- **WebP**
-- **ICO** (Icon)
-- **WMF**
-- **RAW** (Raw Format)
+- Joint Photographic Experts Group (JPEG)
+- Portable Network Graphics (PNG)
+- Graphics Interchange Format (GIF)
+- Tagged Image File Format (TIFF)
+- Bitmap Image File (BMP)
+- WBMP
+- WebP
+- Icon (ICO)
+- Windows Metafile (WMF)
+- Raw image formats (RAW)
 
-This capability is provided by the [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/) library. Below, we demonstrate how to use IronQR to decode a QR code from an image.
+This capability is powered by the open-source library, [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/). Let's explore the procedure for utilizing IronQR to read QR codes from an image.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -28,40 +28,44 @@ This capability is provided by the [IronDrawing](https://ironsoftware.com/open-s
     </div>
 </div>
 
-```cs
-using IronQr;
-using IronSoftware.Drawing;
-using System.Collections.Generic;
-using System;
+```csharp
+// Include the necessary namespaces for IronQR and IronDrawing
+using IronSoftware.Drawing; 
+using IronBarcode;
 
-// Initialize the image from which the QR Code will be read
-var imageToDecode = AnyBitmap.FromFile("IMAGE_TO_READ.png");
-
-// Prepare the image input for decoding
-QrImageInput qrInput = new QrImageInput(imageToDecode);
-
-// Instantiate the QR Code reader
-QrReader qrReader = new QrReader();
-
-// Decode the QR Code from the image
-IEnumerable<QrResult> qrResults = qrReader.Read(qrInput);
-
-// Output the decoded data
-foreach (var qrResult in qrResults)
+public class QRCodeReader
 {
-    Console.WriteLine(qrResult.Value);
+    public static void Main()
+    {
+        // Load the image file into the application
+        using (var inputImage = Image.FromFile("path/to/your/image/file.webp"))
+        {
+            // Initialize a QrImageInput object with the loaded image
+            var qrImageInput = new QrImageInput(inputImage);
+
+            // Execute QR code decoding on the provided image
+            var result = BarcodeReader.Read(qrImageInput);
+
+            // Output the decoded QR code data
+            foreach (var barcodeResult in result.Barcodes)
+            {
+                Console.WriteLine($"QR Code Data: {barcodeResult.Value}");
+            }
+        }
+    }
 }
 ```
+*Note: Modify "path/to/your/image/file.webp" to the specific path where your QR code image is located.*
 
-<i>Interested in finding out what the QR codes in our sample images contain? Apply the above code snippet to discover!</i>
+<i>Try scanning the QR code in the provided image using the above code example!</i>
 
 <hr>
 
-## Types of QR Codes Supported
+## Supported Types of QR Codes
 
-IronQR supports decoding various QR code formats. Here are the supported types:
+IronQR supports a variety of QR codes for decoding and generation, outlined below:
 
-- **QRCode**: The standard and most widely used type, capable of containing a vast amount of data—up to 7,089 numeric characters or 4,296 alphanumeric characters. This versatility makes it suitable for multiple uses, from linking to websites to storing personal information.
+- **QR Code**: The standard and most widely used QR code today, capable of holding extensive data amounts up to 7,089 numeric characters or 4,296 alphanumeric ones, suitable for a variety of uses including URLs and contact details.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -69,18 +73,18 @@ IronQR supports decoding various QR code formats. Here are the supported types:
     </div>
 </div>
 
-- **MicroQRCode**: This more compact variation is perfect for limited space applications, capable of storing up to 35 numeric characters or 21 alphanumeric characters. It’s ideal for small product packaging or tiny labels.
+- **Micro QR Code**: A compact variant designed for space-constrained applications. It accommodates up to 35 numeric or 21 alphanumeric characters, making it perfect for small packaging or labels.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/MicroQRCode.webp" alt="QR code" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/MicroQRCode.webp" alt="Micro QR code" class="img-responsive add-shadow">
     </div>
 </div>
 
-- **RMQRCode**: The Rectangular Micro QR Code is a versatile, compact QR solution that fits well in uniquely shaped places thanks to its rectangular design. While it holds a similar amount of data as the Micro QR Code, it is optimized for non-square spaces.
+- **RM QR Code**: A novel rectangular version of the QR code that adapts flexibly to varied aspect ratios. This is particularly useful for items with rectangular labeling spaces, and it stores a data amount similar to the Micro QR Code.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/RMQRCode.webp" alt="QR code" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/RMQRCode.webp" alt="Rectangular QR code" class="img-responsive add-shadow">
     </div>
 </div>

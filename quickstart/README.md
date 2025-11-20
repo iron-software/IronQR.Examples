@@ -1,108 +1,107 @@
-# Getting Started with IronQR
+# Introduction to IronQR
 
 ***Based on <https://ironsoftware.com/docs/docs/>***
 
 
-## IronQR: The QR Code Generator and Reader for .NET
+## Overview of IronQR: The QR Code Processing Library for .NET
 
-**IronQR** offers a robust library from Iron Software, specialized in both generating and decoding QR Codes. Leveraging an advanced Machine Learning model, it ensures optimal performance across various platforms including Mobile, Desktop, and Cloud environments.
+**IronQR** stands as Iron Software’s specialized library designed for both creating and reading QR codes. It boasts a state-of-the-art Machine Learning Model and supports various platforms including Mobile, Desktop, and Cloud, ensuring seamless QR code detection and generation.
 
-### System Requirements
+### System and Framework Support
 
-**IronQR** supports a wide range of platforms which include:
+**IronQR** provides comprehensive compatibility across multiple platforms:
 
-#### .NET Version Compatibility:
+#### Supported .NET Versions:
+
 - **C#**, **VB.NET**, **F#**
 - **.NET 7, 6**, 5, and Core 3.1+
 - .NET Standard (2.0+)
 - .NET Framework (4.6.2+)
 
 #### Supported Operating Systems and Environments:
+
 - **Windows** (10+, Server 2016+)
 - **Linux** (Ubuntu, Debian, CentOS, etc.)
-- **macOS** (Version 10+)
-- **iOS** (Version 12+)
-- **Android** API 21+ (Version 5 "Lollipop")
-- **Docker** (Compatible with Windows, Linux, Azure setups)
-- **Azure** (VPS, WebApp, Function facilities)
-- **AWS** (EC2, Lambda configurations)
+- **macOS** (10+)
+- **iOS** (12+)
+- **Android** API 21+ (v5 "Lollipop")
+- **Docker** (Windows, Linux, Azure)
+- **Azure** (VPS, WebApp, Function)
+- **AWS** (EC2, Lambda)
 
-#### .NET Project Types Coverage:
+#### Supported .NET Project Types:
+
 - **Web** (Blazor & WebForms)
 - **Mobile** (Xamarin & MAUI)
 - **Desktop** (WPF & MAUI)
-- **Console** (Applications & Libraries)
+- **Console** (App & Library)
 
-## Installation Process
+## Setting Up IronQR
 
-### Installing the IronQR Library
+### Main IronQR Library
 
-To install the IronQR library, use the following command in your package manager:
+The process to incorporate IronQR into your project is straightforward. Utilize the following command to install the library:
 
 ```shell
 Install-Package IronQR
 ```
 
-You can also access it directly on the [NuGet website for IronQR](https://www.nuget.org/packages/IronQR).
+Or, directly acquire it from the [official NuGet repository for IronQR](https://www.nuget.org/packages/IronQR).
 
-After installation, include `using IronQR;` at the beginning of your C# files to start utilizing the library.
+After installation, include `using IronQR;` in your C# code to begin using the library.
 
-### IronQR.Slim Description
+### IronQR.Slim Version
 
-The IronQR.Slim version focuses on QR Code Generation and basic QR Code Reading capabilities.
-
-While it lacks the comprehensive Machine Learning model and its adapters present in the full `IronQR` package, **IronQR.Slim** is an excellent alternative for those looking to maintain a smaller package footprint without the enhanced detection capabilities. To install the slim version, enter the following:
+For a more streamlined version, `IronQR.Slim` offers basic QR code generation and reading facilities. While the main `IronQR` package includes advanced features like custom Machine Learning Models, `IronQR.Slim` is available for those preferring a smaller package without enhanced detection capabilities. Install the slim package using:
 
 ```shell
-:InstallCmd Install-Package IronQR.Slim
+Install-Package IronQR.Slim
 ```
 
+## Practical Examples
 
-
-## Sample Code Usage
-
-### Example: Generating a QR Code
+### Example of Generating a QR Code
 
 ```csharp
 using IronQr;
 using IronSoftware.Drawing;
 
-// Initialize a new QR Code object
-QrCode myQr = QrWriter.Write("hello world");
+// Initialize a QR Code generator
+QrCode myQrCode = QrWriter.Write("hello world");
 
-// Convert QR Code to a Bitmap image
-AnyBitmap qrImage = myQr.Save();
+// Convert QR Code to a Bitmap object
+AnyBitmap qrBitmap = myQrCode.Save();
 
-// Output the QR Code Bitmap as a file
-qrImage.SaveAs("qr.png");
+// Export the Bitmap as a PNG file
+qrBitmap.SaveAs("qr.png");
 ```
 
-### Example: Reading a QR Code
+### Example of Reading a QR Code
 
 ```csharp
 using IronQr;
 using IronSoftware.Drawing;
 using System.Collections.Generic;
 
-// Load an image file to decode QR Codes from
-var inputBmp = AnyBitmap.FromFile("IMAGE_TO_READ.png");
+// Load the image for QR code detection
+var sourceImage = AnyBitmap.FromFile("IMAGE_TO_READ.png");
 
-// Prepare the image for QR decoding
-QrImageInput imageInput = new QrImageInput(inputBmp);
+// Assign the image to the QR Reader
+QrImageInput qrInput = new QrImageInput(sourceImage);
 
-// Instantiate a QR Code reader
-QrReader reader = new QrReader();
+// Instantiate a QR code reader
+QrReader qrReader = new QrReader();
 
-// Decode the QR Codes embedded in the image
-IEnumerable<QrResult> results = reader.Read(imageInput);
+// Execute reading and retrieve QR Codes
+IEnumerable<QrResult> foundQrCodes = qrReader.Read(qrInput);
 ```
 
-## Support Information
+## Additional Information & Support
 
-### General Information
+### Further Information
 
-For additional details about Iron Software, please head to our official site: <https://ironsoftware.com/>
+Visit the Iron Software homepage for more details: [Iron Software](https://ironsoftware.com/)
 
-### Customer Support
+### Technical Support
 
-For any support or technical questions, feel free to contact us via email at: <mailto:support@ironsoftware.com>
+For assistance and general queries, please contact Iron Software via email at: [support@ironsoftware.com](mailto:support@ironsoftware.com)

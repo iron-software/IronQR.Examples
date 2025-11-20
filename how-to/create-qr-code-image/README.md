@@ -1,57 +1,71 @@
-# Generating a QR Code as an Image
+# Generating a QR Code Image
 
 ***Based on <https://ironsoftware.com/how-to/create-qr-code-image/>***
 
 
-Creating a QR code image is essentially rendering data — such as a URL, text, or other data forms — into a visual format via a 2D matrix of black and white blocks. These blocks can then be interpreted using either a camera or a QR code scanner application.
+Creating a QR code image involves producing a QR code, which is a two-dimensional barcode that stores information in a matrix of black and white squares. This format allows for the coded data, such as URLs, text, or other types of data, to be interpreted when scanned by a QR code reader or a camera.
 
-## Generating Images of QR Codes
+## Generate and Save QR Codes as Images Using IronQR
 
-Generating a QR code using IronQR is straightforward, requiring minimal code. Initially, a QR code is created as an object; it can then be saved as an image through a combination of methods. See the example below:
+Generating a QR code using the IronQR library is straightforward. Start by creating a QR code in a single line, then use various methods to save it as an image.
 
-```cs
+```csharp
 using IronQr;
 using IronSoftware.Drawing;
 
-// Instantiate a new QR code
+// Initialize a QR code
 QrCode qrCode = QrWriter.Write("12345");
 
-// Save the QR code in an AnyBitmap object
-AnyBitmap qrImage = qrCode.Save();
+// Convert QR code to AnyBitmap
+AnyBitmap anyBitmap = qrCode.Save();
 
-// Export the AnyBitmap to a PNG file
-qrImage.SaveAs("simpleQrCode.png", AnyBitmap.ImageFormat.Png);
+// Output AnyBitmap to a file in PNG format
+anyBitmap.SaveAs("simpleQrCode.png", AnyBitmap.ImageFormat.Png);
 ```
 
-![QR code](https://ironsoftware.com/static-assets/qr/how-to/create-qr-code-image/simpleQrCode.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/qr/how-to/create-qr-code-image/simpleQrCode.webp" alt="QR code" class="img-responsive add-shadow">
+    </div>
+</div>
 
-The `Save` method facilitates the capture of the **AnyBitmap** object, from which you can export the QR code to various image formats, including:
+The `Save` method generates an **AnyBitmap** object. This object can be saved in different image formats, each suitable for various needs:
 
-- **JPEG (.jpg or .jpeg)**: A commonly used compression format for digital images, balancing file size with visual quality.
-- **PNG (.png)**: A lossless format ideal for digital graphics used online, featuring support for transparent backgrounds.
-- **BMP (.bmp)**: An uncompressed image format predominantly used on Windows platforms that keeps images in high quality but has large file sizes.
-- **GIF (.gif)**: A format capable of displaying animations and transparency, limited to 256 colors and often used for simple graphics on the web.
-- **TIFF (.tiff or .tif)**: A highly flexible format favored in professional photography which can be either compressed or uncompressed.
-- **WBMP (.wbmp)**: A monochrome image format for wireless applications, defaulting to BMP if not supported.
-- **WebP (.webp)**: A modern format offering efficient compression, both lossy and lossless, suited for web usage.
-- **Icon (.ico)**: Used for displaying small square icons in user interfaces, such as those in operating systems.
-- **WMF (.wmf)**: A format used mainly on Windows, capable of handling both vector and raster graphics, commonly utilized in legacy applications.
-- **RawFormat (.raw)**: This format stores raw image data from digital cameras, preserving maximum quality for professional photo editing.
+- **JPEG (.jpg or .jpeg)**: A popular compressed format for digital images. Although it uses lossy compression, it delivers a good balance between image quality and file size.
+- **PNG (.png)**: This format is preferred for the web due to its lossless compression and support for transparency, ensuring high-quality images without any data loss.
+- **Bmp (.bmp)**: An uncompressed format, primarily used in Windows environments. It preserves image quality but results in larger file sizes.
+- **GIF (.gif)**: Ideal for animations and images requiring transparency but limited to 256 colors. It's commonly used for simple graphics on websites.
+- **TIFF (.tiff or .tif)**: Often used in professional photography, this format is highly flexible and can be either lossless or compressed.
+- **WBMP (.wbmp)**: A monochrome image format used chiefly in mobile communications; it defaults to BMP if not supported.
+- **WebP (.webp)**: Provides superior compression techniques (both lossy and lossless), optimal for faster web loading.
+- **Icon (.ico)**: Used to create icons for programs and files, especially in user interfaces.
+- **WMF (.wmf)**: A format used mainly in Windows, suitable for both vector and raster graphics used in older systems.
+- **RawFormat (.raw)**: Captures unprocessed image data from digital cameras, preserving the highest quality for professional editing.
 
-<hr>
+## Types of QR Codes Supported
 
-## Supported Formats for QR Codes
+IronQR supports creating and decoding multiple QR code formats:
 
-IronQR supports various QR code formats, catering to different data storage requirements and physical size constraints:
+- **QRCode**: The standard and most widely used format today, capable of encoding substantial data—ideal for applications ranging from web addresses to personal contact details.
 
-- **QRCode**: The default and most widely used format, capable of encoding substantial information like URLs or contacts.
-  
-![Standard QR Code](https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/simpleQrCode.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/simpleQrCode.webp" alt="QR code" class="img-responsive add-shadow">
+    </div>
+</div>
 
-- **MicroQRCode**: A compact version suitable for constrained spaces, useful for small items like packaging or labels.
+- **MicroQRCode**: A smaller variant designed for limited space applications. While it holds less data, its small footprint is perfect for tiny product labels or small print areas.
 
-![Micro QR Code](https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/MicroQRCode.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/MicroQRCode.webp" alt="QR code" class="img-responsive add-shadow">
+    </div>
+</div>
 
-- **RMQRCode**: A rectangular variant of the QR code, ideal for specific applications where a rectangular output is beneficial. 
+- **RMQRCode**: A rectangular version of the QR code, allowing for a versatile aspect ratio to fit various shaped spaces. This format is similarly data-efficient to the Micro QR Code but caters to more specific spatial requirements.
 
-![Rectangular Micro QR Code](https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/RMQRCode.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/qr/how-to/read-qr-codes-from-image/RMQRCode.webp" alt="QR code" class="img-responsive add-shadow">
+    </div>
+</div>

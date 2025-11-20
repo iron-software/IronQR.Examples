@@ -1,5 +1,5 @@
 using IronQR;
-using IronQR.Examples.HowTo.LicenseKeys;
+using IronQR.Examples.GettingStarted.LicenseKeys;
 
 
 Section1.Run();

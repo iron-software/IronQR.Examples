@@ -6,11 +6,13 @@ namespace IronQR.Examples.Tutorial.CsharpQrWriting
     {
         public static void Run()
         {
+            // Load new logo image
+            AnyBitmap logo = AnyBitmap.FromFile("sample.png");
+            
+            // Add new logo to QR code style options
             QrStyleOptions styleOptions = new QrStyleOptions()
             {
-                // Change color
-                BackgroundColor = Color.Blue,
-                Color = Color.Red
+                Logo = new QrLogo(logo, 50, 50, 10),
             };
             
             string url = "https://ironsoftware.com/csharp/qr/";
