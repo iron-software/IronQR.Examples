@@ -1,5 +1,5 @@
 using IronSoftware.Drawing;
-using IronQr;
+using IronQr;
 using Color = IronSoftware.Drawing.Color;
 namespace IronQR.Examples.Tutorial.CsharpQrCodeGeneratorApplication
 {
