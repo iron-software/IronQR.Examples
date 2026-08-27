@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using System.Collections.Generic;
 using IronQr;
 namespace IronQR.Examples.Overview.Quickstart

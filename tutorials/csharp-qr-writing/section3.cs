@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using System.Text;
 using IronQr;
 namespace IronQR.Examples.Tutorial.CsharpQrWriting
