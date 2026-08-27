@@ -1,6 +1,6 @@
 # How to Read QR Codes from Images
 
-***Based on <https://ironsoftware.com/how-to/read-qr-codes-from-image/>***
+> Full guide: [How to Read QR Codes from Images](https://ironsoftware.com/how-to/read-qr-codes-from-image/)
 
 
 Extracting information from QR codes involves capturing and decoding the encapsulated data using appropriate hardware and software. This information can range from simple text and URLs to contact information and other data types.

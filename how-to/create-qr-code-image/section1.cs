@@ -1,5 +1,5 @@
 using IronSoftware.Drawing;
-using IronQR;
+using IronQr;
 namespace IronQR.Examples.HowTo.CreateQrCodeImage
 {
     public static class Section1

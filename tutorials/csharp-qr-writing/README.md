@@ -1,24 +1,20 @@
 # Generate QR Codes in C#
 
-***Based on <https://ironsoftware.com/tutorials/csharp-qr-writing/>***
-
-
-## Introduction
-
-IronQR empowers developers to craft QR codes, enabling them to incorporate popular image formats and personalize their design with various options such as background hues, margins, logos, and integration into PDFs. It also provides capabilities for advanced customization like error correction levels and version selection.
-
-This guide will delve into the significant features of IronQR by demonstrating examples to assist you in understanding how to implement QR code generation in C# effectively in your projects.
+> Full guide: [Generate QR Codes in C#](https://ironsoftware.com/tutorials/csharp-qr-writing/)
 
 ## Introduction
 
-IronQR empowers developers to generate QR codes in various common image formats while offering extensive customization options, including background colors, margins, and logos. Additionally, it allows QR codes to be incorporated into PDF documents. For sophisticated needs, IronQR provides the ability to manage error correction levels and versioning.
+IronQR generates QR codes in the common image formats and styles them with background colours, margins, and logos, or places them into PDFs. Error correction level and QR version are both configurable.
 
-This discussion will delve into the principal functionalities of IronQR through practical examples. It is designed to assist you in mastering QR code creation in C# and integrating these capabilities proficiently into your development projects.
+This guide works through IronQR's main features with examples of QR code generation in C#.
+
+## Introduction
+
+IronQR generates QR codes in the common image formats, with customization for background colours, margins, and logos, and places them into PDF documents. Error correction level and QR version are both configurable.
+
+The sections below cover IronQR's main functions with worked examples of QR code creation in C#.
 
 # Table of Contents
-
-***Based on <https://ironsoftware.com/tutorials/csharp-qr-writing/>***
-
 
 ---
 
@@ -54,7 +50,7 @@ This discussion will delve into the principal functionalities of IronQR through 
 
 ### Text, URLs, Numbers
 
-Utilizing IronQR, you can effortlessly transform various types of data such as text, URLs, and numerical values into QR codes. This functionality is ideal for generating QR codes that contain links, communicate information textually, manage inventory numbers, or embed any binary data into readable QR codes. IronQR streamlines the creation process through its `QrWriter` class which offers diverse methods capable of catering to different data inputs, simplifying the overall workflow.
+IronQR turns text, URLs, and numeric values into QR codes: links, plain text, inventory numbers, or arbitrary binary data. The `QrWriter` class carries a method for each kind of input.
 
 ```csharp
 using IronQr;
@@ -173,7 +169,7 @@ bitmapFromAlphanumeric.SaveAs("alphanumericQr.png");
 
 ### Binary Data and Streams Conversion
 
-Likewise, binary data and streams can be effortlessly transformed into QR codes using the identical `Write` method previously mentioned. This approach allows for the encoding of various forms of data into a scannable QR format with ease.
+Binary data and streams go through the same `Write` method, encoding either into a scannable QR code.
 
 ```csharp
 using IronQr;
@@ -238,9 +234,6 @@ bitmapImage.SaveAs("streamQr.png");
 ```
 
 # Crafting QR Codes with IronQR in C#
-
-***Based on <https://ironsoftware.com/tutorials/csharp-qr-writing/>***
-
 
 ## Introduction
 
@@ -350,11 +343,11 @@ memoryStreamQrImage.SaveAs("memoryStreamQr.png");
 
 ## Exporting QR Codes
 
-IronQR offers a versatile and adaptable approach to handling numerous file formats for diverse requirements. Utilize the `SaveAs` method to store QR codes in a variety of formats, including JPG, PNG, GIF, and TIFF.
+Use the `SaveAs` method to store QR codes as JPG, PNG, GIF, or TIFF.
 
 ### Saving an Image
 
-The `SaveAs` method in the `AnyBitmap` class intuitively identifies the file format by examining the suffix of the specified file path. For instance, a file path ending in `.png` is identified accordingly.
+The `SaveAs` method in the `AnyBitmap` class picks the file format from the extension of the file path. For instance, a file path ending in `.png` is identified accordingly.
 
 It's important to be aware that there isn't a pre-set default image format for the `SaveAs` method. Should you use a file extension that isn’t recognized, or if there’s an error in the extension you type, the file will nonetheless be saved, but it will have the wrong format.
 
@@ -378,9 +371,6 @@ Utilizing Microsoft's `System.Drawing.Images` object, developers have the abilit
 
 Note: `System.Drawing.Common` library functions exclusively on the Windows platform.
 
-Here is the paraphrased section of the article, with proper markdown formatting and code snippet enhancement:
-
-----
 ```csharp
 using IronQr;
 using System.Drawing;
@@ -399,7 +389,7 @@ qrBitmap.Save("qrBitmap.png");
 
 The `System.Drawing.Common` library sometimes presents challenges in cross-platform environments, which could lead to issues when maintaining applications that need to function across different operating systems. To address these challenges, IronQR is designed to be compatible with both `System.Drawing.Common` and `IronSoftware.Drawing`.
 
-IronQR leverages the `AnyBitmap` class from [`IronSoftware.Drawing`](https://ironsoftware.com/open-source/csharp/drawing/docs/), a versatile Bitmap class designed for universal compatibility. This class is capable of implicit conversions to various image formats, including:
+IronQR leverages the `AnyBitmap` class from [`IronSoftware.Drawing`](https://ironsoftware.com/open-source/csharp/drawing/docs/), a Bitmap class built for cross-platform compatibility. This class is capable of implicit conversions to various image formats, including:
 
 - `System.Drawing.Bitmap`
 - `System.Drawing.Image`
@@ -407,11 +397,11 @@ IronQR leverages the `AnyBitmap` class from [`IronSoftware.Drawing`](https://iro
 - `SixLabors.ImageSharp`
 - `Microsoft.Maui.Graphics.Platform.PlatformImage`
 
-This feature-rich open-source library ensures that IronQR can function seamlessly across multiple platforms, including .NET 8, .NET 7, .NET 6, .NET 5, .NET Core, .NET Standard, and .NET Framework 4.6.2 and above. For further details about the capabilities and integration of this library, visit the [IronSoftware.Drawing website](https://ironsoftware.com/open-source/csharp/drawing/).
+This open-source library lets IronQR run across .NET 8, .NET 7, .NET 6, .NET 5, .NET Core, .NET Standard, and .NET Framework 4.6.2 and above. For further details about the capabilities and integration of this library, visit the [IronSoftware.Drawing website](https://ironsoftware.com/open-source/csharp/drawing/).
 
 ### Affix QR Codes to PDF Documents
 
-IronQR empowers developers to affix QR codes onto pre-existing PDFs, simplifying the process for users to swiftly access links or vital resources. The capability to apply QR codes to either individual or multiple pages is available, enhancing the flexibility of document interactions.
+IronQR stamps QR codes onto existing PDFs, on a single page or across several, giving readers a quick route to a link or resource.
 
 #### Stamping a Single Page with a QR Code
 
@@ -439,8 +429,6 @@ qrCode.StampToExistingPdfPage(pdfPath, xPos, yPos, pageNumber);
 
 Similar to the previously mentioned example, the key distinction here is that the `StampToExistingPdfPages` method accepts a list of page numbers, allowing you to apply the QR code stamp to multiple pages at once.
 
-Here's the paraphrased section of the article with updated links:
-
 ```cs
 using IronQr;
 using System.Collections.Generic;
@@ -463,7 +451,7 @@ qrCode.StampToExistingPdfPages(pdfPath, xPos, yPos, pageList);
 
 ## QR Code Customization
 
-IronQR presents a wide array of customization capabilities that allow you to precisely adjust the behavior and performance of QR codes. Leveraging the `QrOptions` class, developers can tweak various settings including QR code version, encoding format, character encoding, and error correction standards. We'll dive deeper into each of these adjustable parameters.
+IronQR presents a wide array of customization capabilities that allow you to precisely adjust the behavior and performance of QR codes. The `QrOptions` class controls QR code version, encoding format, character encoding, and error correction standard. Each is covered below.
 
 ### Encoding
 
@@ -471,7 +459,7 @@ IronQR accommodates various QR code formats for creation and scanning. Here are 
 
 - `QRCode`: The traditional QR code widely recognized and utilized, capable of storing as many as 7,089 numeric characters or 4,296 alphanumeric characters.
 - `MicroQRCode`: A concise form of the typical QR code, able to hold up to 35 numeric characters or 21 alphanumeric characters.
-- `RMQRCode`: This variant, known as the Rectangular Micro QR Code, is optimized for flexible aspect ratios, providing a streamlined version of the traditional QR code.
+- `RMQRCode`: This variant, known as the Rectangular Micro QR Code, supports flexible aspect ratios, and is a more compact form of the traditional QR code.
 
 ```cs
 using IronQr;
@@ -496,7 +484,7 @@ qrImage.SaveAs("qrImage.png");
 
 ### Error Correction Capabilities in IronQR
 
-IronQR incorporates standard error correction methodologies to guarantee the reliability and robustness of all generated QR codes, even under adverse conditions. It also provides full flexibility in adjusting the error correction levels to refine the output according to specific needs.
+IronQR applies standard error correction so generated QR codes stay readable in poor conditions. It also provides full flexibility in adjusting the error correction levels to refine the output according to specific needs.
 
 IronQR supports four distinct levels of error correction accessible through the `QrErrorCorrectionLevel` enum:
 
@@ -527,15 +515,13 @@ AnyBitmap bitmapOfQr = generatedQrCode.Save();
 bitmapOfQr.SaveAs("qrImage.png");
 ```
 
-Enhanced error correction increases the robustness of QR codes, improving their readability even at lower resolutions. This feature enables QR codes to remain functional despite potential distortions or damages. Experiment with different levels to see which best fits your specific requirements.
+Higher error correction keeps QR codes readable at lower resolutions. This feature enables QR codes to remain functional despite potential distortions or damages. Experiment with different levels to see which best fits your specific requirements.
 
 ![alt text](https://ironsoftware.com/static-assets/qr/tutorials/csharp-qr-writing/correctionlevels.jpg)
 
 ### Adjusting QR Code Version
 
 Modifying the version of QR codes allows for the storage of varying amounts of data. Higher version numbers are perfect for extensive data applications such as logistics and inventory management. Conversely, lower versions suit compact data needs, such as encoding short URLs efficiently. To customize this, alter the `Version` property within the `QrOptions` class and use it with the `Write` method to create the QR code tailored to your specific needs.
-
-Here's the paraphrased section with updated and resolved URLs:
 
 ```cs
 using IronQr;
@@ -590,14 +576,11 @@ qrAsBitmap.SaveAs("qrImage.png");
 
 # Write QR Codes in C&num;
 
-***Based on <https://ironsoftware.com/tutorials/csharp-qr-writing/>***
-
-
 ## Introduction
 
-IronQR empowers developers to craft QR codes in popular image formats while allowing for personalization with different colors, margins, logos, and placement on PDFs. The library includes settings for error correction and control over QR code versions, enhancing its utility.
+IronQR generates QR codes in the common image formats, with control over colours, margins, logos, and placement on PDFs, plus error correction and QR version settings.
 
-This guide highlights IronQR's key features through examples, showing its application in generating QR codes using C# and leveraging it in software projects.
+This guide covers IronQR's main features through examples of QR code generation in C#.
 
 ## Table of Contents
 
@@ -698,7 +681,7 @@ Within the application, both byte arrays and streams can be processed into QR co
 
 ## Customizing QR Codes with IronQR
 
-IronQR not only simplifies the creation of QR codes but also empowers developers with robust customization options. By leveraging the `QrStyleOptions` class, you can tailor every aspect of your QR code to ensure it stands out and aligns with your needs. Let's delve into the customization possibilities available with IronQR. 
+The `QrStyleOptions` class controls the appearance of a QR code. The options are covered below.
 
 This flexibility in design and input handling makes IronQR a powerful tool for creating distinctive and effective QR codes. Here, we'll take a closer look at how to utilize these styling features effectively.
 
@@ -735,8 +718,6 @@ styledQrImage.SaveAs("qrURLResized.png");
 ### Margins & Borders
 
 Modifying the margins and borders is straightforward using the `Margins` attribute within the `QrStyleOptions` class. This attribute governs the QR code's edge spacing on each side, which is preset to 10 pixels. In our demonstration, we've adjusted this margin specification to 20 pixels.
-
-Here's the paraphrased section of the article:
 
 ```cs
 using IronQr;
@@ -828,7 +809,7 @@ qrCodeBitmap.SaveAs("qrURLColored.png");
 
 ### Incorporating a Logo
 
-You can enhance your QR codes by embedding your company's logo, making it instantly identifiable to your audience. This feature not only strengthens brand recognition but also personalizes the QR code. Utilizing the `Logo` property, you can effortlessly integrate your logo into the QR code’s design.
+You can enhance your QR codes by embedding your company's logo, making it instantly identifiable to your audience. The `Logo` property places the logo into the QR code’s design.
 
 ```cs
 using IronQr;
@@ -867,8 +848,6 @@ The `QrLogo` class provides extensive options to tailor the look of your logo. H
 - `Height`: This sets the height of the logo, with a default also set to 0.
 - `CornerRadius`: This property determines the radius for the corners of the logo, enabling you to create rounded corners. The default radius is 0, which results in square corners.
 
-Below is the paraphrased section of the article:
-
 ```csharp
 using IronQRCode;
 using IronSoftware.Drawing;
@@ -898,16 +877,11 @@ class Program
 }
 ```
 
-In this revised version, explanatory comments have been added, and there has been a slight restructuring to enhance readability and understanding of the code example.
-
 # Generating QR Codes with C#
-
-***Based on <https://ironsoftware.com/tutorials/csharp-qr-writing/>***
-
 
 ## Overview
 
-IronQR provides a robust framework for .NET developers to generate QR codes. It supports various image formats and allows customization like changing background colors, adding logos, margins, and enhanced details such as error correction levels and QR versions. This guide will help you leverage IronQR in your C# applications to efficiently create QR codes.
+IronQR generates QR codes for .NET. It supports the common image formats and customization of background colours, logos, margins, error correction levels, and QR versions. This guide covers using it from C#.
 
 ## Table of Contents
 
@@ -963,7 +937,7 @@ imageForAlphanumeric.SaveAs("alphaNumQr.png");
 
 ### Binary Data & Streams
 
-IronQR simplifies the conversion of binary data into QR codes using the `Write` method. This method is compatible with byte arrays and stream inputs for versatile QR generation.
+IronQR simplifies the conversion of binary data into QR codes using the `Write` method. It accepts both byte arrays and stream inputs.
 
 ```cs
 using IronQr;
@@ -996,7 +970,7 @@ using (MemoryStream memoryStream = new MemoryStream(dataForStream))
 
 ## Assessing Fault Tolerance 
 
-IronQR's extensive suite also prominently includes robust debugging and error-handling capabilities to complement its flexibility in file formats and customizations. This toolkit empowers developers with essential functionalities to manage exceptions effectively and to implement unit tests that ensure application reliability and robustness.
+IronQR also carries debugging and error-handling facilities for managing exceptions and writing unit tests against QR generation.
 
 ### Checksums
 
@@ -1018,7 +992,7 @@ IronQR enhances user experience by delivering comprehensive error reporting that
 
 ## Conclusion
 
-IronQR delivers an extensive array of functionalities for the creation and customization of QR codes within .NET applications. Featuring a robust set of features, this library enables developers to effortlessly generate QR codes with diverse data encodings, stylistic preferences, and various levels of error correction. Its capability to support multiple file formats and integrate smoothly into existing documents enhances its utility as a comprehensive tool for any QR code-related initiatives. Whether the requirement is for straightforward QR codes or complex, customized designs, IronQR is equipped to provide efficient and effective solutions tailored to your specific needs.
+IronQR creates and customizes QR codes in .NET applications, across data encodings, styles, and error correction levels. It writes to several file formats and stamps codes into existing documents, covering both plain QR codes and heavily customized designs.
 
 For additional information, explore the [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/), begin experimenting with a [free trial](https://ironsoftware.com/csharp/qr/trial-license), and evaluate the [licensing options](https://ironsoftware.com/csharp/qr/licensing/) available to determine the best fit for your projects.
 

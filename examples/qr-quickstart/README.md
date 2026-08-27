@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/qr-quickstart/>***
+> Full guide: [QR quickstart](https://ironsoftware.com/csharp/qr/examples/qr-quickstart/)
 
 IronQR is a robust C# library designed to streamline both the "C# QR Code Generation" and "C# QR Code Reading" processes. It enables developers across varying levels of experience to produce, interpret, and alter QR codes suitable for numerous applications. With IronQR, you have the capability to design QR codes that not only function effectively but are also visually attractive, incorporating custom styles like logos, colors, spacing, and embedded texts. Whether it's for boosting marketing strategies, improving user interactions, or simplifying enterprise operations, IronQR provides a flawless solution for integrating QR code technology into your projects. Experience the power of QR code solutions and take your C# applications to greater heights with IronQR.
 

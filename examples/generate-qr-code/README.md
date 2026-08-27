@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/generate-qr-code/>***
+> Full guide: [Generate QR code](https://ironsoftware.com/csharp/qr/examples/generate-qr-code/)
 
 QR codes have become a fundamental tool in our digital landscape, bridging the gap between physical items and online environments. They enhance user experiences by simplifying interactions, improving engagement, and optimizing business operations. Generating QR codes is crucial for fostering contactless interactions, quickly accessing essential information, and elevating marketing as well as data gathering initiatives. QR codes play a pivotal role in various activities, from facilitating link sharing and contactless transactions to managing inventory. The straightforward process of creating QR codes with tools like IronQR means that businesses and developers can efficiently meet changing consumer demands. Utilizing a QR code generation tool such as IronQR can significantly enhance your applications, offering both convenience and increased efficiency to end-users.
 

@@ -1,4 +1,4 @@
-using IronQR;
+using IronQr;
 
 
 // Add Your Own Code Here

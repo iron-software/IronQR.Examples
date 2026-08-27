@@ -1,4 +1,4 @@
-using IronQR;
+using IronQr;
 using IronQR.Examples.GettingStarted.LicenseKeys;
 
 

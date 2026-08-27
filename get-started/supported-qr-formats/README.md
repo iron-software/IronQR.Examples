@@ -1,6 +1,6 @@
 # Supported QR Code Formats
 
-***Based on <https://ironsoftware.com/get-started/supported-qr-formats/>***
+> Full guide: [Supported QR Code Formats](https://ironsoftware.com/csharp/qr/get-started/supported-qr-formats/)
 
 
 QR codes vary widely in form and function, designed to cater to different requirements related to **data capacity**, **physical space**, and **scanning flexibility**. From sizable shipping labels to tiny electronic components, IronQR is equipped to handle all primary QR standards, ensuring your QR integration needs are met with ease.

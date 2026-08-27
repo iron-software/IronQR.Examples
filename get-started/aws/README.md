@@ -1,6 +1,6 @@
 # Generating and Recognizing QR Codes with AWS Lambda and IronQR
 
-***Based on <https://ironsoftware.com/get-started/aws/>***
+> Full guide: [Generating and Recognizing QR Codes with AWS Lambda and IronQR](https://ironsoftware.com/csharp/qr/get-started/aws/)
 
 
 <div class="container-fluid">
@@ -35,31 +35,19 @@ FROM public.ecr.aws/lambda/dotnet:8
 
 # Update the operating environment and install any necessary packages
 
-***Based on <https://ironsoftware.com/get-started/aws/>***
-
 RUN dnf update -y
 
 WORKDIR /var/task
 
 # Copies the output of your .NET Lambda project from your local build directory into the Docker image.
 
-***Based on <https://ironsoftware.com/get-started/aws/>***
-
 # This should match the build output location specified in the aws-lambda-tools-defaults.json file,
-
-***Based on <https://ironsoftware.com/get-started/aws/>***
 
 # which typically points to "bin/Release/lambda-publish" based on the default configuration set by the AWS .NET Lambda Tooling.
 
-***Based on <https://ironsoftware.com/get-started/aws/>***
-
 # Alternatively, employing a Docker multi-stage build allows for building the project within the Docker image itself,
 
-***Based on <https://ironsoftware.com/get-started/aws/>***
-
 # as detailed in the project's documentation.
-
-***Based on <https://ironsoftware.com/get-started/aws/>***
 
 COPY "bin/Release/lambda-publish"  .
 ```

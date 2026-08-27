@@ -1,6 +1,6 @@
 # Introduction to IronQR
 
-***Based on <https://ironsoftware.com/docs/docs/>***
+> Docs: [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/)
 
 
 ## Overview of IronQR: The QR Code Processing Library for .NET
@@ -48,7 +48,7 @@ Install-Package IronQR
 
 Or, directly acquire it from the [official NuGet repository for IronQR](https://www.nuget.org/packages/IronQR).
 
-After installation, include `using IronQR;` in your C# code to begin using the library.
+After installation, include `using IronQr;` in your C# code to begin using the library.
 
 ### IronQR.Slim Version
 

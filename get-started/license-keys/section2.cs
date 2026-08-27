@@ -1,4 +1,4 @@
-using IronQR;
+using IronQr;
 namespace IronQR.Examples.GettingStarted.LicenseKeys
 {
     public static class Section2
@@ -6,10 +6,10 @@ namespace IronQR.Examples.GettingStarted.LicenseKeys
         public static void Run()
         {
             // Validate the license key
-            bool result = IronQR.License.IsValidLicense("IronQR-MYLICENSE-KEY-1EF01");
+            bool result = IronQr.License.IsValidLicense("IronQR-MYLICENSE-KEY-1EF01");
             
             // Check if IronQR is licensed successfully
-            bool isLicensed = IronQR.License.IsLicensed;
+            bool isLicensed = IronQr.License.IsLicensed;
         }
     }
 }
