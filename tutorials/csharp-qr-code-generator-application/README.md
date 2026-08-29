@@ -8,11 +8,6 @@ Discover the capabilities of <a href="https://ironsoftware.com/csharp/qr/">IronQ
 
 Welcome to our tutorial on how to create [QR codes](https://en.wikipedia.org/wiki/QR_code) with C#! As QR codes and .NET barcodes become increasingly essential for quick and efficient information distribution, whether through apps, websites, or simple information sharing, the demand for easy-to-generate QR solutions grows. In this guide, we'll explore how to generate QR codes using [IronQR](https://ironsoftware.com/csharp/qr/), designed to simplify the process for anyone using C#. We'll guide you through each step, providing all the necessary tools to start generating your own QR codes, whether for embedding in your apps or for learning purposes. Let’s dive in.
 
-## Setting Up IronQR in Your C# Project
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
-
------------
 First, let's install the **IronQR** NuGet Package.
 
 ```shell

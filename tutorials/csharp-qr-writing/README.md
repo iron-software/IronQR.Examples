@@ -21,30 +21,28 @@ The sections below cover IronQR's main functions with worked examples of QR code
 ## Contents Outline
 
 - **Data Input Options**
-  - [Text, Web Links, and Numeric Data](#anchor-text-urls-numbers)
-  - [Binary Data and Streams](#anchor-binary-streams)
+  - [Text, Web Links, and Numeric Data](#text-urls-numbers)
+  - Binary Data and Streams
 
 - **QR Code Exporting Methods**
-  - [Image File Saving](#anchor-save-as-image)
-  - [Utilizing `System.Drawing.Images`](#anchor-system-drawing-images)
-  - [Usage of `IronSoftware.Drawing`](#anchor-ironsoftware-drawing)
-  - [PDF Document Stamping](#anchor-stamp-on-pdf)
+  - Image File Saving
+  - Utilizing `System.Drawing.Images`
+  - Usage of `IronSoftware.Drawing`
+  - PDF Document Stamping
 
 - **Customizing QR Code Settings**
-  - [Choice of QR Encoding](#anchor-encoding)
-  - [Levels of Error Correction](#anchor-error-correction)
-  - [Selecting QR Code Versions](#anchor-qr-code-version)
-  - [Setting Character Encodings](#anchor-character-encoding)
+  - [Choice of QR Encoding](#encoding)
+  - [Levels of Error Correction](#error-correction-capabilities-in-ironqr)
+  - [Selecting QR Code Versions](#adjusting-qr-code-version)
+  - [Setting Character Encodings](#character-encoding-options)
 
 - **Styling Options for QR Codes**
-  - [Adjusting QR Code Size](#anchor-resize)
-  - [Setting Margins and Borders](#anchor-margins-borders)
-  - [Changing Color Schemes](#anchor-recolor)
-  - [Incorporating Logos into QR Codes](#anchor-add-a-logo)
+  - Adjusting QR Code Size
+  - Setting Margins and Borders
+  - Changing Color Schemes
+  - Incorporating Logos into QR Codes
 
 ---
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ## Input Data
 
@@ -244,23 +242,23 @@ This guide will demonstrate how to effectively implement IronQR in your C# proje
 ## Overview
 
 - **Data to Encode**
-  - [Text, URLs, Digits](#anchor-text-urls-numbers)
-  - [Binary Content & Data Streams](#anchor-binary-streams)
+  - [Text, URLs, Digits](#text-urls-numbers)
+  - Binary Content & Data Streams
 - **QR Code Export Options**
-  - [Image File Export](#anchor-save-as-image)
-  - [Using System.Drawing.Images](#anchor-system-drawing-images)
-  - [Utilizing IronSoftware.Drawing](#anchor-ironsoftware-drawing)
-  - [Embedding onto PDFs](#anchor-stamp-on-pdf)
+  - Image File Export
+  - Using System.Drawing.Images
+  - Utilizing IronSoftware.Drawing
+  - Embedding onto PDFs
 - **QR Code Configuration Options**
-  - [Code Encoding Techniques](#anchor-encoding)
-  - [Adjusting Error Prevention Levels](#anchor-error-correction)
-  - [QR Code Model Versions](#anchor-qr-code-version)
-  - [Setting Character Encoding Types](#anchor-character-encoding)
+  - [Code Encoding Techniques](#encoding)
+  - [Adjusting Error Prevention Levels](#error-correction-capabilities-in-ironqr)
+  - [QR Code Model Versions](#adjusting-qr-code-version)
+  - [Setting Character Encoding Types](#character-encoding-options)
 - **Customizing QR Code Appearance**
-  - [Dimension Adjustments](#anchor-resize)
-  - [Setting Margins & Borders](#anchor-margins-borders)
-  - [Changing Color Themes](#anchor-recolor)
-  - [Incorporating Logos](#anchor-add-a-logo)
+  - Dimension Adjustments
+  - Setting Margins & Borders
+  - Changing Color Themes
+  - Incorporating Logos
   
 ## Data to Encode
 
@@ -585,26 +583,25 @@ This guide covers IronQR's main features through examples of QR code generation 
 ## Table of Contents
 
 - **Input Data**
-  - [Text, URLs, Numbers](#anchor-text-urls-numbers)
-  - [Binary & Streams](#anchor-binary-streams)
+  - [Text, URLs, Numbers](#text-urls-numbers)
+  - Binary & Streams
 - **Export QR Codes**
-  - [Save as Image](#anchor-save-as-image)
-  - [System.Drawing.Images](#anchor-system-drawing-images)
-  - [IronSoftware.Drawing](#anchor-ironsoftware-drawing)
-  - [Stamp on PDF](#anchor-stamp-on-pdf)
+  - Save as Image
+  - [System.Drawing.Images](#systemdrawingimages)
+  - IronSoftware.Drawing
+  - Stamp on PDF
 - **QR Code Options**
-  - [Encoding](#anchor-encoding)
-  - [Error Correction](#anchor-error-correction)
-  - [QR Code Version](#anchor-qr-code-version)
-  - [Character Encoding](#anchor-character-encoding)
+  - [Encoding](#encoding)
+  - [Error Correction](#error-correction-capabilities-in-ironqr)
+  - [QR Code Version](#adjusting-qr-code-version)
+  - [Character Encoding](#character-encoding-options)
 - **QR Code Styling**
-  - [Resize](#anchor-resize)
-  - [Margins & Borders](#anchor-margins-borders)
-  - [Recolor](#anchor-recolor)
-  - [Add a Logo](#anchor-add-a-logo)
+  - Resize
+  - Margins & Borders
+  - Recolor
+  - Add a Logo
 
 <!-- Start trial section for quick access -->
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 ## Input Data
 
 ### Text, URLs, Numbers
@@ -886,25 +883,24 @@ IronQR generates QR codes for .NET. It supports the common image formats and cus
 ## Table of Contents
 
 - **Input Formats**
-  - [Text, URLs, Numeric Data](#anchor-text-urls-numbers)
-  - [Binary Data & Streams](#anchor-binary-streams)
+  - [Text, URLs, Numeric Data](#text-urls-numbers)
+  - Binary Data & Streams
 - **QR Code Output**
-  - [Image Saving Options](#anchor-save-as-image)
-  - [Images with System.Drawing](#anchor-system-drawing-images)
-  - [Using IronSoftware.Drawing](#anchor-ironsoftware-drawing)
-  - [PDF Applications](#anchor-stamp-on-pdf)
+  - Image Saving Options
+  - Images with System.Drawing
+  - Using IronSoftware.Drawing
+  - PDF Applications
 - **Customizing QR Codes**
-  - [Data Encoding](#anchor-encoding)
-  - [Adjusting Error Levels](#anchor-error-correction)
-  - [Choosing QR Versions](#anchor-qr-code-version)
-  - [Setting Encoding Characters](#anchor-character-encoding)
+  - [Data Encoding](#encoding)
+  - [Adjusting Error Levels](#error-correction-capabilities-in-ironqr)
+  - [Choosing QR Versions](#adjusting-qr-code-version)
+  - [Setting Encoding Characters](#character-encoding-options)
 - **Styling QR Codes**
-  - [Adjust Size](#anchor-resize)
-  - [Margins and Borders](#anchor-margins-borders)
-  - [Changing Colors](#anchor-recolor)
-  - [Integrating Logos](#anchor-add-a-logo)
+  - Adjust Size
+  - Margins and Borders
+  - Changing Colors
+  - Integrating Logos
 
-!!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 ## Input Formats
 
 ### Text, URLs, Numeric Data
