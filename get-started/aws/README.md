@@ -1,6 +1,6 @@
 # Generating and Recognizing QR Codes with AWS Lambda and IronQR
 
-> Full guide: [Generating and Recognizing QR Codes with AWS Lambda and IronQR](https://ironsoftware.com/csharp/qr/get-started/aws/)
+> Full guide: [Generating and Recognizing QR Codes with AWS Lambda and IronQR](https://ironsoftware.com/csharp/qr/get-started/aws/?utm_source=github)
 
 
 <div class="container-fluid">
@@ -132,7 +132,7 @@ It's advisable to start with a memory allocation of 512 MB and a timeout setting
 "function-timeout" : 300
 ```
 
-For issues with the function's execution, such as termination due to insufficient memory, increase the allocation as detailed in the [troubleshooting guide on AWS Lambda errors](https://ironsoftware.com/csharp/barcode/troubleshooting/aws-lambda-runtime-exited-signal-killed/).
+For issues with the function's execution, such as termination due to insufficient memory, increase the allocation as detailed in the [troubleshooting guide on AWS Lambda errors](https://ironsoftware.com/csharp/barcode/troubleshooting/aws-lambda-runtime-exited-signal-killed/?utm_source=github).
 
 ## Deploying the Function
 

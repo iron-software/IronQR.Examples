@@ -1,12 +1,12 @@
 # Building a QR Code Generator in C#
 
-> Full guide: [Building a QR Code Generator in C#](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/)
+> Full guide: [Building a QR Code Generator in C#](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/?utm_source=github)
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Discover the capabilities of <a href="https://ironsoftware.com/csharp/qr/">IronQR</a>, the latest .NET library from Iron Software designed for QR code generation and decoding. It decodes QR codes from any orientation using machine learning, at a reported 99.99% accuracy, and generates styled codes of your own. Start with IronQR <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">here</a>.
+Discover the capabilities of <a href="https://ironsoftware.com/csharp/qr/?utm_source=github">IronQR</a>, the latest .NET library from Iron Software designed for QR code generation and decoding. It decodes QR codes from any orientation using machine learning, at a reported 99.99% accuracy, and generates styled codes of your own. Start with IronQR <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/?utm_source=github">here</a>.
 </div>
 
-Welcome to our tutorial on how to create [QR codes](https://en.wikipedia.org/wiki/QR_code) with C#! As QR codes and .NET barcodes become increasingly essential for quick and efficient information distribution, whether through apps, websites, or simple information sharing, the demand for easy-to-generate QR solutions grows. In this guide, we'll explore how to generate QR codes using [IronQR](https://ironsoftware.com/csharp/qr/), designed to simplify the process for anyone using C#. We'll guide you through each step, providing all the necessary tools to start generating your own QR codes, whether for embedding in your apps or for learning purposes. Let’s dive in.
+Welcome to our tutorial on how to create [QR codes](https://en.wikipedia.org/wiki/QR_code) with C#! As QR codes and .NET barcodes become increasingly essential for quick and efficient information distribution, whether through apps, websites, or simple information sharing, the demand for easy-to-generate QR solutions grows. In this guide, we'll explore how to generate QR codes using [IronQR](https://ironsoftware.com/csharp/qr/?utm_source=github), designed to simplify the process for anyone using C#. We'll guide you through each step, providing all the necessary tools to start generating your own QR codes, whether for embedding in your apps or for learning purposes. Let’s dive in.
 
 First, let's install the **IronQR** NuGet Package.
 
@@ -32,9 +32,9 @@ Install-Package IronQR
 
 ## IronQR: Comprehensive C# QR Library Integration
 
-[Explore IronQR](https://ironsoftware.com/csharp/qr/), a C# QR code library for .NET applications. It supports C#, VB.NET, F#, .NET Core, .NET Standard, and .NET Framework, on Windows, Linux, macOS, iOS, and Android.
+[Explore IronQR](https://ironsoftware.com/csharp/qr/?utm_source=github), a C# QR code library for .NET applications. It supports C#, VB.NET, F#, .NET Core, .NET Standard, and .NET Framework, on Windows, Linux, macOS, iOS, and Android.
 
-IronQR stands out with its rich set of advanced functionalities, enabling not only the [reading](https://ironsoftware.com/csharp/qr/examples/read-qr-code/) and [generation](https://ironsoftware.com/csharp/qr/examples/generate-qr-code/) of QR codes but also offering comprehensive support for various image formats. It provides ample customization options, allowing for adjustments in size, style, and even the incorporation of logos into QR codes.
+IronQR stands out with its rich set of advanced functionalities, enabling not only the [reading](https://ironsoftware.com/csharp/qr/examples/read-qr-code/?utm_source=github) and [generation](https://ironsoftware.com/csharp/qr/examples/generate-qr-code/?utm_source=github) of QR codes but also offering comprehensive support for various image formats. It provides ample customization options, allowing for adjustments in size, style, and even the incorporation of logos into QR codes.
 
 ## Key Capabilities of IronQR
 
@@ -780,5 +780,5 @@ Upon running the application, you'll see the main interface neatly organized int
 
 This tutorial covered QR code generation with IronQR in a C# application: creating the project in Visual Studio, adding the library, building the interface, and writing the backend code.
 
-IronQR offers a [free trial](https://ironsoftware.com/csharp/qr/try-it). If you choose to implement IronQR in your projects, licensing begins at `$liteLicense`, ensuring an affordable route to top-tier QR code generation capabilities.
+IronQR offers a [free trial](https://ironsoftware.com/csharp/qr/try-it?utm_source=github). If you choose to implement IronQR in your projects, licensing begins at `$liteLicense`, ensuring an affordable route to top-tier QR code generation capabilities.
 

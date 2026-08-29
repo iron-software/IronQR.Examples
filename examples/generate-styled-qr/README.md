@@ -1,5 +1,5 @@
-> Full guide: [Generate styled QR](https://ironsoftware.com/csharp/qr/examples/generate-styled-qr/)
+> Full guide: [Generate styled QR](https://ironsoftware.com/csharp/qr/examples/generate-styled-qr/?utm_source=github)
 
 IronQR enhances the basic QR code capabilities by providing extensive customization features. You can incorporate your brand elements, such as adding logos, selecting specific colors, adjusting spacing, and inserting custom text, to make your QR codes not only functional but also visually engaging and aligned with your brand. This customization facilitates the integration of your QR codes into various materials like marketing collateral, packaging, or digital interfaces, ensuring a cohesive and impactful user experience. By tailoring these QR codes, they do not just look better but also foster greater brand recognition and user interaction. IronQR allows you to exert complete control over the visual attributes of your QR codes, making them a cohesive extension of your brand's identity and a potent component in your communication arsenal.
 
-[Learn how to create custom QR code images with IronQR](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/)
+[Learn how to create custom QR code images with IronQR](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/?utm_source=github)

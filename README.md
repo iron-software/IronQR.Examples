@@ -8,7 +8,7 @@
 
 ##### IronQR is a library from Iron Software that generates, reads, and styles QR Codes in .NET applications and websites, using a custom machine learning model for detection.
 
-### **[Get Started](https://ironsoftware.com/csharp/qr/docs/) in Three Steps**
+### **[Get Started](https://ironsoftware.com/csharp/qr/docs/?utm_source=github) in Three Steps**
 
 #### 1. Install the NuGet Package
 
@@ -58,23 +58,23 @@ qrStyled.SaveAs("qr_stylish.png");
 
 Explore the extensive guides and examples available:
 
-  * **[Tutorials](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/)**: Detailed walkthroughs to launch your first QR Code integration.
+  * **[Tutorials](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/?utm_source=github)**: Detailed walkthroughs to launch your first QR Code integration.
 
-  * **[Code Samples](https://ironsoftware.com/csharp/qr/examples/qr-quickstart/)**: Quick, direct code examples for rapid execution and testing.
+  * **[Code Samples](https://ironsoftware.com/csharp/qr/examples/qr-quickstart/?utm_source=github)**: Quick, direct code examples for rapid execution and testing.
 
-  * **[How-To Guides](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/)**: Direct, solution-focused help for specific operational needs.
+  * **[How-To Guides](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/?utm_source=github)**: Direct, solution-focused help for specific operational needs.
 
-  * **[Demo](https://ironsoftware.com/csharp/qr/#booking-demo)**: In-depth demonstrations of how IronQR functions.
+  * **[Demo](https://ironsoftware.com/csharp/qr/?utm_source=github#booking-demo)**: In-depth demonstrations of how IronQR functions.
 
-  * **[API Reference](https://ironsoftware.com/csharp/qr/object-reference/api/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)**: Comprehensive documentation outlining the IronQR capabilities.
+  * **[API Reference](https://ironsoftware.com/csharp/qr/object-reference/api/?utm_source=github)**: Comprehensive documentation outlining the IronQR capabilities.
 
 ### **Core Features**
 
-  * [**Code Reading**](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/): Skillfully decodes QR codes from images and PDFs, even those of subpar quality.
+  * [**Code Reading**](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/?utm_source=github): Skillfully decodes QR codes from images and PDFs, even those of subpar quality.
 
-  * [**Code Generation**](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/): Enables the creation of customizable QR codes with options for shape, color, and embeddable logos.
+  * [**Code Generation**](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/?utm_source=github): Enables the creation of customizable QR codes with options for shape, color, and embeddable logos.
 
-  * [**Types of QR Codes**](https://ironsoftware.com/csharp/qr/get-started/supported-qr-formats/): Supports a variety of QR code configurations, such as QR Code, Micro QR Code, and RMQRCode, for diverse application use.
+  * [**Types of QR Codes**](https://ironsoftware.com/csharp/qr/get-started/supported-qr-formats/?utm_source=github): Supports a variety of QR code configurations, such as QR Code, Micro QR Code, and RMQRCode, for diverse application use.
 
 ### **Platform Compatibility**
 
@@ -86,15 +86,15 @@ Explore the extensive guides and examples available:
 
   * **Software Dev Environments**: Microsoft Visual Studio, Jetbrains ReSharper & Rider
 
-  * **Deployment**: Integrated support for environments like Azure, [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/), and Docker
+  * **Deployment**: Integrated support for environments like Azure, [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/?utm_source=github), and Docker
 
 ### **Create, Read, and Style QR Codes in Your .NET Projects**
 
-[![IronQR NuGet Trial Banner Image](https://ironsoftware.com/iron-nuget-assets/main/IronQR-readme/nuget-trial-banner.png)](https://ironsoftware.com/csharp/qr/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topbanner#trial-license)
+[![IronQR NuGet Trial Banner Image](https://ironsoftware.com/iron-nuget-assets/main/IronQR-readme/nuget-trial-banner.png)](https://ironsoftware.com/csharp/qr/?utm_source=github#trial-license)
 
 ##### IronQR is a product created and supported by Iron Software, designed to assist C# developers in identifying, interpreting, and generating QR Codes within .NET environments through an advanced, proprietary Machine Learning algorithm.
 
-### **[Get Started](https://ironsoftware.com/csharp/qr/docs/) in Three Steps**
+### **[Get Started](https://ironsoftware.com/csharp/qr/docs/?utm_source=github) in Three Steps**
 
 Kickstart your .NET project by integrating the capabilities of IronQR in just three concise steps:
 
@@ -146,15 +146,15 @@ qrStyled.SaveAs("qr_custom.png"); // Save the styled QR code to a file
 
 Enhance your understanding with our comprehensive materials:
   
-  - **[Tutorials](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/)**: Detailed tutorials to guide your first application.
+  - **[Tutorials](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/?utm_source=github)**: Detailed tutorials to guide your first application.
   
-  - **[Sample Code](https://ironsoftware.com/csharp/qr/examples/qr-quickstart/)**: Practical code samples to jumpstart your implementation.
+  - **[Sample Code](https://ironsoftware.com/csharp/qr/examples/qr-quickstart/?utm_source=github)**: Practical code samples to jumpstart your implementation.
 
-  - **[How-To Guides](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/)**: Direct how-to articles catering to specific tasks.
+  - **[How-To Guides](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/?utm_source=github)**: Direct how-to articles catering to specific tasks.
 
-  - **[Demo](https://ironsoftware.com/csharp/qr/#booking-demo)**: In-depth technical overview of IronQR's capabilities.
+  - **[Demo](https://ironsoftware.com/csharp/qr/?utm_source=github#booking-demo)**: In-depth technical overview of IronQR's capabilities.
 
-  - **[API References](https://ironsoftware.com/csharp/qr/object-reference/api/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)**: Comprehensive technical documentation illustrating the functionality of IronQR.
+  - **[API References](https://ironsoftware.com/csharp/qr/object-reference/api/?utm_source=github)**: Comprehensive technical documentation illustrating the functionality of IronQR.
 
 #### 1. Installing the NuGet Package
 
@@ -205,23 +205,23 @@ This section guides you through creating and customizing your first QR code, sca
 
 The guides and examples below go into more detail:
 
-  * **[Tutorials](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/)**: Detailed tutorials provide step-by-step instructions to help you embark on creating your first QR Code application.
+  * **[Tutorials](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/?utm_source=github)**: Detailed tutorials provide step-by-step instructions to help you embark on creating your first QR Code application.
 
-  * **[Code Examples](https://ironsoftware.com/csharp/qr/examples/qr-quickstart/)**: A collection of concise code snippets that are ready to run, designed to demonstrate practical implementation.
+  * **[Code Examples](https://ironsoftware.com/csharp/qr/examples/qr-quickstart/?utm_source=github)**: A collection of concise code snippets that are ready to run, designed to demonstrate practical implementation.
 
-  * **[How-To Guides](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/)**: These guides offer targeted, task-oriented advice for addressing specific programming challenges using IronQR.
+  * **[How-To Guides](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/?utm_source=github)**: These guides offer targeted, task-oriented advice for addressing specific programming challenges using IronQR.
 
-  * **[Demo](https://ironsoftware.com/csharp/qr/#booking-demo)**: Comprehensive demonstrations that provide an in-depth look at IronQR's capabilities and how to integrate them into your applications.
+  * **[Demo](https://ironsoftware.com/csharp/qr/?utm_source=github#booking-demo)**: Comprehensive demonstrations that provide an in-depth look at IronQR's capabilities and how to integrate them into your applications.
 
-  * **[API Reference](https://ironsoftware.com/csharp/qr/object-reference/api/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)**: In-depth documentation that explores each function and feature of IronQR, illustrating the complete capabilities of the library.
+  * **[API Reference](https://ironsoftware.com/csharp/qr/object-reference/api/?utm_source=github)**: In-depth documentation that explores each function and feature of IronQR, illustrating the complete capabilities of the library.
 
 ### **Essential Features**
 
-* [**Read QR Code**](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/): Scan and decode QR Codes from images and PDF documents, including low-quality sources.
+* [**Read QR Code**](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/?utm_source=github): Scan and decode QR Codes from images and PDF documents, including low-quality sources.
 
-* [**Generate QR Code**](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/): Create and style QR codes with control over size, colour, and branding, and save them as images.
+* [**Generate QR Code**](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/?utm_source=github): Create and style QR codes with control over size, colour, and branding, and save them as images.
 
-* [**QR Code Types**](https://ironsoftware.com/csharp/qr/get-started/supported-qr-formats/): Fully support a variety of standard QR code types like QR Code, Micro QR Code, and RMQRCode, applicable for both scanning and generating codes.
+* [**QR Code Types**](https://ironsoftware.com/csharp/qr/get-started/supported-qr-formats/?utm_source=github): Fully support a variety of standard QR code types like QR Code, Micro QR Code, and RMQRCode, applicable for both scanning and generating codes.
 
 * **Supported Applications**: Ideal for numerous platforms and integrations, encompassing desktop, web, and mobile applications.
 
@@ -237,7 +237,7 @@ The guides and examples below go into more detail:
 
   * **Operating Systems**: Operates on multiple operating platforms including Windows, macOS, Linux (Debian, CentOS, Ubuntu), as well as mobile systems like iOS and Android.
 
-  * **Cloud and Container Solutions**: Optimized for cloud services such as Azure, [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/), and containerization with Docker.
+  * **Cloud and Container Solutions**: Optimized for cloud services such as Azure, [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/?utm_source=github), and containerization with Docker.
 
   * **Development Environments**: Fully compatible with development environments like Microsoft Visual Studio, Jetbrains ReSharper & Rider.
 
@@ -255,19 +255,19 @@ IronQR is meticulously engineered to be compatible with a broad array of project
 
   * **Supported Operating Systems**: Works across multiple OS including Windows, macOS, and Linux variants such as Debian, CentOS, and Ubuntu, as well as iOS and Android.
 
-  * **Cloud and Container Environments**: Runs on cloud services such as Azure and [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/), and containerizes with Docker.
+  * **Cloud and Container Environments**: Runs on cloud services such as Azure and [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/?utm_source=github), and containerizes with Docker.
 
   * **Development Environments**: Fully compatible with development environments such as Microsoft Visual Studio, Jetbrains ReSharper, and Rider.
 
-[![IronQr Cross Platform Compatibility Support Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronQR-readme/cross-platform-compatibility.png)](https://ironsoftware.com/csharp/qr/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=crossplatformbanner)
+[![IronQr Cross Platform Compatibility Support Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronQR-readme/cross-platform-compatibility.png)](https://ironsoftware.com/csharp/qr/docs/?utm_source=github)
 
 ### **Licensing Information**
 
 IronQR is offered under a commercial license.
 
-- **Trial License**: Obtain a complimentary developer key to thoroughly assess the capabilities of the full library without any obligations. This is perfect for development and testing stages. Initiate your trial [HERE](https://ironsoftware.com/csharp/qr/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs#trial-license).
+- **Trial License**: Obtain a complimentary developer key to thoroughly assess the capabilities of the full library without any obligations. This is perfect for development and testing stages. Initiate your trial [HERE](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github#trial-license).
 
-- **Purchase a License**: Activate the library for your commercial projects and gain complete access to our dedicated technical support. Secure your license [HERE](https://ironsoftware.com/csharp/qr/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs).
+- **Purchase a License**: Activate the library for your commercial projects and gain complete access to our dedicated technical support. Secure your license [HERE](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github).
 
 ### **Assistance and Support**
 
@@ -275,9 +275,9 @@ Encountering a problem or have inquiries?
 
   * **Email Assistance**: Directly contact our support team via support@ironsoftware.com.
 
-  * **Instant Message Support**: Get quick help using our live chat feature at [https://ironsoftware.com/csharp/qr/#helpscout-support](https://ironsoftware.com/csharp/qr/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield#helpscout-support).
+  * **Instant Message Support**: Get quick help using our live chat feature at [https://ironsoftware.com/csharp/qr/#helpscout-support](https://ironsoftware.com/csharp/qr/?utm_source=github#helpscout-support).
 
-  * **Bug Reporting**: If you discover an issue, please report it through [https://ironsoftware.com/ticket-submission/](https://ironsoftware.com/ticket-submission/).
+  * **Bug Reporting**: If you discover an issue, please report it through [https://ironsoftware.com/ticket-submission/](https://ironsoftware.com/ticket-submission/?utm_source=github).
 
-  * **Join Our Community**: Connect with other developers and our team on our Slack channel at [https://ironsoftware.com/company/iron-slack-community/](https://ironsoftware.com/company/iron-slack-community/).
+  * **Join Our Community**: Connect with other developers and our team on our Slack channel at [https://ironsoftware.com/company/iron-slack-community/](https://ironsoftware.com/company/iron-slack-community/?utm_source=github).
 

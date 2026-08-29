@@ -1,13 +1,13 @@
 # Utilizing IronQR License Keys
 
-> Full guide: [Utilizing IronQR License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/)
+> Full guide: [Utilizing IronQR License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/?utm_source=github)
 
 
 ## Acquiring a License Key
 
 Implementing an IronQR license key in your project enables deployment without any feature restrictions or watermarks.
 
-You can [purchase a license key here](https://ironsoftware.com/csharp/qr/licensing/) or obtain a [free 30-day trial key here](https://ironsoftware.com/trial-license).
+You can [purchase a license key here](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github) or obtain a [free 30-day trial key here](https://ironsoftware.com/trial-license?utm_source=github).
 
 --------------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ For additional details, refer to the [IronQR NuGet package page](https://www.nug
 
 ### Installation via DLL
 
-Alternatively, the [IronQR DLL is available for download](https://ironsoftware.com/csharp/qr/packages/IronQR.zip) so that you can manually add it to your project.
+Alternatively, the [IronQR DLL is available for download](https://ironsoftware.com/csharp/qr/packages/IronQR.zip?utm_source=github) so that you can manually add it to your project.
 
 --------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ For a global application-wide license setup using Web.Config or App.Config, inse
 - **ASP.NET** implementations
 - Projects using **.NET Framework version 4.6.2 and above**
 
-In some cases, the `Web.config` file’s license keys may not be recognized. For solutions to these issues, visit [this guide](https://ironsoftware.com/csharp/qr/troubleshooting/license-key-web.config/).
+In some cases, the `Web.config` file’s license keys may not be recognized. For solutions to these issues, visit [this guide](https://ironsoftware.com/csharp/qr/troubleshooting/license-key-web.config/?utm_source=github).
 
 Always verify your license state using `IronQr.License.IsLicensed` to make sure it returns `true`.
 
@@ -96,7 +96,7 @@ bool isLicensed = IronQr.License.IsLicensed;
 
 ## Step 4: Initiate Your Project
 
-Begin working on your project by following our guide on [How to Get Started with IronQR](https://ironsoftware.com/csharp/qr/docs/).
+Begin working on your project by following our guide on [How to Get Started with IronQR](https://ironsoftware.com/csharp/qr/docs/?utm_source=github).
 
 --------------------------------------------------------------------------------
 
