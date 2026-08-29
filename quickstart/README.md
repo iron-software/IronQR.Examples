@@ -1,6 +1,6 @@
 # Introduction to IronQR
 
-> Docs: [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/)
+> Docs: [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/?utm_source=github)
 
 
 ## Overview of IronQR: The QR Code Processing Library for .NET
@@ -100,7 +100,7 @@ IEnumerable<QrResult> foundQrCodes = qrReader.Read(qrInput);
 
 ### Further Information
 
-Visit the Iron Software homepage for more details: [Iron Software](https://ironsoftware.com/)
+Visit the Iron Software homepage for more details: [Iron Software](https://ironsoftware.com/?utm_source=github)
 
 ### Technical Support
 

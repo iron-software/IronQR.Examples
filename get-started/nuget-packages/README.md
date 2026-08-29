@@ -1,6 +1,6 @@
 # IronQR NuGet Packages Overview
 
-> Full guide: [IronQR NuGet Packages Overview](https://ironsoftware.com/csharp/qr/get-started/nuget-packages/)
+> Full guide: [IronQR NuGet Packages Overview](https://ironsoftware.com/csharp/qr/get-started/nuget-packages/?utm_source=github)
 
 
 IronQR is a library designed for creating and scanning QR codes, specifically tailored for .NET developers. It offers modular NuGet packages to accommodate various platforms while ensuring a minimal installation footprint. Suitable for desktop, mobile, Linux, macOS, or cloud environments, IronQR provides a specific package to meet the needs of each developer's specific platform requirements.

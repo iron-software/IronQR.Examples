@@ -1,6 +1,6 @@
 # Generate QR Codes in C#
 
-> Full guide: [Generate QR Codes in C#](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-writing/)
+> Full guide: [Generate QR Codes in C#](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-writing/?utm_source=github)
 
 ## Introduction
 
@@ -166,7 +166,7 @@ qrBitmap.Save("qrBitmap.png");
 
 The `System.Drawing.Common` library sometimes presents challenges in cross-platform environments, which could lead to issues when maintaining applications that need to function across different operating systems. To address these challenges, IronQR is designed to be compatible with both `System.Drawing.Common` and `IronSoftware.Drawing`.
 
-IronQR uses the `AnyBitmap` class from [`IronSoftware.Drawing`](https://ironsoftware.com/open-source/csharp/drawing/docs/), a Bitmap class built for cross-platform compatibility. This class is capable of implicit conversions to various image formats, including:
+IronQR uses the `AnyBitmap` class from [`IronSoftware.Drawing`](https://ironsoftware.com/open-source/csharp/drawing/docs/?utm_source=github), a Bitmap class built for cross-platform compatibility. This class is capable of implicit conversions to various image formats, including:
 
 - `System.Drawing.Bitmap`
 - `System.Drawing.Image`
@@ -174,7 +174,7 @@ IronQR uses the `AnyBitmap` class from [`IronSoftware.Drawing`](https://ironsoft
 - `SixLabors.ImageSharp`
 - `Microsoft.Maui.Graphics.Platform.PlatformImage`
 
-This open-source library lets IronQR run across .NET 8, .NET 7, .NET 6, .NET 5, .NET Core, .NET Standard, and .NET Framework 4.6.2 and above. For further details about the capabilities and integration of this library, visit the [IronSoftware.Drawing website](https://ironsoftware.com/open-source/csharp/drawing/).
+This open-source library lets IronQR run across .NET 8, .NET 7, .NET 6, .NET 5, .NET Core, .NET Standard, and .NET Framework 4.6.2 and above. For further details about the capabilities and integration of this library, visit the [IronSoftware.Drawing website](https://ironsoftware.com/open-source/csharp/drawing/?utm_source=github).
 
 ### Affix QR Codes to PDF Documents
 
@@ -575,5 +575,5 @@ IronQR enhances user experience by delivering comprehensive error reporting that
 
 IronQR creates and customizes QR codes in .NET applications, across data encodings, styles, and error correction levels. It writes to several file formats and stamps codes into existing documents, covering both plain QR codes and heavily customized designs.
 
-For additional information, explore the [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/), begin experimenting with a [free trial](https://ironsoftware.com/csharp/qr/trial-license), and evaluate the [licensing options](https://ironsoftware.com/csharp/qr/licensing/) available to determine the best fit for your projects.
+For additional information, explore the [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/?utm_source=github), begin experimenting with a [free trial](https://ironsoftware.com/csharp/qr/?utm_source=github#trial-license), and evaluate the [licensing options](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github) available to determine the best fit for your projects.
 

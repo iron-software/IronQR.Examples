@@ -1,6 +1,6 @@
 # How to Read QR Codes from Images
 
-> Full guide: [How to Read QR Codes from Images](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/)
+> Full guide: [How to Read QR Codes from Images](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/?utm_source=github)
 
 
 Extracting information from QR codes involves capturing and decoding the encapsulated data using appropriate hardware and software. This information can range from simple text and URLs to contact information and other data types.
@@ -20,7 +20,7 @@ IronQR excels with its inherent ability to extract QR codes from a multitude of 
 - Windows Metafile (WMF)
 - Raw image formats (RAW)
 
-This capability is powered by the open-source library, [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/). Let's explore the procedure for utilizing IronQR to read QR codes from an image.
+This capability is powered by the open-source library, [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/?utm_source=github). Let's explore the procedure for utilizing IronQR to read QR codes from an image.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
