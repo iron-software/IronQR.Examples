@@ -166,7 +166,7 @@ qrBitmap.Save("qrBitmap.png");
 
 The `System.Drawing.Common` library sometimes presents challenges in cross-platform environments, which could lead to issues when maintaining applications that need to function across different operating systems. To address these challenges, IronQR is designed to be compatible with both `System.Drawing.Common` and `IronSoftware.Drawing`.
 
-IronQR leverages the `AnyBitmap` class from [`IronSoftware.Drawing`](https://ironsoftware.com/open-source/csharp/drawing/docs/), a Bitmap class built for cross-platform compatibility. This class is capable of implicit conversions to various image formats, including:
+IronQR uses the `AnyBitmap` class from [`IronSoftware.Drawing`](https://ironsoftware.com/open-source/csharp/drawing/docs/), a Bitmap class built for cross-platform compatibility. This class is capable of implicit conversions to various image formats, including:
 
 - `System.Drawing.Bitmap`
 - `System.Drawing.Image`

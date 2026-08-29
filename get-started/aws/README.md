@@ -11,7 +11,7 @@
     </div>
 </div>
 
-This comprehensive guide explains how to utilize IronQR to generate and scan QR codes using an AWS Lambda function. You'll learn how to deploy IronQR solutions efficiently, using the infrastructure provided by AWS, specifically targeting how QR codes can be both written and read within the same environment.
+This guide explains how to utilize IronQR to generate and scan QR codes using an AWS Lambda function. You'll learn how to deploy IronQR solutions efficiently, using the infrastructure provided by AWS, specifically targeting how QR codes can be both written and read within the same environment.
 
 ## Prerequisites
 

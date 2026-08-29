@@ -8,7 +8,7 @@
 
 ##### IronQR is a library from Iron Software that generates, reads, and styles QR Codes in .NET applications and websites, using a custom machine learning model for detection.
 
-### **[Begin Your Journey](https://ironsoftware.com/csharp/qr/docs/) in Three Simple Steps**
+### **[Get Started](https://ironsoftware.com/csharp/qr/docs/) in Three Steps**
 
 #### 1. Install the NuGet Package
 
@@ -94,7 +94,7 @@ Explore the extensive guides and examples available:
 
 ##### IronQR is a product created and supported by Iron Software, designed to assist C# developers in identifying, interpreting, and generating QR Codes within .NET environments through an advanced, proprietary Machine Learning algorithm.
 
-### **[Begin Your Journey](https://ironsoftware.com/csharp/qr/docs/) in Three Simple Steps**
+### **[Get Started](https://ironsoftware.com/csharp/qr/docs/) in Three Steps**
 
 Kickstart your .NET project by integrating the capabilities of IronQR in just three concise steps:
 

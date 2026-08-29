@@ -62,7 +62,7 @@ IronQR supports creating and decoding multiple QR code formats:
     </div>
 </div>
 
-- **RMQRCode**: A rectangular version of the QR code, allowing for a versatile aspect ratio to fit various shaped spaces. This format is similarly data-efficient to the Micro QR Code but caters to more specific spatial requirements.
+- **RMQRCode**: A rectangular version of the QR code, allowing for an aspect ratio to fit various shaped spaces. This format is similarly data-efficient to the Micro QR Code but caters to more specific spatial requirements.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
