@@ -7,7 +7,7 @@
 
 Implementing an IronQR license key in your project enables deployment without any feature restrictions or watermarks.
 
-You can [purchase a license key here](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github) or obtain a [free 30-day trial key here](https://ironsoftware.com/trial-license?utm_source=github).
+You can [purchase a license key here](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github) or obtain a [free 30-day trial key here](https://ironsoftware.com/csharp/qr/?utm_source=github#trial-license).
 
 --------------------------------------------------------------------------------
 

@@ -575,5 +575,5 @@ IronQR enhances user experience by delivering comprehensive error reporting that
 
 IronQR creates and customizes QR codes in .NET applications, across data encodings, styles, and error correction levels. It writes to several file formats and stamps codes into existing documents, covering both plain QR codes and heavily customized designs.
 
-For additional information, explore the [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/?utm_source=github), begin experimenting with a [free trial](https://ironsoftware.com/csharp/qr/trial-license?utm_source=github), and evaluate the [licensing options](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github) available to determine the best fit for your projects.
+For additional information, explore the [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/?utm_source=github), begin experimenting with a [free trial](https://ironsoftware.com/csharp/qr/?utm_source=github#trial-license), and evaluate the [licensing options](https://ironsoftware.com/csharp/qr/licensing/?utm_source=github) available to determine the best fit for your projects.
 

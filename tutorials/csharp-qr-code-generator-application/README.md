@@ -780,5 +780,5 @@ Upon running the application, you'll see the main interface neatly organized int
 
 This tutorial covered QR code generation with IronQR in a C# application: creating the project in Visual Studio, adding the library, building the interface, and writing the backend code.
 
-IronQR offers a [free trial](https://ironsoftware.com/csharp/qr/try-it?utm_source=github). If you choose to implement IronQR in your projects, licensing begins at `$liteLicense`, ensuring an affordable route to top-tier QR code generation capabilities.
+IronQR offers a [free trial](https://ironsoftware.com/csharp/qr/?utm_source=github#trial-license). If you choose to implement IronQR in your projects, licensing begins at `$liteLicense`, ensuring an affordable route to top-tier QR code generation capabilities.
 
