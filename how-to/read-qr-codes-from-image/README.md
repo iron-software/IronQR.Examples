@@ -1,6 +1,6 @@
 # How to Read QR Codes from Images
 
-***Based on <https://ironsoftware.com/how-to/read-qr-codes-from-image/>***
+> Full guide: [How to Read QR Codes from Images](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/)
 
 
 Extracting information from QR codes involves capturing and decoding the encapsulated data using appropriate hardware and software. This information can range from simple text and URLs to contact information and other data types.
@@ -30,27 +30,27 @@ This capability is powered by the open-source library, [IronDrawing](https://iro
 
 ```csharp
 // Include the necessary namespaces for IronQR and IronDrawing
-using IronSoftware.Drawing; 
-using IronBarcode;
+using IronQr;
+using IronSoftware.Drawing;
 
 public class QRCodeReader
 {
     public static void Main()
     {
         // Load the image file into the application
-        using (var inputImage = Image.FromFile("path/to/your/image/file.webp"))
+        AnyBitmap inputImage = AnyBitmap.FromFile("path/to/your/image/file.webp");
+
+        // Initialize a QrImageInput object with the loaded image
+        QrImageInput qrImageInput = new QrImageInput(inputImage);
+
+        // Execute QR code decoding on the provided image
+        QrReader reader = new QrReader();
+        IEnumerable<QrResult> results = reader.Read(qrImageInput);
+
+        // Output the decoded QR code data
+        foreach (QrResult result in results)
         {
-            // Initialize a QrImageInput object with the loaded image
-            var qrImageInput = new QrImageInput(inputImage);
-
-            // Execute QR code decoding on the provided image
-            var result = BarcodeReader.Read(qrImageInput);
-
-            // Output the decoded QR code data
-            foreach (var barcodeResult in result.Barcodes)
-            {
-                Console.WriteLine($"QR Code Data: {barcodeResult.Value}");
-            }
+            Console.WriteLine($"QR Code Data: {result.Value}");
         }
     }
 }

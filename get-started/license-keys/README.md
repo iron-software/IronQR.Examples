@@ -1,6 +1,6 @@
 # Utilizing IronQR License Keys
 
-***Based on <https://ironsoftware.com/get-started/license-keys/>***
+> Full guide: [Utilizing IronQR License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/)
 
 
 ## Acquiring a License Key
@@ -37,7 +37,7 @@ Initiate your application by configuring the IronQR license key as follows to en
 
 ```csharp
 // Initialize IronQR with a license key
-IronQR.License.LicenseKey = "IronQR-MYLICENSE-KEY-1EF01";
+IronQr.License.LicenseKey = "IronQR-MYLICENSE-KEY-1EF01";
 ```
 
 --------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ For a global application-wide license setup using Web.Config or App.Config, inse
 
 In some cases, the `Web.config` file’s license keys may not be recognized. For solutions to these issues, visit [this guide](https://ironsoftware.com/csharp/qr/troubleshooting/license-key-web.config/).
 
-Always verify your license state using `IronQR.License.IsLicensed` to make sure it returns `true`.
+Always verify your license state using `IronQr.License.IsLicensed` to make sure it returns `true`.
 
 --------------------------------------------------------------------------------
 
@@ -88,8 +88,8 @@ Confirm that the license key is active and functioning correctly using this code
 
 ```csharp
 // Check and confirm the IronQR license state
-bool result = IronQR.License.IsValidLicense("IronQR-MYLICENSE-KEY-1EF01");
-bool isLicensed = IronQR.License.IsLicensed;
+bool result = IronQr.License.IsValidLicense("IronQR-MYLICENSE-KEY-1EF01");
+bool isLicensed = IronQr.License.IsLicensed;
 ```
 
 --------------------------------------------------------------------------------

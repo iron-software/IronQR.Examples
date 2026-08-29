@@ -1,5 +1,7 @@
+using IronQr.Enum;
+using IronSoftware.Drawing;
 using System.Collections.Generic;
-using IronQR;
+using IronQr;
 namespace IronQR.Examples.Tutorial.CsharpQrCodeGeneratorApplication
 {
     public static class Section2

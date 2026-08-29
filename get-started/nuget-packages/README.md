@@ -1,9 +1,9 @@
 # IronQR NuGet Packages Overview
 
-***Based on <https://ironsoftware.com/get-started/nuget-packages/>***
+> Full guide: [IronQR NuGet Packages Overview](https://ironsoftware.com/csharp/qr/get-started/nuget-packages/)
 
 
-IronQR is a robust library designed for creating and scanning QR codes, specifically tailored for .NET developers. It offers modular NuGet packages to accommodate various platforms while ensuring a minimal installation footprint. Suitable for desktop, mobile, Linux, macOS, or cloud environments, IronQR provides a specific package to meet the needs of each developer's specific platform requirements.
+IronQR is a library designed for creating and scanning QR codes, specifically tailored for .NET developers. It offers modular NuGet packages to accommodate various platforms while ensuring a minimal installation footprint. Suitable for desktop, mobile, Linux, macOS, or cloud environments, IronQR provides a specific package to meet the needs of each developer's specific platform requirements.
 
 Below, we'll explore the various **IronQR NuGet packages** to assist you in selecting the most appropriate one for your project.
 
@@ -16,7 +16,7 @@ Below, we'll explore the various **IronQR NuGet packages** to assist you in sele
 ![AWS](https://img.icons8.com/color/72/000000/amazon-web-services.png)
 ![Ubuntu](https://img.icons8.com/color/72/000000/ubuntu--v1.png)
 
-A versatile package that is well-suited for a majority of .NET desktop, server, and web applications across Windows platforms.
+A package that is well-suited for a majority of .NET desktop, server, and web applications across Windows platforms.
 
 [**PM> Install-Package IronQR**](https://www.nuget.org/packages/IronQR)
 
@@ -29,7 +29,7 @@ Features include:
 
 ![Nuget](https://img.icons8.com/windows/72/000000/nuget.png)
 
-Simplified and streamlined, IronQR.Slim is devoid of advanced machine learning features and specific platform dependencies. It's perfect for:
+Simplified and simplified, IronQR.Slim is devoid of advanced machine learning features and specific platform dependencies. It's perfect for:
 * Projects where reduced size and enhanced performance are crucial
 * Multi-platform development across:
   * Windows

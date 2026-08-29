@@ -1,11 +1,11 @@
 # Introduction to IronQR
 
-***Based on <https://ironsoftware.com/docs/docs/>***
+> Docs: [IronQR documentation](https://ironsoftware.com/csharp/qr/docs/)
 
 
 ## Overview of IronQR: The QR Code Processing Library for .NET
 
-**IronQR** stands as Iron Software’s specialized library designed for both creating and reading QR codes. It boasts a state-of-the-art Machine Learning Model and supports various platforms including Mobile, Desktop, and Cloud, ensuring seamless QR code detection and generation.
+**IronQR** stands as Iron Software’s specialized library designed for both creating and reading QR codes. It boasts a state-of-the-art Machine Learning Model and supports various platforms including Mobile, Desktop, and Cloud, ensuring QR code detection and generation.
 
 ### System and Framework Support
 
@@ -48,11 +48,11 @@ Install-Package IronQR
 
 Or, directly acquire it from the [official NuGet repository for IronQR](https://www.nuget.org/packages/IronQR).
 
-After installation, include `using IronQR;` in your C# code to begin using the library.
+After installation, include `using IronQr;` in your C# code to begin using the library.
 
 ### IronQR.Slim Version
 
-For a more streamlined version, `IronQR.Slim` offers basic QR code generation and reading facilities. While the main `IronQR` package includes advanced features like custom Machine Learning Models, `IronQR.Slim` is available for those preferring a smaller package without enhanced detection capabilities. Install the slim package using:
+For a more simplified version, `IronQR.Slim` offers basic QR code generation and reading facilities. While the main `IronQR` package includes advanced features like custom Machine Learning Models, `IronQR.Slim` is available for those preferring a smaller package without enhanced detection capabilities. Install the slim package using:
 
 ```shell
 Install-Package IronQR.Slim

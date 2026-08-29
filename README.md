@@ -2,13 +2,13 @@
 
 ## IronQR - Your C# QR Code Solution
 
-### **Seamlessly generate, read, and enhance QR Codes in your .NET projects**
+### **Generate, read, and style QR Codes in your .NET projects**
 
 ![IronQR NuGet Trial Banner Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronQR-readme/nuget-trial-banner.png)
 
-##### IronQR is an advanced library crafted by Iron Software that equips C# developers with the ability to effortlessly generate, interpret, and augment QR Codes within .NET applications and websites using a sophisticated, custom-built Machine Learning model.
+##### IronQR is a library from Iron Software that generates, reads, and styles QR Codes in .NET applications and websites, using a custom machine learning model for detection.
 
-### **[Begin Your Journey](https://ironsoftware.com/csharp/qr/docs/) in Three Simple Steps**
+### **[Get Started](https://ironsoftware.com/csharp/qr/docs/) in Three Steps**
 
 #### 1. Install the NuGet Package
 
@@ -54,7 +54,7 @@ AnyBitmap qrStyled = enhancedQr.Save(stylishQrSettings);
 qrStyled.SaveAs("qr_stylish.png");
 ```
 
-#### 3. Delve Deeper
+#### 3. Go Further
 
 Explore the extensive guides and examples available:
 
@@ -76,7 +76,7 @@ Explore the extensive guides and examples available:
 
   * [**Types of QR Codes**](https://ironsoftware.com/csharp/qr/get-started/supported-qr-formats/): Supports a variety of QR code configurations, such as QR Code, Micro QR Code, and RMQRCode, for diverse application use.
 
-### **Versatility and Compatibility**
+### **Platform Compatibility**
 
 #### Constructed for contemporary .NET environments, IronQR supports extensive project types and operating systems.
 
@@ -88,13 +88,13 @@ Explore the extensive guides and examples available:
 
   * **Deployment**: Integrated support for environments like Azure, [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/), and Docker
 
-### **Seamlessly Create, Read, and Personalize QR Codes in Your .NET Projects**
+### **Create, Read, and Style QR Codes in Your .NET Projects**
 
 [![IronQR NuGet Trial Banner Image](https://ironsoftware.com/iron-nuget-assets/main/IronQR-readme/nuget-trial-banner.png)](https://ironsoftware.com/csharp/qr/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topbanner#trial-license)
 
 ##### IronQR is a product created and supported by Iron Software, designed to assist C# developers in identifying, interpreting, and generating QR Codes within .NET environments through an advanced, proprietary Machine Learning algorithm.
 
-### **[Begin Your Journey](https://ironsoftware.com/csharp/qr/docs/) in Three Simple Steps**
+### **[Get Started](https://ironsoftware.com/csharp/qr/docs/) in Three Steps**
 
 Kickstart your .NET project by integrating the capabilities of IronQR in just three concise steps:
 
@@ -203,7 +203,7 @@ This section guides you through creating and customizing your first QR code, sca
 
 #### 3. Explore More
 
-Delve into our comprehensive guides and examples to enhance your understanding:
+The guides and examples below go into more detail:
 
   * **[Tutorials](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/)**: Detailed tutorials provide step-by-step instructions to help you embark on creating your first QR Code application.
 
@@ -217,9 +217,9 @@ Delve into our comprehensive guides and examples to enhance your understanding:
 
 ### **Essential Features**
 
-* [**Read QR Code**](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/): Seamlessly scan and decode QR Codes from various sources like images and PDF documents, ensuring readability even from those of inferior quality.
+* [**Read QR Code**](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/): Scan and decode QR Codes from images and PDF documents, including low-quality sources.
 
-* [**Generate QR Code**](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/): Effortlessly create and personalize QR codes, giving you complete control over aspects such as size, color, and branding, while allowing you to save them as images.
+* [**Generate QR Code**](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/): Create and style QR codes with control over size, colour, and branding, and save them as images.
 
 * [**QR Code Types**](https://ironsoftware.com/csharp/qr/get-started/supported-qr-formats/): Fully support a variety of standard QR code types like QR Code, Micro QR Code, and RMQRCode, applicable for both scanning and generating codes.
 
@@ -229,7 +229,7 @@ Delve into our comprehensive guides and examples to enhance your understanding:
 
 #### IronQR is engineered for modern .NET environments and is compatible with a variety of project types and platforms.
 
-  * **Supported Versions**: IronQR works seamlessly with **.NET 10**, .NET 9, .NET 8, .NET 7, .NET 6, .NET 5, Core 2x & 3x, as well as Standard 2.
+  * **Supported Versions**: IronQR supports **.NET 10**, .NET 9, .NET 8, .NET 7, .NET 6, .NET 5, Core 2x & 3x, as well as Standard 2.
 
   * **Frameworks**: Effective with .NET Framework 4.6.2 and newer versions.
 
@@ -255,7 +255,7 @@ IronQR is meticulously engineered to be compatible with a broad array of project
 
   * **Supported Operating Systems**: Works across multiple OS including Windows, macOS, and Linux variants such as Debian, CentOS, and Ubuntu, as well as iOS and Android.
 
-  * **Cloud and Container Environments**: Seamlessly integrates with cloud services like Azure, [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/), and can be containerized using Docker.
+  * **Cloud and Container Environments**: Runs on cloud services such as Azure and [AWS](https://ironsoftware.com/csharp/qr/get-started/aws/), and containerizes with Docker.
 
   * **Development Environments**: Fully compatible with development environments such as Microsoft Visual Studio, Jetbrains ReSharper, and Rider.
 

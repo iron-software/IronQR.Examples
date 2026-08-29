@@ -1,5 +1,5 @@
 using IronSoftware.Drawing;
-using IronQR;
+using IronQr;
 namespace IronQR.Examples.Tutorial.CsharpQrWriting
 {
     public static class Section9

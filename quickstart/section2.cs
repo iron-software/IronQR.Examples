@@ -1,5 +1,6 @@
+using IronSoftware.Drawing;
 using System.Collections.Generic;
-using IronQR;
+using IronQr;
 namespace IronQR.Examples.Overview.Quickstart
 {
     public static class Section2

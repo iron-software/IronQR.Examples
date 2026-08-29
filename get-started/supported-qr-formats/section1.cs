@@ -1,5 +1,5 @@
 using IronQr.Enum;
-using IronQR;
+using IronQr;
 namespace IronQR.Examples.GettingStarted.SupportedQrFormats
 {
     public static class Section1

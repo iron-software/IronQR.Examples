@@ -1,6 +1,6 @@
 # Generating a QR Code Image
 
-***Based on <https://ironsoftware.com/how-to/create-qr-code-image/>***
+> Full guide: [Generating a QR Code Image](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/)
 
 
 Creating a QR code image involves producing a QR code, which is a two-dimensional barcode that stores information in a matrix of black and white squares. This format allows for the coded data, such as URLs, text, or other types of data, to be interpreted when scanned by a QR code reader or a camera.
@@ -62,7 +62,7 @@ IronQR supports creating and decoding multiple QR code formats:
     </div>
 </div>
 
-- **RMQRCode**: A rectangular version of the QR code, allowing for a versatile aspect ratio to fit various shaped spaces. This format is similarly data-efficient to the Micro QR Code but caters to more specific spatial requirements.
+- **RMQRCode**: A rectangular version of the QR code, allowing for an aspect ratio to fit various shaped spaces. This format is similarly data-efficient to the Micro QR Code but caters to more specific spatial requirements.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">

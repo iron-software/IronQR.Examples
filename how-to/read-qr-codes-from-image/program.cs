@@ -1,5 +1,5 @@
 using IronQR;
+using IronQR.Examples.HowTo.ReadQrCodesFromImage;
 
 
-// Add Your Own Code Here
-
+Section1.Run();

@@ -1,5 +1,5 @@
-***Based on <https://ironsoftware.com/examples/read-qr-with-machine-learning/>***
+> Full guide: [Read QR with machine learning](https://ironsoftware.com/csharp/qr/examples/read-qr-with-machine-learning/)
 
-Our dedication to providing an unmatched QR code scanning experience is highlighted by our use of advanced Machine Learning (ML) technologies. By harnessing the latest ML innovations, we have transformed the way QR codes are read. Our sophisticated ML algorithms empower your applications to identify QR codes with extraordinary precision and speed, even under difficult conditions. Whether it’s scanning QR codes from photographs, video streams, or directly via live camera feeds, our ML-enhanced solution guarantees fast and accurate data retrieval. This advancement not only streamlines the process of data extraction but also boosts security by identifying genuine QR codes and filtering out possible threats. Leveraging our ML technology, you can be confident that your QR code scanning functionality is cutting-edge, providing a smooth and secure experience for users.
+IronQR reads QR codes with a machine learning model rather than a fixed detection algorithm, which holds accuracy up under difficult conditions. Whether it’s a photograph, a video stream, or a live camera feed, the model locates the code and returns its data. It also distinguishes genuine QR codes from artefacts that merely resemble them.
 
 [Explore How to Read QR Codes From Images with IronQR.](https://ironsoftware.com/csharp/qr/how-to/read-qr-codes-from-image/)
