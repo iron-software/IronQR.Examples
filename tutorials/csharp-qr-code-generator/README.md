@@ -1,6 +1,6 @@
 # C# QR Code Generator
 
-> Full guide: [C# QR Code Generator](https://ironsoftware.com/tutorials/csharp-qr-code-generator/)
+> Full guide: [C# QR Code Generator](https://ironsoftware.com/csharp/barcode/tutorials/csharp-qr-code-generator/)
 
 IronQR generates, reads, and detects QR codes for .NET developers. It covers both C# QR code generation and C# QR code reading.
 

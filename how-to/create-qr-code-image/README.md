@@ -1,6 +1,6 @@
 # Generating a QR Code Image
 
-> Full guide: [Generating a QR Code Image](https://ironsoftware.com/how-to/create-qr-code-image/)
+> Full guide: [Generating a QR Code Image](https://ironsoftware.com/csharp/qr/how-to/create-qr-code-image/)
 
 
 Creating a QR code image involves producing a QR code, which is a two-dimensional barcode that stores information in a matrix of black and white squares. This format allows for the coded data, such as URLs, text, or other types of data, to be interpreted when scanned by a QR code reader or a camera.

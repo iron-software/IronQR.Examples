@@ -1,6 +1,6 @@
 # Building a QR Code Generator in C#
 
-> Full guide: [Building a QR Code Generator in C#](https://ironsoftware.com/tutorials/csharp-qr-code-generator-application/)
+> Full guide: [Building a QR Code Generator in C#](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/)
 
 <div class="alert alert-info iron-variant-1" role="alert">
 Discover the capabilities of <a href="https://ironsoftware.com/csharp/qr/">IronQR</a>, the latest .NET library from Iron Software designed for QR code generation and decoding. It decodes QR codes from any orientation using machine learning, at a reported 99.99% accuracy, and generates styled codes of your own. Start with IronQR <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">here</a>.

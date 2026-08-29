@@ -1,6 +1,6 @@
 # Generate QR Codes in C#
 
-> Full guide: [Generate QR Codes in C#](https://ironsoftware.com/tutorials/csharp-qr-writing/)
+> Full guide: [Generate QR Codes in C#](https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-writing/)
 
 ## Introduction
 
